@@ -12,7 +12,7 @@
 - .tmux.conf
   - .tmux.confに以下を追加してinclude
   - ```
-    source-file ~/hako_dotfile/.tmux.conf
+    source-file ~/hako_dotfile/.mytmux.conf
     ```
 
 - alias.fish 
