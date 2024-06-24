@@ -8,3 +8,15 @@
     [include]
       path = ~/hako_dotfile/.gitconfig_alias
     ```
+
+- .tmux.conf
+  - .tmux.confに以下を追加してinclude
+  - ```
+    source-file ~/hako_dotfile/.tmux.conf
+    ```
+
+- alias.fish 
+   - fishのalias設定ファイルに以下を追加してinclude
+   - ```
+      source ~/hako_dotfile/alias.fish
+      ```
