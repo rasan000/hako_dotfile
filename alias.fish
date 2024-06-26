@@ -1,16 +1,16 @@
 # docker
+alias d='docker'
 alias dc='docker compose'
-alias dexec='docker exec -it'
-alias dup='docker compose up -d'
-
-# alias down='docker exec -it'
-alias dps='docker ps'
+alias de='docker exec -it'
+alias dcu='docker compose up -d'
+alias dd='docker down'
+alias dp='docker ps'
 
 # kubectl
 alias k='kubectl'
-alias kexec='kubectl exec -it'
-alias kget='kubectl get pod'
-alias kdesc='kubectl describe pod'
+alias ke='kubectl exec -it'
+alias kgp='kubectl get pod'
+alias kd='kubectl describe pod'
 
 # git
 alias g='git'
