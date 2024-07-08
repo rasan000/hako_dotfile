@@ -12,7 +12,7 @@ sudo apt upgrade
 -- terraform 
 https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
 
--- java and setting javahome 
+-- java and setting javahome(sdk-man)
 
 
 -- kotlin
@@ -27,9 +27,9 @@ https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
 -- azure
 
 
--- fish
+-- fish&fisher
 
--- nvm 
+-- nvm(volta) 
 
 -- configfile fish ssh tmux neovim 
 

@@ -24,8 +24,10 @@ alias tki='tmux kill-server'
 
 # IDE風にターミナルを分割
 function ide
-    tmux split-window -v -p 25
-    tmux split-window -h -p 50
+    tmux split-window -v 
+    tmux split-window -h 
+    tmux resize-pane -D 10 
+    tmux select-pane -t 1  
 end
 
 
@@ -40,3 +42,10 @@ for ITEM in $HOME/.sdkman/candidates/* ;
         set -gx PATH $PATH $ITEM/current/bin
 end
 
+# fisherの設定
+set -g theme_nerd_fonts yes
+set -g theme_powerline_fonts yes
+set -g theme_display_git yes
+set -g theme_display_git_default_branch yes
+set -g theme_color_scheme base16 
+ 
