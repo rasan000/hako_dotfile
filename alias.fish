@@ -42,10 +42,5 @@ for ITEM in $HOME/.sdkman/candidates/* ;
         set -gx PATH $PATH $ITEM/current/bin
 end
 
-# fisherの設定
-set -g theme_nerd_fonts yes
-set -g theme_powerline_fonts yes
-set -g theme_display_git yes
-set -g theme_display_git_default_branch yes
-set -g theme_color_scheme base16 
- 
+# カラーテーマなどを入れている場合
+scheme set catppuccin

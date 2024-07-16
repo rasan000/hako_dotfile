@@ -6,6 +6,7 @@ sudo apt upgrade
 -- pip
 
 -- neovim
+sudo snap install nvim --classic
 
 -- lazygit
 
@@ -28,8 +29,18 @@ https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
 
 
 -- fish&fisher
+sudo apt install fish
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
--- nvm(volta) 
+fisher install jethrokuan/z
+fisher install oh-my-fish/plugin-peco
+fisher install 0rax/fish-bd
+fisher install jethrokuan/fzf
+fisher install h-matsuo/fish-color-scheme-switcher
+fisher install laughedelic/fish_logo
+
+
+-- volta 
 
 -- configfile fish ssh tmux neovim 
 
