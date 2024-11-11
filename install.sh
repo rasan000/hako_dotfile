@@ -57,6 +57,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/7.15/deb.html#deb-repo
 
 # kibana
 https://www.elastic.co/guide/en/kibana/current/deb.html
+# ./bin/elasticsearch-plugin install analysis-kuromoji
 
 # awscli sam cdk
 
