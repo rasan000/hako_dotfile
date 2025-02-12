@@ -3,7 +3,7 @@
 
 # 使い方
 - .gitconfig_alias
-  - .gitconifに以下を追加してinclude
+  - .gitconigに以下を追加してinclude
   - ```
     [include]
       path = ~/hako_dotfile/.gitconfig_alias
@@ -20,3 +20,8 @@
    - ```
       source ~/hako_dotfile/alias.fish
       ```
+
+- .vimrc 
+   - ホームディレクトリのvimrcに以下の記述を追加 
+   - ```
+      source ~/hako_dotfile/.vimrc

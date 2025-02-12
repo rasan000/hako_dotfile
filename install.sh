@@ -17,6 +17,9 @@ sudo install lazygit /usr/local/bin
 
 fish
 
+# postgres
+#
+
 # terraform 
 # https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
@@ -49,14 +52,11 @@ sdk install kotlin
 # windows path(code & docker)
 
 
-# inteliJ
-
-
 # ElasticSearch
-https://www.elastic.co/guide/en/elasticsearch/reference/7.15/deb.html#deb-repo
+#https://www.elastic.co/guide/en/elasticsearch/reference/7.15/deb.html#deb-repo
 
 # kibana
-https://www.elastic.co/guide/en/kibana/current/deb.html
+#https://www.elastic.co/guide/en/kibana/current/deb.html
 # ./bin/elasticsearch-plugin install analysis-kuromoji
 
 # awscli sam cdk
