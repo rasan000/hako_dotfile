@@ -1,9 +1,8 @@
 " リーダーキーをスペースに設定
 let mapleader = " "
 
-set clipboard&
-set clipboard^=unnamedplus
-
+" クリップボードを利用可能にする
+set clipboard=unnamedplus
 
 " 表示行での移動にする
 nnoremap j gj
@@ -48,8 +47,8 @@ inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 inoremap <C-n> <Down>
 inoremap <C-p> <Up>
-" Ctrl+gで:%s///g
 
+" Ctrl+gで:%s///g
 nnoremap <C-g> :%s///<left><Left>
 
 " コマンド候補
@@ -84,10 +83,3 @@ set hidden
 " タイトルを出す
 set title
 
-" Set shell to bash with login
-let &shell='/usr/bin/bash --login'
-
-" Map keys to call system command
-inoremap <ESC> <ESC><Cmd>:call system("${zenhan} 0")<CR>
-nnoremap <ESC> <ESC><Cmd>:call system("${zenhan} 0")<CR>
-vnoremap <ESC> <ESC><Cmd>:call system("${zenhan} 0")<CR>

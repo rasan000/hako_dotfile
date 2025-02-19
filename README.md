@@ -22,6 +22,6 @@
       ```
 
 - .vimrc 
-   - ホームディレクトリのvimrcに以下の記述を追加 
+   - ホ-ムディレクトリのvimrcに以下の記述を追加 
    - ```
       source ~/hako_dotfile/.vimrc
