@@ -1,30 +1,29 @@
+" IMEをOFFにするコマンドを設定
+" これは各種OSに合わせて個別のvimrcに記載すること
+" Linux系jk
+"autocmd InsertLeave * call system('${zenhan} 0')
+"autocmd CmdlineLeave * call system('${zenhan} 0')
+"windows系
+" Linux系jk
+"autocmd InsertLeave * call system('${zenhan} 0')
+"autocmd CmdlineLeave * call system('${zenhan} 0')
+" インサートモードを離れた時、zenhan.exeを使ってIMEをオフにする
+if has('win32') || has('win64')
+  let s:zenhan = 'zenhan.exe'
+  autocmd InsertLeave * :call system(s:zenhan . ' 0')
+endif
+
 " リーダーキーをスペースに設定
 let mapleader = " "
 
 " クリップボードを利用可能にする
-set clipboard=unnamedplus
+set clipboard=unnamedplus,autoselect
 
 " 表示行での移動にする
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
-
-" ハイライトを消す
-nnoremap <leader>n :noh<CR>
-
-" 全て選択
-nnoremap <C-a> ggVG
-
-" ウィンドウ分割
-nnoremap ss :split<CR><C-w>w
-nnoremap sv :vsplit<CR><C-w>w
-
-" ウィンドウ間の移動
-nnoremap sh <C-w>h
-nnoremap sk <C-w>k
-nnoremap sj <C-w>j
-nnoremap sl <C-w>l
 
 " 削除時はヤンクしない
 nnoremap x "_x
@@ -35,12 +34,6 @@ nnoremap s "_s
 vnoremap s "_s
 nnoremap S "_S
 vnoremap S "_S
-
-" 切り取り時は0レジスタに入れる
-nnoremap d "0d
-vnoremap d "0d
-nnoremap D "0D
-vnoremap D "0D
 
 " 入力中に移動したい時
 inoremap <C-f> <Right>
@@ -82,4 +75,3 @@ set hidden
 
 " タイトルを出す
 set title
-
