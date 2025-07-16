@@ -1,5 +1,5 @@
 " clipboardを使えるように
-set clipboard+=unnamed
+set clipboard=unnamedplus
 
 " リーダーキーをスペースに設定
 let g:mapleader = "\<Space>"

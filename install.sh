@@ -2,23 +2,18 @@
 sudo apt update
 sudo apt upgrade
 
-# pip
+# pipx
+sudo apt install pipx
 
 # neovim
 sudo snap install nvim #classic
 
 # lazygit
-bash 
-
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
 
-fish
-
-# postgres
-#
 
 # terraform 
 # https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
@@ -38,17 +33,6 @@ sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update
 sudo apt-get install terraform
 
-# java and setting javahome(sdk-man)
-# https://sdkman.io/install
-bash
-curl -s "https://get.sdkman.io" | bash
-source "$HOME/.sdkman/bin/sdkman-init.sh"
-sdk version
-
-sdk install java 17.0.11-ms
-sdk install gradle
-sdk install kotlin
-
 # windows path(code & docker)
 
 
@@ -65,12 +49,9 @@ sdk install kotlin
 # azure
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
+# vim(+clipboard) 
+sudo apt remove vim vim-runtime vim-tiny
+sudo apt install vim-gtk3 -y
 
-# volta 
-bash
-curl https://get.volta.sh | bash
-volta install node
-
-
-
-
+# nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
