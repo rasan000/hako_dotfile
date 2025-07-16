@@ -61,20 +61,9 @@ sdk install kotlin
 
 # awscli sam cdk
 
+
 # azure
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-
-
-# fish&fisher
-sudo apt install fish
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-
-fisher install jethrokuan/z
-fisher install oh-my-fish/plugin-peco
-fisher install 0rax/fish-bd
-fisher install jethrokuan/fzf
-fisher install h-matsuo/fish-color-scheme-switcher
-fisher install laughedelic/fish_logo
 
 
 # volta 
@@ -82,7 +71,6 @@ bash
 curl https://get.volta.sh | bash
 volta install node
 
-# configfile fish ssh tmux neovim 
 
 
 
