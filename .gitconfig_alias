@@ -1,0 +1,7 @@
+[alias]
+    su = status
+    b = branch
+    co = checkout
+    cm = commit -m
+    f = fetch
+    fo = fetch origin
