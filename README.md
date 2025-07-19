@@ -1,14 +1,9 @@
 # overview
-設定ファイル集
+My Setting File for Ubuntu24.04.(wsl)
 
-# 使い方
-- .tmux.conf
-  - .tmux.confに以下を追加してinclude
-  - ```
-    source-file ~/hako_dotfile/.tmux.conf
-    ```
-
-- .vimrc 
-   - ホ-ムディレクトリのvimrcに以下の記述を追加 
-   - ```
-      source ~/hako_dotfile/.vimrc
+# command
+- make setup     ->  Full setup (packages + dotfiles) 
+- make packages  ->  Install packages only 
+- make install   ->  Install dotfiles only 
+- make clean     ->  Remove broken symlinks 
+- make uninstall ->  Remove all symlinks 

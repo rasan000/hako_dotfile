@@ -1,3 +1,6 @@
+[user]
+	email = rasan000@gmail.com
+	name = rasan000
 [alias]
     su = status
     b = branch

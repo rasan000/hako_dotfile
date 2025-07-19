@@ -1,4 +1,3 @@
-# インストール時に実行する
 sudo apt update
 sudo apt upgrade
 
@@ -6,14 +5,12 @@ sudo apt upgrade
 sudo apt install pipx
 
 # neovim
-sudo snap install nvim #classic
 
 # lazygit
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
-
 
 # terraform 
 # https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
@@ -35,16 +32,7 @@ sudo apt-get install terraform
 
 # windows path(code & docker)
 
-
-# ElasticSearch
-#https://www.elastic.co/guide/en/elasticsearch/reference/7.15/deb.html#deb-repo
-
-# kibana
-#https://www.elastic.co/guide/en/kibana/current/deb.html
-# ./bin/elasticsearch-plugin install analysis-kuromoji
-
 # awscli sam cdk
-
 
 # azure
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
