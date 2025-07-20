@@ -47,6 +47,15 @@ else
     exit 1
 fi
 
+# Install Oh My Zsh
+print_status "Installing Oh My Zsh..."
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    print_status "Oh My Zsh installed successfully."
+else
+    print_status "Oh My Zsh already installed, skipping..."
+fi
+
 # zenhan(for changeIME)
 print_status "Installing zenhan for IME control..."
 curl -fLO https://github.com/iuchim/zenhan/releases/download/v0.0.1/zenhan.zip
