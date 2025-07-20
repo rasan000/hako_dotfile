@@ -482,17 +482,17 @@ return {
       })
     end
   },
-  --nvim-ts-autotag
-  {
-    "windwp/nvim-ts-autotag",
-    event = "InsertEnter",
-    config = function()
-      require("nvim-ts-autotag").setup({
-        enable = true,
-        filetypes = { "html", "xml", "javascript", "typescript", "javascriptreact", "typescriptreact" },
-      })
-    end
-  },
+  --nvim-ts-autotag (temporarily disabled)
+  -- {
+  --   "windwp/nvim-ts-autotag",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     require("nvim-ts-autotag").setup({
+  --       enable = true,
+  --       filetypes = { "html", "xml", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+  --     })
+  --   end
+  -- },
   --nvim-scrollbar
   {
     "petertriho/nvim-scrollbar",

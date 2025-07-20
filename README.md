@@ -9,7 +9,6 @@ My Setting File for Ubuntu24.04.(wsl)
 - make uninstall ->  Remove all symlinks 
 
 # windows
-- ime_controle.ahk
-
-    - win + R 
-
+- ime_controle.ahk-
+  - win + R 
+  - shell:startu 

@@ -85,6 +85,18 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+-- markdown specific settings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.expandtab = true
+    vim.opt_local.autoindent = true
+    vim.opt_local.smartindent = true
+  end,
+})
+
 --IME
 vim.cmd [[
     let &shell='/usr/bin/zsh'
