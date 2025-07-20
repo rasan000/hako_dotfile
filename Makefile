@@ -5,13 +5,22 @@ DOTFILES_DIR := $(shell pwd)
 HOME_DIR := $(HOME)
 
 # Targets for dotfiles
-.PHONY: all setup install clean uninstall help
+.PHONY: all setup install packages clean uninstall help
 
 all: install
 
+setup: packages install
+
+packages:
+	@echo "Installing packages..."
+	@chmod +x $(DOTFILES_DIR)/install.sh
+	@$(DOTFILES_DIR)/install.sh
+
 help:
 	@echo "Available targets:"
-	@echo "  install   - Create symlinks for all dotfiles"
+	@echo "  setup     - Full setup (packages + dotfiles)"
+	@echo "  packages  - Install packages only"
+	@echo "  install   - Install dotfiles only"
 	@echo "  clean     - Remove broken symlinks"
 	@echo "  uninstall - Remove all symlinks"
 	@echo "  help      - Show this help message"
