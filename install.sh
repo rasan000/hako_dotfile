@@ -23,9 +23,16 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 print_status "Starting dotfiles installation..."
 print_status "Script directory: $SCRIPT_DIR"
 
+# Set non-interactive mode for apt
+export DEBIAN_FRONTEND=noninteractive
+
 # Update system
 print_status "Updating system packages..."
 sudo apt update && sudo apt upgrade -y
+
+# Install essential build tools and compilers
+print_status "Installing build essentials and compilers..."
+sudo apt install -y build-essential gcc g++ clang make cmake git curl wget unzip
 
 # Install zsh and set as default shell
 print_status "Installing zsh..."
@@ -33,30 +40,38 @@ sudo apt install zsh -y
 
 print_status "Setting zsh as default shell..."
 if command -v zsh >/dev/null 2>&1; then
-    chsh -s $(which zsh)
-    print_status "Zsh installed and set as default shell."
+    print_warning "Please run 'chsh -s \$(which zsh)' manually after installation to set zsh as default shell"
+    print_status "Zsh installed successfully."
 else
     print_error "Failed to install zsh"
     exit 1
 fi
 
 # zenhan(for changeIME)
+print_status "Installing zenhan for IME control..."
 curl -fLO https://github.com/iuchim/zenhan/releases/download/v0.0.1/zenhan.zip
-unzip zenhan.zip
+unzip -q zenhan.zip
 chmod u+x zenhan/bin64/zenhan.exe
 sudo mv zenhan/bin64/zenhan.exe /usr/local/bin/zenhan
+rm -rf zenhan zenhan.zip
 
 # pipx
-sudo apt install pipx
+print_status "Installing pipx..."
+sudo apt install pipx -y
 
 # neovim(AppImage)
+print_status "Installing Neovim..."
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
 chmod u+x nvim-linux-x86_64.appimage
-./nvim-linux-x86_64.appimage
-mkdir -p /opt/nvim
-mv nvim-linux-x86_64.appimage /opt/nvim/nvim
-echo 'export PATH="$PATH:/opt/nvim/"' >> ~/.bashrc
-echo 'export PATH="$PATH:/opt/nvim/"' >> ~/.zshrc
+sudo mkdir -p /opt/nvim
+sudo mv nvim-linux-x86_64.appimage /opt/nvim/nvim
+# Add to PATH if not already present
+if ! grep -q "/opt/nvim" ~/.bashrc 2>/dev/null; then
+    echo 'export PATH="$PATH:/opt/nvim/"' >> ~/.bashrc
+fi
+if ! grep -q "/opt/nvim" ~/.zshrc 2>/dev/null; then
+    echo 'export PATH="$PATH:/opt/nvim/"' >> ~/.zshrc
+fi
 
 # lazygit
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
@@ -77,12 +92,13 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
 https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
 sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update
-sudo apt-get install terraform
+sudo apt-get install terraform -y
 
 # awscli sam cdk
+print_status "Installing AWS CLI..."
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
+unzip -q awscliv2.zip
+sudo ./aws/install --update
 rm -rf awscliv2.zip aws/
 
 # AWS SAM CLI
@@ -95,9 +111,26 @@ npm install -g aws-cdk
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 # vim(+clipboard) 
-sudo apt remove vim vim-runtime vim-tiny
+print_status "Installing vim with clipboard support..."
+sudo apt remove vim vim-runtime vim-tiny -y
 sudo apt install vim-gtk3 -y
 
 # volta
-curl https://get.volta.sh | bash
-volta install node
+print_status "Installing Volta and Node.js..."
+export VOLTA_HOME="$HOME/.volta"
+curl https://get.volta.sh | bash -s -- --skip-setup
+export PATH="$VOLTA_HOME/bin:$PATH"
+# Add volta to shell rc files if not present
+if ! grep -q "VOLTA_HOME" ~/.bashrc 2>/dev/null; then
+    echo 'export VOLTA_HOME="$HOME/.volta"' >> ~/.bashrc
+    echo 'export PATH="$VOLTA_HOME/bin:$PATH"' >> ~/.bashrc
+fi
+if ! grep -q "VOLTA_HOME" ~/.zshrc 2>/dev/null; then
+    echo 'export VOLTA_HOME="$HOME/.volta"' >> ~/.zshrc
+    echo 'export PATH="$VOLTA_HOME/bin:$PATH"' >> ~/.zshrc
+fi
+$VOLTA_HOME/bin/volta install node
+
+print_status "Installation completed!"
+print_warning "Please run 'chsh -s \$(which zsh)' to set zsh as your default shell."
+print_warning "You may need to restart your terminal or run 'source ~/.zshrc' for all changes to take effect."
