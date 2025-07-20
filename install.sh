@@ -109,6 +109,7 @@ LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/re
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
+rm  -lf lazygit.tar.gz lazygit
 
 # terraform 
 # https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
@@ -164,7 +165,7 @@ $VOLTA_HOME/bin/volta install node
 
 # Install global npm packages
 print_status "Installing global npm packages..."
-$VOLTA_HOME/bin/npm install -g aws-cdk typescript ts-node @anthropic-ai/claude-3-cli
+$VOLTA_HOME/bin/npm install -g aws-cdk typescript ts-node @anthropic-ai/claude-code 
 
 print_status "Installation completed!"
 print_warning "Please run 'chsh -s \$(which zsh)' to set zsh as your default shell."
