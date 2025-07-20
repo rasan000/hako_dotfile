@@ -56,6 +56,28 @@ else
     print_status "Oh My Zsh already installed, skipping..."
 fi
 
+# Install Oh My Zsh plugins
+print_status "Installing Oh My Zsh plugins..."
+ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+
+# zsh-autosuggestions
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
+    git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+    print_status "zsh-autosuggestions installed."
+fi
+
+# zsh-syntax-highlighting
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+    print_status "zsh-syntax-highlighting installed."
+fi
+
+# powerlevel10k theme
+if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
+    print_status "powerlevel10k theme installed."
+fi
+
 # zenhan(for changeIME)
 print_status "Installing zenhan for IME control..."
 curl -fLO https://github.com/iuchim/zenhan/releases/download/v0.0.1/zenhan.zip
@@ -139,6 +161,10 @@ if ! grep -q "VOLTA_HOME" ~/.zshrc 2>/dev/null; then
     echo 'export PATH="$VOLTA_HOME/bin:$PATH"' >> ~/.zshrc
 fi
 $VOLTA_HOME/bin/volta install node
+
+# Install global npm packages
+print_status "Installing global npm packages..."
+$VOLTA_HOME/bin/npm install -g aws-cdk typescript ts-node @anthropic-ai/claude-3-cli
 
 print_status "Installation completed!"
 print_warning "Please run 'chsh -s \$(which zsh)' to set zsh as your default shell."
