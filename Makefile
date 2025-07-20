@@ -16,12 +16,28 @@ help:
 	@echo "  uninstall - Remove all symlinks"
 	@echo "  help      - Show this help message"
 
-install: clean
+install: clean $(HOME_DIR)/.config
 	@echo "Creating symlinks for dotfiles..."
+	@if [ -f $(HOME_DIR)/.vimrc ] && [ ! -L $(HOME_DIR)/.vimrc ]; then \
+		echo "Backing up existing .vimrc to .vimrc.backup"; \
+		mv $(HOME_DIR)/.vimrc $(HOME_DIR)/.vimrc.backup; \
+	fi
 	@ln -sfn $(DOTFILES_DIR)/.vimrc $(HOME_DIR)/.vimrc
+	@if [ -f $(HOME_DIR)/.tmux.conf ] && [ ! -L $(HOME_DIR)/.tmux.conf ]; then \
+		echo "Backing up existing .tmux.conf to .tmux.conf.backup"; \
+		mv $(HOME_DIR)/.tmux.conf $(HOME_DIR)/.tmux.conf.backup; \
+	fi
 	@ln -sfn $(DOTFILES_DIR)/.tmux.conf $(HOME_DIR)/.tmux.conf
-	@ln -sfn $(DOTFILES_DIR)/.gitconfig $(HOME_DIR)/.gitconfig
-	@ln -sfn $(DOTFILES_DIR)/.gitconfig_alias $(HOME_DIR)/.gitconfig_alias
+	@if [ -f $(HOME_DIR)/.zshrc ] && [ ! -L $(HOME_DIR)/.zshrc ]; then \
+		echo "Backing up existing .zshrc to .zshrc.backup"; \
+		mv $(HOME_DIR)/.zshrc $(HOME_DIR)/.zshrc.backup; \
+	fi
+	@ln -sfn $(DOTFILES_DIR)/zsh/.zshrc $(HOME_DIR)/.zshrc
+	@if [ -f $(HOME_DIR)/.p10k.zsh ] && [ ! -L $(HOME_DIR)/.p10k.zsh ]; then \
+		echo "Backing up existing .p10k.zsh to .p10k.zsh.backup"; \
+		mv $(HOME_DIR)/.p10k.zsh $(HOME_DIR)/.p10k.zsh.backup; \
+	fi
+	@ln -sfn $(DOTFILES_DIR)/zsh/.p10k.zsh $(HOME_DIR)/.p10k.zsh
 	@ln -sfn $(DOTFILES_DIR)/nvim $(HOME_DIR)/.config/nvim
 	@echo "Symlinks created successfully!"
 
@@ -34,8 +50,8 @@ uninstall:
 	@echo "Removing dotfile symlinks..."
 	@rm -f $(HOME_DIR)/.vimrc
 	@rm -f $(HOME_DIR)/.tmux.conf
-	@rm -f $(HOME_DIR)/.gitconfig
-	@rm -f $(HOME_DIR)/.gitconfig_alias
+	@rm -f $(HOME_DIR)/.zshrc
+	@rm -f $(HOME_DIR)/.p10k.zsh
 	@rm -f $(HOME_DIR)/.config/nvim
 	@echo "Symlinks removed!"
 

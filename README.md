@@ -7,3 +7,9 @@ My Setting File for Ubuntu24.04.(wsl)
 - make install   ->  Install dotfiles only 
 - make clean     ->  Remove broken symlinks 
 - make uninstall ->  Remove all symlinks 
+
+# windows
+- ime_controle.ahk
+
+    - win + R 
+
