@@ -1,0 +1,7 @@
+[alias]
+  a = add
+  f = fetch
+  s = status
+  b = branch
+  co = checkout
+  cm = commit 

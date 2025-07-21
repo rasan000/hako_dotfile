@@ -37,6 +37,3 @@ vim.api.nvim_set_keymap('i', '<C-r>', '<C-r>+', { noremap = true, silent = true 
 -- replace
 vim.api.nvim_set_keymap('n', '<C-g>', ':%s///<left><Left>', { noremap = true, silent = true })
 
--- option
-vim.api.nvim_set_keymap('n', '<leader><F1>', ':edit $MYVIMRC<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader><F2>', ':CocCommand snippets.editSnippets<CR>', { noremap = true, silent = true })

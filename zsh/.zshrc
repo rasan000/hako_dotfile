@@ -17,16 +17,6 @@ plugins=(
   kubectl
   zsh-autosuggestions
   zsh-syntax-highlighting
-  history-substring-search
-  colored-man-pages
-  extract
-  web-search
-  command-not-found
-  z
-  sudo
-  copypath
-  copyfile
-  dirhistory
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -42,31 +32,10 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 unsetopt HIST_BEEP
 
-# Directory navigation
-setopt AUTO_CD
-setopt AUTO_PUSHD
-setopt PUSHD_IGNORE_DUPS
-
-# Completion improvements
-setopt COMPLETE_ALIASES
-setopt GLOB_COMPLETE
-setopt NO_CASE_GLOB
-setopt MENU_COMPLETE        # Automatically highlight first element of completion menu
-setopt AUTO_LIST            # Automatically list choices on ambiguous completion
-setopt COMPLETE_IN_WORD     # Complete from both ends of a word
-
 # Disable beep sounds
 unsetopt BEEP
 unsetopt LIST_BEEP
 
-# Spelling correction
-setopt CORRECT              # Correct commands
-setopt CORRECT_ALL          # Correct all arguments
-
-# Job control
-setopt AUTO_RESUME          # Resume jobs with their name
-setopt LONG_LIST_JOBS       # List jobs in the long format
-setopt NOTIFY               # Report status of background jobs immediately
 
 # PATH exports
 export PATH="$PATH:$HOME/.local/bin"

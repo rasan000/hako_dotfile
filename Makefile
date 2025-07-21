@@ -48,6 +48,18 @@ install: clean $(HOME_DIR)/.config
 	fi
 	@ln -sfn $(DOTFILES_DIR)/zsh/.p10k.zsh $(HOME_DIR)/.p10k.zsh
 	@ln -sfn $(DOTFILES_DIR)/nvim $(HOME_DIR)/.config/nvim
+	@echo "Setting up .gitconfig..."
+	@if [ ! -f $(HOME_DIR)/.gitconfig ]; then \
+		echo "Creating new .gitconfig"; \
+		touch $(HOME_DIR)/.gitconfig; \
+	fi
+	@if ! grep -q "path = $(DOTFILES_DIR)/.gitconfig" $(HOME_DIR)/.gitconfig 2>/dev/null; then \
+		echo "[include]" >> $(HOME_DIR)/.gitconfig; \
+		echo "    path = $(DOTFILES_DIR)/.gitconfig" >> $(HOME_DIR)/.gitconfig; \
+		echo "Added include for dotfiles .gitconfig"; \
+	else \
+		echo "Dotfiles .gitconfig already included"; \
+	fi
 	@echo "Symlinks created successfully!"
 
 clean:

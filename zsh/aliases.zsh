@@ -1,4 +1,11 @@
-# ls aliases
+# Enable completion for aliases
+compdef g=git
+compdef d=docker
+compdef dc='docker compose'
+compdef k=kubectl
+compdef t=tmux
+
+## ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -11,13 +18,6 @@ alias egrep='egrep --color=auto'
 # git aliases (migrated from .gitconfig and .aliases)
 alias g='git'
 alias lg='lazygit'
-
-# Enable completion for aliases
-compdef g=git
-compdef d=docker
-compdef dc='docker compose'
-compdef k=kubectl
-compdef t=tmux
 
 # docker aliases
 alias d='docker'
@@ -48,46 +48,10 @@ function ide() {
 }
 
 # tmux vc function - split right 20% and start claude
-function vc() {
+function vcc() {
     tmux split-window -h 'claude'
     tmux resize-pane -R 60
 }
-
-# Useful aliases
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-
-# Directory listing with better defaults
-alias lh='ls -lah'
-alias lt='ls -lath'
-alias ltr='ls -latr'
-
-# Git shortcuts
-alias gst='git status'
-alias gd='git diff'
-alias gaa='git add .'
-alias gcm='git commit -m'
-alias gp='git push'
-alias gl='git pull'
-
-# System monitoring
-alias ports='netstat -tulanp'
-alias meminfo='free -m -l -t'
-alias psmem='ps auxf | sort -nr -k 4'
-alias pscpu='ps auxf | sort -nr -k 3'
-
-# Quick file operations
-alias mkdir='mkdir -pv'
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias rm='rm -iv'
-
-# Network utilities
-alias ping='ping -c 5'
-alias fastping='ping -c 100 -s.2'
-alias myip='curl -s ifconfig.me'
 
 # Editor aliases
 alias vim='nvim'
