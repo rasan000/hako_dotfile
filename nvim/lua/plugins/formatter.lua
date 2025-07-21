@@ -7,27 +7,11 @@ return {
 
       conform.setup({
         formatters_by_ft = {
-          javascript = { "prettier" },
-          typescript = { "prettier" },
-          javascriptreact = { "prettier" },
-          typescriptreact = { "prettier" },
-          svelte = { "prettier" },
-          css = { "prettier" },
-          html = { "prettier" },
-          json = { "prettier" },
-          yaml = { "prettier" },
-          markdown = { "prettier" },
-          graphql = { "prettier" },
-          lua = { "stylua" },
-          python = { "isort", "black" },
-          go = { "goimports", "gofmt" },
-          rust = { "rustfmt" },
-          sh = { "shfmt" },
-          bash = { "shfmt" },
-          zsh = { "shfmt" },
-          c = { "clang_format" },
-          cpp = { "clang_format" },
-          java = { "google-java-format" },
+          -- Add formatters when you install them
+          -- javascript = { "prettier" },
+          -- typescript = { "prettier" },
+          -- lua = { "stylua" },
+          -- python = { "black" },
         },
         format_on_save = {
           lsp_fallback = true,

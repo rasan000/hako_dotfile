@@ -6,15 +6,15 @@ NC='\033[0m' # No Color
 
 # Function to print colored output
 print_status() {
-    echo -e "${GREEN}[INFO]${NC} $1"
+  echo -e "${GREEN}[INFO]${NC} $1"
 }
 
 print_warning() {
-    echo -e "${YELLOW}[WARNING]${NC} $1"
+  echo -e "${YELLOW}[WARNING]${NC} $1"
 }
 
 print_error() {
-    echo -e "${RED}[ERROR]${NC} $1"
+  echo -e "${RED}[ERROR]${NC} $1"
 }
 
 # Get the directory where this script is located
@@ -40,20 +40,20 @@ sudo apt install zsh -y
 
 print_status "Setting zsh as default shell..."
 if command -v zsh >/dev/null 2>&1; then
-    print_warning "Please run 'chsh -s \$(which zsh)' manually after installation to set zsh as default shell"
-    print_status "Zsh installed successfully."
+  print_warning "Please run 'chsh -s \$(which zsh)' manually after installation to set zsh as default shell"
+  print_status "Zsh installed successfully."
 else
-    print_error "Failed to install zsh"
-    exit 1
+  print_error "Failed to install zsh"
+  exit 1
 fi
 
 # Install Oh My Zsh
 print_status "Installing Oh My Zsh..."
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-    print_status "Oh My Zsh installed successfully."
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  print_status "Oh My Zsh installed successfully."
 else
-    print_status "Oh My Zsh already installed, skipping..."
+  print_status "Oh My Zsh already installed, skipping..."
 fi
 
 # Install Oh My Zsh plugins
@@ -62,20 +62,20 @@ ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 
 # zsh-autosuggestions
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
-    git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
-    print_status "zsh-autosuggestions installed."
+  git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+  print_status "zsh-autosuggestions installed."
 fi
 
 # zsh-syntax-highlighting
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
-    print_status "zsh-syntax-highlighting installed."
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+  print_status "zsh-syntax-highlighting installed."
 fi
 
 # powerlevel10k theme
 if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
-    print_status "powerlevel10k theme installed."
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
+  print_status "powerlevel10k theme installed."
 fi
 
 # zenhan(for changeIME)
@@ -98,10 +98,10 @@ sudo mkdir -p /opt/nvim
 sudo mv nvim-linux-x86_64.appimage /opt/nvim/nvim
 # Add to PATH if not already present
 if ! grep -q "/opt/nvim" ~/.bashrc 2>/dev/null; then
-    echo 'export PATH="$PATH:/opt/nvim/"' >> ~/.bashrc
+  echo 'export PATH="$PATH:/opt/nvim/"' >>~/.bashrc
 fi
 if ! grep -q "/opt/nvim" ~/.zshrc 2>/dev/null; then
-    echo 'export PATH="$PATH:/opt/nvim/"' >> ~/.zshrc
+  echo 'export PATH="$PATH:/opt/nvim/"' >>~/.zshrc
 fi
 
 # lazygit
@@ -109,20 +109,20 @@ LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/re
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
-rm  -lf lazygit.tar.gz lazygit
+rm -lf lazygit.tar.gz lazygit
 
-# terraform 
+# terraform
 # https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
-wget -O- https://apt.releases.hashicorp.com/gpg | \
-gpg --dearmor | \
-sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
+wget -O- https://apt.releases.hashicorp.com/gpg |
+  gpg --dearmor |
+  sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg >/dev/null
 gpg --no-default-keyring \
---keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg \
---fingerprint
+  --keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg \
+  --fingerprint
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
-https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
-sudo tee /etc/apt/sources.list.d/hashicorp.list
+https://apt.releases.hashicorp.com $(lsb_release -cs) main" |
+  sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update
 sudo apt-get install terraform -y
 
@@ -142,7 +142,7 @@ npm install -g aws-cdk
 # azure
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
-# vim(+clipboard) 
+# vim(+clipboard)
 print_status "Installing vim with clipboard support..."
 sudo apt remove vim vim-runtime vim-tiny -y
 sudo apt install vim-gtk3 -y
@@ -154,18 +154,20 @@ curl https://get.volta.sh | bash -s -- --skip-setup
 export PATH="$VOLTA_HOME/bin:$PATH"
 # Add volta to shell rc files if not present
 if ! grep -q "VOLTA_HOME" ~/.bashrc 2>/dev/null; then
-    echo 'export VOLTA_HOME="$HOME/.volta"' >> ~/.bashrc
-    echo 'export PATH="$VOLTA_HOME/bin:$PATH"' >> ~/.bashrc
+  echo 'export VOLTA_HOME="$HOME/.volta"' >>~/.bashrc
+  echo 'export PATH="$VOLTA_HOME/bin:$PATH"' >>~/.bashrc
 fi
 if ! grep -q "VOLTA_HOME" ~/.zshrc 2>/dev/null; then
-    echo 'export VOLTA_HOME="$HOME/.volta"' >> ~/.zshrc
-    echo 'export PATH="$VOLTA_HOME/bin:$PATH"' >> ~/.zshrc
+  echo 'export VOLTA_HOME="$HOME/.volta"' >>~/.zshrc
+  echo 'export PATH="$VOLTA_HOME/bin:$PATH"' >>~/.zshrc
 fi
 $VOLTA_HOME/bin/volta install node
 
 # Install global npm packages
 print_status "Installing global npm packages..."
-$VOLTA_HOME/bin/npm install -g aws-cdk typescript ts-node @anthropic-ai/claude-code 
+$VOLTA_HOME/bin/npm install -g aws-cdk typescript ts-node @anthropic-ai/claude-code
+
+print_status "Linters and formatters will be automatically installed by Mason in Neovim"
 
 print_status "Installation completed!"
 print_warning "Please run 'chsh -s \$(which zsh)' to set zsh as your default shell."

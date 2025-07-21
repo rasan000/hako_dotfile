@@ -37,3 +37,6 @@ vim.api.nvim_set_keymap('i', '<C-r>', '<C-r>+', { noremap = true, silent = true 
 -- replace
 vim.api.nvim_set_keymap('n', '<C-g>', ':%s///<left><Left>', { noremap = true, silent = true })
 
+-- nvim-tree toggle
+vim.keymap.set("n", "<C-e>", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent = true })
+

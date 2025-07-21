@@ -12,7 +12,7 @@ all: install
 setup: packages install
 
 packages:
-	@echo "Installing packages..."
+	@echo "Installing packages and linters..."
 	@chmod +x $(DOTFILES_DIR)/install.sh
 	@$(DOTFILES_DIR)/install.sh
 
@@ -60,7 +60,8 @@ install: clean $(HOME_DIR)/.config
 	else \
 		echo "Dotfiles .gitconfig already included"; \
 	fi
-	@echo "Symlinks created successfully!"
+	@echo "Linters and formatters will be automatically installed by Mason when you open Neovim"
+	@echo "Symlinks and linters installation completed!"
 
 clean:
 	@echo "Cleaning broken symlinks..."

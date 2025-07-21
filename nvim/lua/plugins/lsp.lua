@@ -76,12 +76,17 @@ return {
         },
       })
 
-      -- Diagnostic signs
-      local signs = { Error = '✘', Warn = '▲', Hint = '⚑', Info = 'ℹ' }
-      for type, icon in pairs(signs) do
-        local hl = 'DiagnosticSign' .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-      end
+      -- Diagnostic signs (new method)
+      vim.diagnostic.config({
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = '✘',
+            [vim.diagnostic.severity.WARN] = '▲',
+            [vim.diagnostic.severity.HINT] = '⚑',
+            [vim.diagnostic.severity.INFO] = 'ℹ',
+          },
+        },
+      })
 
       -- Configure LSP servers
       local servers = { 'lua_ls', 'pyright', 'ts_ls', 'bashls', 'jsonls', 'yamlls', 'terraformls' }
@@ -207,5 +212,53 @@ return {
   {
     'williamboman/mason.nvim',
     build = ':MasonUpdate',
+  },
+
+  -- Mason integration for linters
+  {
+    'rshkarin/mason-nvim-lint',
+    event = 'VeryLazy',
+    dependencies = {
+      'williamboman/mason.nvim',
+      'mfussenegger/nvim-lint',
+    },
+    config = function()
+      vim.defer_fn(function()
+        require('mason-nvim-lint').setup({
+          ensure_installed = {
+            'luacheck',
+            'pylint',
+            'eslint_d',
+            'shellcheck',
+            'markdownlint',
+          },
+          automatic_installation = true,
+          quiet_mode = true,
+        })
+      end, 1000)  -- 1秒遅延
+    end,
+  },
+
+  -- Mason integration for formatters
+  {
+    'zapling/mason-conform.nvim',
+    event = 'VeryLazy',
+    dependencies = {
+      'williamboman/mason.nvim',
+      'stevearc/conform.nvim',
+    },
+    config = function()
+      vim.defer_fn(function()
+        require('mason-conform').setup({
+          ensure_installed = {
+            'stylua',
+            'prettier',
+            'black',
+            'isort',
+          },
+          automatic_installation = true,
+        })
+      end, 1500)  -- 1.5秒遅延
+    end,
   },
 }

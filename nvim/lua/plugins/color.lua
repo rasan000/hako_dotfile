@@ -1,75 +1,75 @@
 return {
   --color scheme
   {
-    'EdenEast/nightfox.nvim',
+    "EdenEast/nightfox.nvim",
     config = function()
-      require('nightfox').setup({
+      require("nightfox").setup({
         options = {
           transparent = true,
           styles = {
-            comments = 'italic',
-            keywords = 'bold',
-            type = 'italic,bold'
+            comments = "italic",
+            keywords = "bold",
+            type = "italic,bold",
           },
-        }
+        },
       })
-      vim.cmd('colorscheme nordfox')
-    end
+      vim.cmd("colorscheme nordfox")
+    end,
   },
 
   -- nvim-web-devicons (use basic ASCII icons for compatibility)
   {
-    'nvim-tree/nvim-web-devicons',
+    "nvim-tree/nvim-web-devicons",
     config = function()
-      require('nvim-web-devicons').setup({
+      require("nvim-web-devicons").setup({
         override = {
           zsh = {
             icon = "Z",
             color = "#428850",
             cterm_color = "65",
-            name = "Zsh"
+            name = "Zsh",
           },
           lua = {
             icon = "L",
             color = "#51a0cf",
             cterm_color = "74",
-            name = "Lua"
+            name = "Lua",
           },
           js = {
             icon = "J",
             color = "#cbcb41",
             cterm_color = "185",
-            name = "Js"
+            name = "Js",
           },
           ts = {
             icon = "T",
             color = "#519aba",
             cterm_color = "67",
-            name = "Ts"
+            name = "Ts",
           },
           md = {
             icon = "M",
             color = "#519aba",
             cterm_color = "67",
-            name = "Markdown"
+            name = "Markdown",
           },
           txt = {
             icon = "F",
             color = "#89e051",
             cterm_color = "113",
-            name = "Text"
+            name = "Text",
           },
           py = {
             icon = "P",
             color = "#3572A5",
             cterm_color = "61",
-            name = "Python"
+            name = "Python",
           },
           vim = {
             icon = "V",
             color = "#019833",
             cterm_color = "28",
-            name = "Vim"
+            name = "Vim",
           },
         },
         color_icons = true,
@@ -79,76 +79,76 @@ return {
           [".gitignore"] = {
             icon = "G",
             color = "#f1502f",
-            name = "Gitignore"
+            name = "Gitignore",
           },
           [".gitconfig"] = {
             icon = "C",
             color = "#f1502f",
-            name = "Gitconfig"
+            name = "Gitconfig",
           },
           ["Makefile"] = {
             icon = "M",
             color = "#427819",
-            name = "Makefile"
+            name = "Makefile",
           },
           ["README.md"] = {
             icon = "R",
             color = "#519aba",
-            name = "Readme"
+            name = "Readme",
           },
           ["package.json"] = {
             icon = "N",
             color = "#e8274b",
-            name = "PackageJson"
+            name = "PackageJson",
           },
         },
         override_by_extension = {
           ["log"] = {
             icon = "L",
             color = "#81e043",
-            name = "Log"
+            name = "Log",
           },
           ["conf"] = {
             icon = "C",
             color = "#6d8086",
-            name = "Conf"
+            name = "Conf",
           },
           ["yaml"] = {
             icon = "Y",
             color = "#cb171e",
-            name = "Yaml"
+            name = "Yaml",
           },
           ["yml"] = {
             icon = "Y",
             color = "#cb171e",
-            name = "Yml"
+            name = "Yml",
           },
         },
       })
-    end
+    end,
   },
 
   -- lualine
   {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require('lualine').setup({
+      require("lualine").setup({
         options = {
           icons_enabled = true,
-          theme = 'auto',
-          component_separators = { left = '', right = '' },
-          section_separators = { left = '', right = '' },
+          theme = "auto",
+          component_separators = { left = "", right = "" },
+          section_separators = { left = "", right = "" },
         },
         sections = {
-          lualine_a = { 'mode' },
-          lualine_b = { 'branch', 'diff', 'diagnostics' },
-          lualine_c = { 'filename' },
-          lualine_x = { 'encoding', 'fileformat', 'filetype' },
-          lualine_y = { 'progress' },
-          lualine_z = { 'location' }
-        }
+          lualine_a = { "mode" },
+          lualine_b = { "branch", "diff", "diagnostics" },
+          lualine_c = { "filename" },
+          lualine_x = { "encoding", "fileformat", "filetype" },
+          lualine_y = { "progress" },
+          lualine_z = { "location" },
+        },
       })
-    end
+    end,
   },
 }
