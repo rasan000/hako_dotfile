@@ -38,7 +38,7 @@ return {
         vim.keymap.set('n', 'ge', vim.diagnostic.open_float, opts)
         vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev, opts)
         vim.keymap.set('n', 'g]', vim.diagnostic.goto_next, opts)
-        
+
         -- Auto show diagnostics on cursor hold
         vim.api.nvim_create_autocmd("CursorHold", {
           buffer = bufnr,
@@ -115,13 +115,13 @@ return {
     },
     config = function()
       local luasnip = require('luasnip')
-      
+
       -- Load VSCode-style snippets from friendly-snippets
       require('luasnip.loaders.from_vscode').lazy_load()
-      
+
       -- Load custom snippets
-      require('luasnip.loaders.from_lua').load({paths = "~/.config/nvim/snippets/"})
-      
+      require('luasnip.loaders.from_lua').load({ paths = "~/.config/nvim/snippets/" })
+
       -- Set some basic snippets for testing
       luasnip.add_snippets("javascript", {
         luasnip.snippet("cl", {
@@ -135,12 +135,12 @@ return {
           luasnip.text_node("("),
           luasnip.insert_node(2, ""),
           luasnip.text_node(") {"),
-          luasnip.text_node({"", "  "}),
+          luasnip.text_node({ "", "  " }),
           luasnip.insert_node(0),
-          luasnip.text_node({"", "}"}),
+          luasnip.text_node({ "", "}" }),
         }),
       })
-      
+
       -- Copy to typescript
       luasnip.add_snippets("typescript", luasnip.get_snippets("javascript"))
     end
