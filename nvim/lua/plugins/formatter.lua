@@ -8,10 +8,10 @@ return {
       conform.setup({
         formatters_by_ft = {
           -- Add formatters when you install them
-          -- javascript = { "prettier" },
-          -- typescript = { "prettier" },
-          -- lua = { "stylua" },
-          -- python = { "black" },
+          javascript = { "prettier" },
+          typescript = { "prettier" },
+          lua = { "stylua" },
+          python = { "black" },
         },
         format_on_save = {
           lsp_fallback = true,
