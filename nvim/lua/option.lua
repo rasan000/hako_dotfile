@@ -7,8 +7,8 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.showtabline = 1
 
--- auto read
 vim.opt.autoread = true
+-- auto read
 vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
   pattern = "*",
   command = "checktime",
@@ -34,6 +34,7 @@ vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"
 
 -- row number
+vim.opt.cursorline = true -- Highlight current line
 vim.opt.number = true
 
 -- tab
@@ -52,13 +53,11 @@ vim.opt.showmatch = true
 vim.opt.mouse = "a"
 
 -- scroll settings
-vim.opt.scrolloff = 8        -- keep 8 lines above/below cursor
-vim.opt.sidescrolloff = 8    -- keep 8 columns left/right of cursor
-vim.opt.scroll = 10          -- number of lines to scroll with Ctrl-u/Ctrl-d
+vim.opt.scroll = 10 -- number of lines to scroll with Ctrl-u/Ctrl-d
 
 -- split direction (open splits to right and below)
-vim.opt.splitright = true  -- vertical splits open to the right
-vim.opt.splitbelow = true  -- horizontal splits open below
+vim.opt.splitright = true -- vertical splits open to the right
+vim.opt.splitbelow = true -- horizontal splits open below
 
 -- delete buffa
 vim.opt.hidden = true

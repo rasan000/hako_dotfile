@@ -31,7 +31,7 @@ return {
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-        vim.keymap.set('n', 'rn', vim.lsp.buf.rename, opts)
+        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
         vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
         vim.keymap.set('n', 'gf', vim.lsp.buf.format, opts)
@@ -103,8 +103,19 @@ return {
         on_attach = on_attach,
         settings = {
           Lua = {
+            runtime = {
+              version = 'LuaJIT',
+            },
             diagnostics = {
-              globals = { 'vim' },
+              globals = { 'vim', 'use', 'describe', 'it', 'before_each', 'after_each' },
+              disable = { 'missing-fields', 'incomplete-signature-doc' },
+            },
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true),
+              checkThirdParty = false,
+            },
+            telemetry = {
+              enable = false,
             },
           },
         },
@@ -235,7 +246,7 @@ return {
           automatic_installation = true,
           quiet_mode = true,
         })
-      end, 1000)  -- 1秒遅延
+      end, 1000) -- 1秒遅延
     end,
   },
 
@@ -258,7 +269,7 @@ return {
           },
           automatic_installation = true,
         })
-      end, 1500)  -- 1.5秒遅延
+      end, 1500) -- 1.5秒遅延
     end,
   },
 }

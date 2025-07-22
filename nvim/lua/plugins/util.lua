@@ -179,7 +179,7 @@ return {
             return client and client.name or nil
           end,
           notification_group = function(msg)
-            return msg.lsp_server.name
+            return msg.lsp_server and msg.lsp_server.name or "LSP"
           end,
           ignore = {},
           display = {
