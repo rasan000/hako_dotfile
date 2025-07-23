@@ -1,18 +1,16 @@
 return {
-  -- git signs
-  {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup()
-    end
-  },
-  --git blame
-  {
-    'f-person/git-blame.nvim',
-    config = function()
-      vim.api.nvim_set_keymap('n', '<leader>gb', '<Cmd>GitBlameToggle<CR>', {})
-    end
-  },
-
-
+	-- git signs
+	{
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	},
+	--git blame
+	{
+		"f-person/git-blame.nvim",
+		config = function()
+			vim.api.nvim_set_keymap("n", "<leader>gb", "<Cmd>GitBlameToggle<CR>", {})
+		end,
+	},
 }

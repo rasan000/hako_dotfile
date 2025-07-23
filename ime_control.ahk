@@ -2,5 +2,6 @@
 ~Esc::{
    Send "{vk1D}" ;
 }
-PgUp::Home  
 PgDn::End
+PgUp::Home  
+

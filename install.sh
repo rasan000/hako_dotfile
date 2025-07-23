@@ -34,6 +34,10 @@ sudo apt update && sudo apt upgrade -y
 print_status "Installing build essentials and compilers..."
 sudo apt install -y build-essential gcc g++ clang make cmake git curl wget unzip
 
+# Install Lua and LuaRocks (required for Mason's luacheck)
+print_status "Installing Lua and LuaRocks..."
+sudo apt install -y lua5.3 liblua5.3-dev luarocks
+
 # Install zsh and set as default shell
 print_status "Installing zsh..."
 sudo apt install zsh -y

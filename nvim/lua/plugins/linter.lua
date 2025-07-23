@@ -28,13 +28,13 @@ return {
 					"tsconfig.json",
 					".git",
 				}
-				
+
 				local path = vim.fn.expand("%:p:h")
 				local root = vim.fs.find(root_patterns, {
 					path = path,
 					upward = true,
 				})[1]
-				
+
 				if root then
 					return vim.fs.dirname(root)
 				end
@@ -49,6 +49,16 @@ return {
 
 			-- Set working directory for eslint_d
 			lint.linters.eslint_d.cwd = get_project_root
+
+			-- Configure luacheck for Neovim
+			lint.linters.luacheck.args = {
+				"--globals", "vim",
+				"--read-globals", "vim",
+				"--formatter", "plain",
+				"--codes",
+				"--ranges",
+				"-"
+			}
 
 			-- Create autocommand for linting
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
