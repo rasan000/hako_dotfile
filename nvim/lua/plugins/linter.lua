@@ -16,6 +16,7 @@ return {
 				sh = { "shellcheck" },
 				bash = { "shellcheck" },
 				markdown = { "markdownlint" },
+				yaml = { "cfn_lint" },
 			}
 
 			-- Function to find project root
