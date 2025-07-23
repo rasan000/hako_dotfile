@@ -24,3 +24,7 @@ Before running the setup, install the following on Windows:
 - ime_controle.ahk-
   - win + R 
   - shell:startu 
+
+- font
+  - use MesloLGS NF Regular
+  - <a>https://github.com/romkatv/powerlevel10k#fonts</a>
