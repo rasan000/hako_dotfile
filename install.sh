@@ -38,6 +38,10 @@ sudo apt install -y build-essential gcc g++ clang make cmake git curl wget unzip
 print_status "Installing Lua and LuaRocks..."
 sudo apt install -y lua5.3 liblua5.3-dev luarocks
 
+# Install grep 
+print_status "Installing grep..."
+sudo apt install -y repgrep 
+
 # Install zsh and set as default shell
 print_status "Installing zsh..."
 sudo apt install zsh -y
