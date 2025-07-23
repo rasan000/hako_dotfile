@@ -1,97 +1,39 @@
 return {
 	--visuals
-	--float command and messages
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
+		config = function()
+			require("noice").setup({
+				lsp = {
+					-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+					override = {
+						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+						["vim.lsp.util.stylize_markdown"] = true,
+						["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+					},
+				},
+				-- you can enable a preset for easier configuration
+				presets = {
+					bottom_search = false, -- use a classic bottom cmdline for search
+					command_palette = false, -- position the cmdline and popupmenu together
+					long_message_to_split = true, -- long messages will be sent to a split
+					inc_rename = false, -- enables an input dialog for inc-rename.nvim
+					lsp_doc_border = false, -- add a border to hover docs and signature help
+				},
+			})
+
+			-- Noice keymaps
+			vim.keymap.set("n", "<leader>nh", "<cmd>Noice history<cr>", { desc = "Noice History" })
+			vim.keymap.set("n", "<leader>ne", "<cmd>Noice errors<cr>", { desc = "Noice Errors" })
+		end,
+		opts = {
+			-- add any options here
+		},
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 			"rcarriga/nvim-notify",
 		},
-		config = function()
-			require("noice").setup({
-				cmdline = {
-					enabled = true,
-					view = "cmdline", -- Use bottom cmdline instead of popup
-					opts = {},
-				},
-				popupmenu = {
-					enabled = true,
-					backend = "nui", -- Modern popup menu
-					kind_icons = {},
-				},
-				messages = {
-					enabled = true,
-					view = "notify", -- Use notifications for messages
-					view_error = "notify",
-					view_warn = "notify",
-					view_history = "messages",
-					view_search = false, -- Use default search display
-				},
-				lsp = {
-					override = {
-						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-						["vim.lsp.util.stylize_markdown"] = true,
-						["cmp.entry.get_documentation"] = true,
-					},
-					hover = {
-						enabled = true,
-						silent = false,
-						view = nil,
-						opts = {},
-					},
-					signature = {
-						enabled = true,
-						auto_open = {
-							enabled = true,
-							trigger = true,
-							luasnip = true,
-							throttle = 50,
-						},
-						view = nil,
-						opts = {},
-					},
-					message = {
-						enabled = true,
-						view = "notify",
-						opts = {},
-					},
-					documentation = {
-						view = "hover",
-						opts = {
-							lang = "markdown",
-							replace = true,
-							render = "plain",
-							format = { "{message}" },
-							win_options = { concealcursor = "n", conceallevel = 3 },
-						},
-					},
-				},
-				presets = {
-					bottom_search = true, -- Classic search at bottom
-					command_palette = false, -- Keep cmdline at bottom
-					long_message_to_split = true, -- Long messages in split
-					inc_rename = false,
-					lsp_doc_border = true, -- Bordered LSP docs
-				},
-			})
-
-			-- Configure nvim-notify for better floating notifications
-			require("notify").setup({
-				background_colour = "#000000",
-				timeout = 3000,
-				top_down = false,
-				render = "compact",
-				stages = "fade_in_slide_out",
-				minimum_width = 50,
-				maximum_width = 80,
-			})
-
-			-- message history
-			vim.keymap.set("n", "<leader>nl", "<cmd>Noice last<CR>")
-			vim.keymap.set("n", "<leader>nh", "<cmd>Noice history<CR>")
-			vim.keymap.set("n", "<leader>nd", "<cmd>Noice dismiss<CR>")
-		end,
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -99,28 +41,12 @@ return {
 		config = function()
 			require("ibl").setup({
 				indent = {
-					char = "│",
-					tab_char = "│",
+					char = "▏",
 				},
 				scope = {
 					enabled = true,
-					show_start = true,
+					show_start = false,
 					show_end = false,
-				},
-				exclude = {
-					filetypes = {
-						"help",
-						"alpha",
-						"dashboard",
-						"neo-tree",
-						"Trouble",
-						"trouble",
-						"lazy",
-						"mason",
-						"notify",
-						"toggleterm",
-						"lazyterm",
-					},
 				},
 			})
 		end,
