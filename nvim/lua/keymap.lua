@@ -14,7 +14,7 @@ vim.api.nvim_set_keymap("v", "k", "gk", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<ESC><ESC>", "<Cmd>noh<CR>", { noremap = true, silent = true })
 
 -- all select
-vim.api.nvim_set_keymap("v", "a", "<ESC>ggVG", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "va", "ggVG", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "v", "<S-v>", { noremap = true, silent = true })
 
 -- blackhole

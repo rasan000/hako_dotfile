@@ -20,6 +20,11 @@ return {
 					"yamlls",
 					"terraformls",
 				},
+				automatic_installation = false,
+				handlers = {
+					-- デフォルトハンドラを無効化
+					function() end,
+				},
 			})
 
 			local lspconfig = require("lspconfig")
@@ -88,8 +93,8 @@ return {
 				},
 			})
 
-			-- Configure LSP servers
-			local servers = { "lua_ls", "pyright", "ts_ls", "bashls", "jsonls", "yamlls", "terraformls" }
+			-- Configure LSP servers (excluding lua_ls and yamlls for custom setup)
+			local servers = { "pyright", "ts_ls", "bashls", "jsonls", "terraformls" }
 			for _, lsp in ipairs(servers) do
 				lspconfig[lsp].setup({
 					capabilities = capabilities,
@@ -120,6 +125,49 @@ return {
 					},
 				},
 			})
+
+			-- yaml specific settings
+			print("Setting up yamlls with custom tags...")
+			lspconfig.yamlls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				settings = {
+					yaml = {
+						customTags = {
+							"!Equals sequence",
+							"!FindInMap sequence",
+							"!GetAtt scalar",
+							"!GetAZs scalar",
+							"!ImportValue scalar",
+							"!Join sequence",
+							"!Ref scalar",
+							"!Select sequence",
+							"!Split sequence",
+							"!Sub scalar",
+							"!And sequence",
+							"!Not sequence",
+							"!Sub sequence",
+							"!If sequence",
+						},
+					},
+				},
+			})
+			print("yamlls setup completed with", #{
+				"!Equals sequence",
+				"!FindInMap sequence",
+				"!GetAtt scalar",
+				"!GetAZs scalar",
+				"!ImportValue scalar",
+				"!Join sequence",
+				"!Ref scalar",
+				"!Select sequence",
+				"!Split sequence",
+				"!Sub scalar",
+				"!And sequence",
+				"!Not sequence",
+				"!Sub sequence",
+				"!If sequence",
+			}, "custom tags")
 		end,
 	},
 
@@ -187,7 +235,7 @@ return {
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-e>"] = cmp.mapping.abort(),
+					["<C-w>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 					["<C-n>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
@@ -272,17 +320,17 @@ return {
 			end, 1500) -- 1.5秒遅延
 		end,
 	},
-	{
-		"folke/lazydev.nvim",
-		ft = "lua", -- only load on lua files
-		opts = {
-			library = {
-				-- See the configuration section for more details
-				-- Load luvit types when the `vim.uv` word is found
-				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-			},
-		},
-	},
+	-- {
+	-- 	"folke/lazydev.nvim",
+	-- 	ft = "lua", -- only load on lua files
+	-- 	opts = {
+	-- 		library = {
+	-- 			-- See the configuration section for more details
+	-- 			-- Load luvit types when the `vim.uv` word is found
+	-- 			{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+	-- 		},
+	-- 	},
+	-- },
 	{ -- optional cmp completion source for require statements and module annotations
 		"hrsh7th/nvim-cmp",
 		opts = function(_, opts)

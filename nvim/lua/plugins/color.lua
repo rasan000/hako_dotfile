@@ -1,5 +1,5 @@
 return {
-	--color scheme
+	--	color scheme
 	-- {
 	-- 	"EdenEast/nightfox.nvim",
 	-- 	config = function()
