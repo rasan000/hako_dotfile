@@ -115,7 +115,7 @@ return {
 		event = "VeryLazy",
 		config = function()
 			require("flash").setup({
-				labels = "asdfghjklqwertyuiopzxcvbnm",
+				labels = "asdfghjkl;:qwertyuiop@zxcvbnm,./",
 				search = {
 					multi_window = false,
 					forward = true,
@@ -132,7 +132,7 @@ return {
 					autojump = false,
 				},
 				label = {
-					uppercase = true,
+					uppercase = false,
 					exclude = "",
 					current = true,
 					after = true,
@@ -166,7 +166,7 @@ return {
 						label = { exclude = "hjkliardc" },
 					},
 					treesitter = {
-						labels = "abcdefghijklmnopqrstuvwxyz",
+						labels = "asdfghjkl;:qwertyuiop@zxcvbnm,./",
 						jump = { pos = "range" },
 						search = { incremental = false },
 						label = { before = true, after = true, style = "inline" },

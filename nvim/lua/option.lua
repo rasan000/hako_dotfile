@@ -2,7 +2,7 @@ vim.opt.wildmenu = true
 
 -- zsh
 vim.opt.shell = "/usr/bin/zsh"
--- vim.opt.wrap = false
+vim.opt.wrap = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.showtabline = 1
@@ -54,6 +54,7 @@ vim.opt.mouse = "a"
 
 -- scroll settings
 vim.opt.scroll = 10 -- number of lines to scroll with Ctrl-u/Ctrl-d
+vim.opt.scrolloff = 10
 
 -- split direction (open splits to right and below)
 vim.opt.splitright = true -- vertical splits open to the right
