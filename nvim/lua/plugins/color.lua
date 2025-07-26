@@ -13,20 +13,16 @@ return {
 					},
 				},
 			})
-			vim.cmd("colorscheme nordfox")
+			vim.cmd("colorscheme carbonfox")
+
+			-- Make copilot suggestions less prominent
+			vim.api.nvim_set_hl(0, "CopilotSuggestion", {
+				fg = "#555555",
+				ctermfg = 8,
+				italic = true,
+			})
 		end,
 	},
-	-- {
-	-- 	"sainnhe/everforest",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		vim.g.everforest_background = "Hard"
-	-- 		vim.g.everforest_better_performance = 1
-	-- 		vim.g.everforest_transparent_background = 1
-	-- 		vim.g.everforest_enable_italic = 1
-	-- 		vim.cmd("colorscheme everforest")
-	-- 	end,
-	-- },
 	-- nvim-web-devicons (use basic ASCII icons for compatibility)
 	{
 		"nvim-tree/nvim-web-devicons",

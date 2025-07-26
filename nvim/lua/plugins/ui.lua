@@ -18,15 +18,42 @@ return {
 					bottom_search = true, -- use a classic bottom cmdline for search
 					command_palette = true, -- position the cmdline and popupmenu together
 					long_message_to_split = true, -- long messages will be sent to a split
-					inc_rename = true, -- enables an input dialog for inc-rename.nvim
+					inc_rename = false, -- enables an input dialog for inc-rename.nvim
 					lsp_doc_border = true, -- add a border to hover docs and signature help
 				},
 				routes = {
+					-- Route macro recording to mini view
 					{
 						filter = {
 							event = "msg_showmode",
 						},
-						view = "notify",
+						view = "mini",
+					},
+					-- Route all notifications to mini view (less intrusive)
+					{
+						filter = {
+							event = "notify",
+						},
+						view = "mini",
+					},
+				},
+				views = {
+					mini = {
+						position = {
+							row = -1,
+							col = "100%",
+						},
+						size = {
+							width = "auto",
+							height = 1,
+						},
+						border = {
+							style = "none",
+						},
+						win_options = {
+							winblend = 70,
+						},
+						timeout = 2000,
 					},
 				},
 			})
