@@ -21,6 +21,14 @@ return {
 					inc_rename = true, -- enables an input dialog for inc-rename.nvim
 					lsp_doc_border = true, -- add a border to hover docs and signature help
 				},
+				routes = {
+					{
+						filter = {
+							event = "msg_showmode",
+						},
+						view = "notify",
+					},
+				},
 			})
 
 			-- Noice keymaps
@@ -59,11 +67,11 @@ return {
 			require("toggleterm").setup({
 				size = 20,
 				open_mapping = [[<c-t>]],
-				direction = "float",
+				direction = "horizontal",
 				float_opts = {
 					border = "curved",
 					width = 150,
-					height = 40,
+					height = 30,
 				},
 				shade_terminals = true,
 			})

@@ -53,12 +53,15 @@ return {
 
 			-- Configure luacheck for Neovim
 			lint.linters.luacheck.args = {
-				"--globals", "vim",
-				"--read-globals", "vim",
-				"--formatter", "plain",
+				"--globals",
+				"vim",
+				"--read-globals",
+				"vim",
+				"--formatter",
+				"plain",
 				"--codes",
 				"--ranges",
-				"-"
+				"-",
 			}
 
 			-- Create autocommand for linting
@@ -72,7 +75,7 @@ return {
 			})
 
 			-- Manual linting keymap
-			vim.keymap.set("n", "<leader>l", function()
+			vim.api.nvim_create_user_command("Lint", function()
 				lint.try_lint()
 			end, { desc = "Trigger linting for current file" })
 		end,

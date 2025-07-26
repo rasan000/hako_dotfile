@@ -1,32 +1,32 @@
 return {
 	--	color scheme
-	-- {
-	-- 	"EdenEast/nightfox.nvim",
-	-- 	config = function()
-	-- 		require("nightfox").setup({
-	-- 			options = {
-	-- 				transparent = true,
-	-- 				styles = {
-	-- 					comments = "italic",
-	-- 					keywords = "bold",
-	-- 					type = "italic,bold",
-	-- 				},
-	-- 			},
-	-- 		})
-	-- 		vim.cmd("colorscheme nordfox")
-	-- 	end,
-	-- },
 	{
-		"sainnhe/everforest",
-		priority = 1000,
+		"EdenEast/nightfox.nvim",
 		config = function()
-			vim.g.everforest_background = "Hard"
-			vim.g.everforest_better_performance = 1
-			vim.g.everforest_transparent_background = 1
-			vim.g.everforest_enable_italic = 1
-			vim.cmd("colorscheme everforest")
+			require("nightfox").setup({
+				options = {
+					transparent = true,
+					styles = {
+						comments = "italic",
+						keywords = "bold",
+						type = "italic,bold",
+					},
+				},
+			})
+			vim.cmd("colorscheme nordfox")
 		end,
 	},
+	-- {
+	-- 	"sainnhe/everforest",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.g.everforest_background = "Hard"
+	-- 		vim.g.everforest_better_performance = 1
+	-- 		vim.g.everforest_transparent_background = 1
+	-- 		vim.g.everforest_enable_italic = 1
+	-- 		vim.cmd("colorscheme everforest")
+	-- 	end,
+	-- },
 	-- nvim-web-devicons (use basic ASCII icons for compatibility)
 	{
 		"nvim-tree/nvim-web-devicons",

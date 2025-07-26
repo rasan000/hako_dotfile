@@ -1,11 +1,24 @@
+-- encoding
+vim.opt.fileencoding = "utf-8"
+vim.scriptencoding = "utf-8"
+vim.opt.encoding = "utf-8"
+
+-- menu
 vim.opt.wildmenu = true
 
 -- zsh
 vim.opt.shell = "/usr/bin/zsh"
-vim.opt.wrap = true
+
+-- disable wrap
+vim.opt.wrap = false
+
+-- disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.showtabline = 1
+
+-- move cursor to the end of the line
+-- vim.opt.virtualedit = "onemore"
 
 vim.opt.autoread = true
 -- auto read
@@ -28,21 +41,20 @@ vim.opt.updatetime = 1000
 -- clipboard
 vim.opt.clipboard = "unnamedplus"
 
--- encoding
-vim.opt.fileencoding = "utf-8"
-vim.scriptencoding = "utf-8"
-vim.opt.encoding = "utf-8"
-
 -- row number
-vim.opt.cursorline = true -- Highlight current line
+vim.opt.cursorline = false -- Highlight current line
 vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- tab
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
+-- wihtch wrap
+vim.opt.whichwrap = "b,s,h,l,<,>,[,]~"
 
 -- search
 vim.opt.ignorecase = true
@@ -54,7 +66,7 @@ vim.opt.mouse = "a"
 
 -- scroll settings
 vim.opt.scroll = 10 -- number of lines to scroll with Ctrl-u/Ctrl-d
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 3
 
 -- split direction (open splits to right and below)
 vim.opt.splitright = true -- vertical splits open to the right
@@ -80,25 +92,12 @@ vim.api.nvim_create_autocmd("BufRead", {
 	end,
 })
 
---
 vim.opt.inccommand = split
 
 -- hilight yank
 vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
 		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500 })
-	end,
-})
-
--- markdown specific settings
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "markdown",
-	callback = function()
-		vim.opt_local.tabstop = 2
-		vim.opt_local.shiftwidth = 2
-		vim.opt_local.expandtab = true
-		vim.opt_local.autoindent = true
-		vim.opt_local.smartindent = true
 	end,
 })
 

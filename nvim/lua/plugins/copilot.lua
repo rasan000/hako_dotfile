@@ -13,8 +13,8 @@ return {
 						jump_prev = "[[",
 						jump_next = "]]",
 						accept = "<CR>",
-						refresh = "gr",
-						open = "<M-CR>",
+						refresh = "<C-r>",
+						open = "<C-CR>",
 					},
 					layout = {
 						position = "bottom", -- | top | left | right
@@ -23,15 +23,15 @@ return {
 				},
 				suggestion = {
 					enabled = true,
-					auto_trigger = true,
+					auto_trigger = false,
 					debounce = 75,
 					keymap = {
-						accept = "<C-y>",
+						accept = "<C-e>",
 						accept_word = false,
 						accept_line = false,
 						next = "<M-]>",
 						prev = "<M-[>",
-						dismiss = "<C-e>",
+						dismiss = "<C-w>",
 					},
 				},
 				filetypes = {
@@ -72,6 +72,37 @@ return {
 
 			-- Key mappings for CopilotChat
 			vim.api.nvim_set_keymap("n", "<leader>cc", "<cmd>CopilotChat<CR>", { noremap = true, silent = true })
+		end,
+	},
+
+	-- Add copilot toggle functionality
+	{
+		"nvim-lua/plenary.nvim",
+		config = function()
+			-- Global variable to track auto_trigger state
+			_G.copilot_auto_trigger = true
+
+			-- Function to toggle copilot auto trigger
+			_G.toggle_copilot_auto_trigger = function()
+				local copilot = require("copilot.suggestion")
+				_G.copilot_auto_trigger = not _G.copilot_auto_trigger
+
+				if _G.copilot_auto_trigger then
+					copilot.toggle_auto_trigger()
+					vim.notify("Copilot auto suggestions enabled", vim.log.levels.INFO)
+				else
+					copilot.toggle_auto_trigger()
+					vim.notify("Copilot auto suggestions disabled", vim.log.levels.INFO)
+				end
+			end
+
+			-- User command for toggling
+			vim.api.nvim_create_user_command("CopilotToggle", function()
+				_G.toggle_copilot_auto_trigger()
+			end, { desc = "Toggle Copilot auto trigger" })
+
+			-- toggle command
+			vim.keymap.set("n", "<leader>ct", "<Cmd>CopilotToggle", {})
 		end,
 	},
 }

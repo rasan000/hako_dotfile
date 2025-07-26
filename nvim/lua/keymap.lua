@@ -2,43 +2,62 @@
 vim.g.mapleader = " "
 
 -- ESC
-vim.api.nvim_set_keymap("i", "jj", "<ESC>", { noremap = true, silent = true })
+vim.keymap.set("i", "jj", "<ESC>", { noremap = true, silent = true })
 
 -- move visual line
-vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "j", "gj", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "k", "gk", { noremap = true, silent = true })
+vim.keymap.set("n", "j", "gj", { noremap = true, silent = true })
+vim.keymap.set("n", "k", "gk", { noremap = true, silent = true })
+vim.keymap.set("v", "j", "gj", { noremap = true, silent = true })
+vim.keymap.set("v", "k", "gk", { noremap = true, silent = true })
 
+-- move row start and end
+vim.keymap.set("n", "<leader>h", "^", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>l", "$", { noremap = true, silent = true })
+
+-- redo
+vim.keymap.set("n", "U", "<C-r>", { noremap = true, silent = true })
 -- nohilight
-vim.api.nvim_set_keymap("n", "<ESC><ESC>", "<Cmd>noh<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<ESC><ESC>", "<Cmd>noh<CR>", { noremap = true, silent = true })
 
 -- all select
-vim.api.nvim_set_keymap("n", "va", "ggVG", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "v", "<S-v>", { noremap = true, silent = true })
+vim.keymap.set("v", ",", function()
+	vim.cmd("normal! ggVG")
+end, { noremap = true, silent = true })
+vim.keymap.set("v", "v", "<S-v>", { noremap = true, silent = true })
+
+-- move {}
+vim.keymap.set("n", "M", "%", { noremap = true, silent = true })
+vim.keymap.set("v", "M", "%", { noremap = true, silent = true })
+
+-- nohighlight
+vim.keymap.set("n", "<leader>no", "<Cmd>noh<CR>", { noremap = true, silent = true })
 
 -- blackhole
-vim.api.nvim_set_keymap("n", "x", '"_x', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "X", '"_X', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "d", '"_d', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "dd", '"_dd', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "D", '"_D', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "d", '"_d', { noremap = true, silent = true })
+vim.keymap.set("n", "x", '"_x', { noremap = true, silent = true })
+vim.keymap.set("n", "X", '"_X', { noremap = true, silent = true })
+vim.keymap.set("n", "d", '"_d', { noremap = true, silent = true })
+vim.keymap.set("n", "dd", '"_dd', { noremap = true, silent = true })
+vim.keymap.set("n", "D", '"_D', { noremap = true, silent = true })
+vim.keymap.set("v", "d", '"_d', { noremap = true, silent = true })
 
 -- move when insert mode
-vim.api.nvim_set_keymap("i", "<C-l>", "<Right>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<C-h>", "<Left>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<C-j>", "<Down>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<C-k>", "<Up>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-l>", "<Right>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-h>", "<Left>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-j>", "<Down>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-k>", "<Up>", { noremap = true, silent = true })
 
 -- paste when insertMode
-vim.api.nvim_set_keymap("i", "<C-r>", "<C-r>+", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-r>", "<C-r>+", { noremap = true, silent = true })
 
 -- replace
-vim.api.nvim_set_keymap("n", "<C-g>", ":%s///<left><Left>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-g>", ":%s///<left><Left>", { noremap = true, silent = true })
 
 -- nvim-tree toggle
 vim.keymap.set("n", "<C-e>", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent = true })
+
+-- paste and move cursor to the end
+vim.keymap.set("n", "p", "p`]", { noremap = true, silent = true })
+vim.keymap.set("n", "P", "p`]", { noremap = true, silent = true })
 
 -- disable middle click
 vim.keymap.set({ "n", "i", "v" }, "<MiddleMouse>", "<Nop>")

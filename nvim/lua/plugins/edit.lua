@@ -77,28 +77,6 @@ return {
 		end,
 	},
 
-	--mini.move (move lines/blocks)
-	-- {
-	-- 	"echasnovski/mini.move",
-	-- 	config = function()
-	-- 		require("mini.move").setup({
-	-- 			mappings = {
-	--          left = "<M-h>",
-	-- 				right = "<M-l>",
-	-- 				down = "<M-j>",
-	-- 				up = "<M-k>",
-	-- 				line_left = "<M-h>",
-	-- 				line_right = "<M-l>",
-	--          line_down = "<M-j>",
-	--          line_up = "<M-k>",
-	-- 			},
-	-- 			options = {
-	-- 				reindent_linewise = true,
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- },
-
 	--nvim-spider (better word movement)
 	{
 		"chrisgrieser/nvim-spider",
@@ -108,118 +86,42 @@ return {
 			vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
 		end,
 	},
-
-	--flash.nvim (easymotion replacement)
+	-- flash
 	{
 		"folke/flash.nvim",
 		event = "VeryLazy",
-		config = function()
-			require("flash").setup({
-				labels = "asdfghjkl;:qwertyuiop@zxcvbnm,./",
-				search = {
-					multi_window = false,
-					forward = true,
-					wrap = true,
-					mode = "fuzzy", -- Change to fuzzy for better character matching
-					increment = false,
-				},
-				jump = {
-					jumplist = true,
-					pos = "start",
-					history = false,
-					register = false,
-					nohlsearch = false,
-					autojump = false,
-				},
-				label = {
-					uppercase = false,
-					exclude = "",
-					current = true,
-					after = true,
-					before = false,
-					style = "overlay",
-					reuse = "lowercase", -- Allow more labels to be available
-					min_pattern_length = 0,
-					rainbow = {
-						enabled = false,
-					},
-				},
-				highlight = {
-					backdrop = true,
-					matches = true,
-					priority = 5000,
-					groups = {
-						match = "FlashMatch",
-						current = "FlashCurrent",
-						backdrop = "FlashBackdrop",
-						label = "FlashLabel",
-					},
-				},
-				modes = {
-					search = {
-						enabled = true, -- Enable search mode
-					},
-					char = {
-						enabled = true, -- Enable char mode for single character jumps
-						jump_labels = true,
-						multi_line = true,
-						label = { exclude = "hjkliardc" },
-					},
-					treesitter = {
-						labels = "asdfghjkl;:qwertyuiop@zxcvbnm,./",
-						jump = { pos = "range" },
-						search = { incremental = false },
-						label = { before = true, after = true, style = "inline" },
-						highlight = {
-							backdrop = false,
-							matches = false,
-						},
-					},
-				},
-			})
-
-			-- Same keybindings as easymotion + additional
-			vim.keymap.set("n", "f", function()
-				require("flash").jump({ search = { mode = "search", max_length = 1 } })
-			end, { desc = "Flash line search" })
-			vim.keymap.set("n", "s", function()
-				require("flash").jump({ search = { mode = "search", max_length = 2 } })
-			end, { desc = "Flash jump" })
-			vim.keymap.set("n", "S", function()
-				require("flash").treesitter()
-			end, { desc = "Flash Treesitter" })
-			vim.keymap.set({ "o", "x" }, "r", function()
-				require("flash").remote()
-			end, { desc = "Remote Flash" })
-		end,
+		---@type Flash.Config
+		opts = {},
+    -- stylua: ignore
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    },
 	},
 
-	-- nvim-ufo (code folding like VSCode)
+	-- nvim-ufo (modern folding)
 	{
 		"kevinhwang91/nvim-ufo",
 		dependencies = "kevinhwang91/promise-async",
 		event = "BufReadPost",
 		config = function()
-			-- Enable fold column for visual indication
+			-- Basic fold settings
 			vim.o.foldcolumn = "1"
 			vim.o.foldlevel = 99
 			vim.o.foldlevelstart = 99
 			vim.o.foldenable = true
 
-			-- Basic fold controls focused on cursor position
-			vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-			vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-			-- vim.keymap.set('n', 'zr', 'zo', { desc = "Open fold under cursor" })
-			-- vim.keymap.set('n', 'zm', 'zc', { desc = "Close fold under cursor" })
-			vim.keymap.set("n", "zm", "za", { desc = "Toggle fold under cursor" })
-
+			-- Setup nvim-ufo
 			require("ufo").setup({
 				provider_selector = function(bufnr, filetype, buftype)
 					return { "treesitter", "indent" }
 				end,
 				fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
 					local newVirtText = {}
-					local suffix = ("  %d "):format(endLnum - lnum)
+					local suffix = (" 󰁂 %d "):format(endLnum - lnum)
 					local sufWidth = vim.fn.strdisplaywidth(suffix)
 					local targetWidth = width - sufWidth
 					local curWidth = 0
@@ -244,60 +146,11 @@ return {
 					return newVirtText
 				end,
 			})
-		end,
-	},
 
-	--vim-illuminate (highlight same words)
-	{
-		"RRethy/vim-illuminate",
-		config = function()
-			require("illuminate").configure({
-				providers = {
-					"lsp",
-					"treesitter",
-					"regex",
-				},
-				delay = 100,
-				filetype_overrides = {},
-				filetypes_denylist = {
-					"dirvish",
-					"fugitive",
-					"alpha",
-					"NvimTree",
-					"lazy",
-					"neogitstatus",
-					"Trouble",
-					"lir",
-					"Outline",
-					"spectre_panel",
-					"toggleterm",
-					"DressingSelect",
-					"TelescopePrompt",
-				},
-				filetypes_allowlist = {},
-				modes_denylist = {},
-				modes_allowlist = {},
-				providers_regex_syntax_denylist = {},
-				providers_regex_syntax_allowlist = {},
-				under_cursor = true,
-				large_file_cutoff = nil,
-				large_file_overrides = nil,
-				min_count_to_highlight = 2,
-			})
-
-			-- Change highlight colors
-			vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#3c3836" })
-			vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#3c3836" })
-			vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#3c3836" })
-
-			-- Keymaps for navigation
-			vim.keymap.set("n", "<M-n>", function()
-				require("illuminate").goto_next_reference(false)
-			end, { desc = "Next Reference" })
-
-			vim.keymap.set("n", "<M-p>", function()
-				require("illuminate").goto_prev_reference(false)
-			end, { desc = "Prev Reference" })
+			-- Fold keymaps
+			vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
+			vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
+			vim.keymap.set("n", "zm", "za", { desc = "Toggle fold" })
 		end,
 	},
 }
