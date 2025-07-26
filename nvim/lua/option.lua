@@ -112,3 +112,11 @@ vim.api.nvim_set_keymap("v", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '"
 vim.api.nvim_set_keymap("i", "ｊｊ", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
 vim.api.nvim_set_keymap("i", "jj", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
 vim.api.nvim_set_keymap("i", "っ", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
+
+-- disable new line comment
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function()
+		vim.opt_local.formatoptions:remove({ "r", "o" })
+	end,
+})

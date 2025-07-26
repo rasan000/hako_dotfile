@@ -24,6 +24,7 @@ return {
 		end,
 	},
 	-- nvim-web-devicons (use basic ASCII icons for compatibility)
+
 	{
 		"nvim-tree/nvim-web-devicons",
 		config = function()

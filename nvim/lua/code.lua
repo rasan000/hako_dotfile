@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
 	end,
 })
 
---keymap
+-- keymap
 vim.keymap.set("n", "x", '"_x')
 vim.keymap.set("v", "x", '"_x')
 vim.keymap.set("n", "X", '"_X')

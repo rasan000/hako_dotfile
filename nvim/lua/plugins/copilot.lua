@@ -102,7 +102,7 @@ return {
 			end, { desc = "Toggle Copilot auto trigger" })
 
 			-- toggle command
-			vim.keymap.set("n", "<leader>ct", "<Cmd>CopilotToggle", {})
+			vim.keymap.set("n", "<leader>ct", "<Cmd>CopilotToggle<CR>", {})
 		end,
 	},
 }
