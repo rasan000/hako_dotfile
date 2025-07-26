@@ -21,45 +21,47 @@ return {
 					"terraformls",
 				},
 				automatic_installation = false,
-				handlers = {
-					-- デフォルトハンドラを無効化
-					function() end,
-				},
 			})
 
-			local lspconfig = require("lspconfig")
+			-- Global LSP capabilities configuration (v0.11+ style)
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			vim.lsp.config('*', {
+				capabilities = capabilities,
+			})
 
-			-- LSP settings
-			local on_attach = function(client, bufnr)
-				local opts = { noremap = true, silent = true, buffer = bufnr }
-				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-				vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-				vim.keymap.set("n", "gf", vim.lsp.buf.format, opts)
-				vim.keymap.set("n", "ge", vim.diagnostic.open_float, opts)
-				vim.keymap.set("n", "g[", vim.diagnostic.goto_prev, opts)
-				vim.keymap.set("n", "g]", vim.diagnostic.goto_next, opts)
+			-- LSP attach configuration (v0.11 style)
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+				callback = function(ev)
+					local bufnr = ev.buf
+					local client = vim.lsp.get_client_by_id(ev.data.client_id)
+					
+					-- Custom keymaps
+					local opts = { buffer = bufnr, silent = true }
+					vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+					vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+					vim.keymap.set("n", "gf", vim.lsp.buf.format, opts)
+					vim.keymap.set("n", "ge", vim.diagnostic.open_float, opts)
+					vim.keymap.set("n", "g[", vim.diagnostic.goto_prev, opts)
+					vim.keymap.set("n", "g]", vim.diagnostic.goto_next, opts)
 
-				-- Auto show diagnostics on cursor hold
-				vim.api.nvim_create_autocmd("CursorHold", {
-					buffer = bufnr,
-					callback = function()
-						local opts = {
-							focusable = false,
-							close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-							border = "rounded",
-							source = "always",
-							prefix = " ",
-							scope = "cursor",
-						}
-						vim.diagnostic.open_float(nil, opts)
-					end,
-				})
-			end
+					-- Auto show diagnostics on cursor hold
+					vim.api.nvim_create_autocmd("CursorHold", {
+						buffer = bufnr,
+						callback = function()
+							local diagnostic_opts = {
+								focusable = false,
+								close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+								border = "rounded",
+								source = "always",
+								prefix = " ",
+								scope = "cursor",
+							}
+							vim.diagnostic.open_float(nil, diagnostic_opts)
+						end,
+					})
+				end,
+			})
 
 			-- Configure diagnostics
 			vim.diagnostic.config({
@@ -67,7 +69,14 @@ return {
 					prefix = "●",
 					source = "always",
 				},
-				signs = true,
+				signs = {
+					text = {
+						[vim.diagnostic.severity.ERROR] = "✘",
+						[vim.diagnostic.severity.WARN] = "▲",
+						[vim.diagnostic.severity.HINT] = "⚑",
+						[vim.diagnostic.severity.INFO] = "ℹ",
+					},
+				},
 				underline = true,
 				update_in_insert = false,
 				severity_sort = true,
@@ -81,31 +90,8 @@ return {
 				},
 			})
 
-			-- Diagnostic signs (new method)
-			vim.diagnostic.config({
-				signs = {
-					text = {
-						[vim.diagnostic.severity.ERROR] = "✘",
-						[vim.diagnostic.severity.WARN] = "▲",
-						[vim.diagnostic.severity.HINT] = "⚑",
-						[vim.diagnostic.severity.INFO] = "ℹ",
-					},
-				},
-			})
-
-			-- Configure LSP servers (excluding lua_ls and yamlls for custom setup)
-			local servers = { "pyright", "ts_ls", "bashls", "jsonls", "terraformls" }
-			for _, lsp in ipairs(servers) do
-				lspconfig[lsp].setup({
-					capabilities = capabilities,
-					on_attach = on_attach,
-				})
-			end
-
-			-- Lua specific settings
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
+			-- Configure individual LSP servers
+			vim.lsp.config('lua_ls', {
 				settings = {
 					Lua = {
 						runtime = {
@@ -126,11 +112,7 @@ return {
 				},
 			})
 
-			-- yaml specific settings
-			print("Setting up yamlls with custom tags...")
-			lspconfig.yamlls.setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
+			vim.lsp.config('yamlls', {
 				settings = {
 					yaml = {
 						customTags = {
@@ -152,22 +134,9 @@ return {
 					},
 				},
 			})
-			print("yamlls setup completed with", #{
-				"!Equals sequence",
-				"!FindInMap sequence",
-				"!GetAtt scalar",
-				"!GetAZs scalar",
-				"!ImportValue scalar",
-				"!Join sequence",
-				"!Ref scalar",
-				"!Select sequence",
-				"!Split sequence",
-				"!Sub scalar",
-				"!And sequence",
-				"!Not sequence",
-				"!Sub sequence",
-				"!If sequence",
-			}, "custom tags")
+
+			-- Enable all configured LSP servers
+			vim.lsp.enable({ 'lua_ls', 'pyright', 'ts_ls', 'bashls', 'jsonls', 'yamlls', 'terraformls' })
 		end,
 	},
 
