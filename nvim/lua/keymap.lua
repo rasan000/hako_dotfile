@@ -30,7 +30,7 @@ vim.keymap.set("n", "M", "%", { noremap = true, silent = true })
 vim.keymap.set("v", "M", "%", { noremap = true, silent = true })
 
 -- nohighlight
-vim.keymap.set("n", "<leader>no", "<Cmd>noh<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>n", "<Cmd>noh<CR>", { noremap = true, silent = true })
 
 -- blackhole
 vim.keymap.set("n", "x", '"_x', { noremap = true, silent = true })
@@ -58,8 +58,13 @@ vim.keymap.set("n", "<C-e>", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent
 -- paste and move cursor to the end
 vim.keymap.set("n", "p", "p`]", { noremap = true, silent = true })
 vim.keymap.set("n", "P", "p`]", { noremap = true, silent = true })
+
 -- yank and move cursor to the end in visual mode
 vim.keymap.set("v", "y", "y`]", { noremap = true, silent = true })
+
+-- mark key bindings
+vim.keymap.set("n", "<leader>m", "`", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>m", "`", { noremap = true, silent = true })
 
 -- disable middle click
 vim.keymap.set({ "n", "i", "v" }, "<MiddleMouse>", "<Nop>")
