@@ -58,6 +58,8 @@ vim.keymap.set("n", "<C-e>", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent
 -- paste and move cursor to the end
 vim.keymap.set("n", "p", "p`]", { noremap = true, silent = true })
 vim.keymap.set("n", "P", "p`]", { noremap = true, silent = true })
+-- yank and move cursor to the end in visual mode
+vim.keymap.set("v", "y", "y`]", { noremap = true, silent = true })
 
 -- disable middle click
 vim.keymap.set({ "n", "i", "v" }, "<MiddleMouse>", "<Nop>")
