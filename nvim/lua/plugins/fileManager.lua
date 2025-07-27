@@ -13,7 +13,7 @@ return {
 							relative = "editor",
 							border = "rounded",
 							width = 50,
-							height = 60,
+							height = 50,
 							row = 1,
 							col = 1,
 						},
