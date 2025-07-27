@@ -10,7 +10,7 @@ vim.opt.wildmenu = true
 vim.opt.shell = "/usr/bin/zsh"
 
 -- disable wrap
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 -- disable netrw
 vim.g.loaded_netrw = 1
@@ -44,7 +44,8 @@ vim.opt.clipboard = "unnamedplus"
 -- row number
 vim.opt.cursorline = false -- Highlight current line
 vim.opt.number = true
-vim.opt.relativenumber = true
+-- vim.opt.relativenumber = true
+vim.opt.signcolumn = "yes"
 
 -- tab
 vim.opt.tabstop = 2
@@ -53,8 +54,7 @@ vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
--- wihtch wrap
-vim.opt.whichwrap = "b,s,h,l,<,>,[,]~"
+-- vim.opt.whichwrap = "b,s,h,l,<,>,[,]~"
 
 -- search
 vim.opt.ignorecase = true
@@ -65,8 +65,8 @@ vim.opt.showmatch = true
 vim.opt.mouse = "a"
 
 -- scroll settings
-vim.opt.scroll = 10 -- number of lines to scroll with Ctrl-u/Ctrl-d
-vim.opt.scrolloff = 3
+vim.opt.scroll = 8 -- number of lines to scroll with Ctrl-u/Ctrl-d
+vim.opt.scrolloff = 6
 
 -- split direction (open splits to right and below)
 vim.opt.splitright = true -- vertical splits open to the right

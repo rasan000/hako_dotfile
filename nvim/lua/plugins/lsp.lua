@@ -25,7 +25,7 @@ return {
 
 			-- Global LSP capabilities configuration (v0.11+ style)
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			vim.lsp.config('*', {
+			vim.lsp.config("*", {
 				capabilities = capabilities,
 			})
 
@@ -35,7 +35,7 @@ return {
 				callback = function(ev)
 					local bufnr = ev.buf
 					local client = vim.lsp.get_client_by_id(ev.data.client_id)
-					
+
 					-- Custom keymaps
 					local opts = { buffer = bufnr, silent = true }
 					vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
@@ -91,7 +91,7 @@ return {
 			})
 
 			-- Configure individual LSP servers
-			vim.lsp.config('lua_ls', {
+			vim.lsp.config("lua_ls", {
 				settings = {
 					Lua = {
 						runtime = {
@@ -112,7 +112,7 @@ return {
 				},
 			})
 
-			vim.lsp.config('yamlls', {
+			vim.lsp.config("yamlls", {
 				settings = {
 					yaml = {
 						customTags = {
@@ -136,7 +136,7 @@ return {
 			})
 
 			-- Enable all configured LSP servers
-			vim.lsp.enable({ 'lua_ls', 'pyright', 'ts_ls', 'bashls', 'jsonls', 'yamlls', 'terraformls' })
+			vim.lsp.enable({ "lua_ls", "pyright", "ts_ls", "bashls", "jsonls", "yamlls", "terraformls" })
 		end,
 	},
 
