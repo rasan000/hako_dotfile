@@ -3,10 +3,15 @@ vim.g.mapleader = " "
 
 -- ESC
 vim.keymap.set("i", "jj", "<ESC>", { noremap = true, silent = true })
+vim.keymap.set("i", "jk", "<ESC>", { noremap = true, silent = true })
+
+-- save
+vim.keymap.set("n", "<leader>w", "<Cmd>w<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>q", "<Cmd>q!<CR>", { noremap = true, silent = true })
 
 -- comment
-vim.keymap.set("n", "<leader>/", "gcc")
-vim.keymap.set("v", "<leader>/", "gc")
+vim.keymap.set("n", "<leader>/", "<cmd>normal gcc<cr>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>/", "<cmd>normal gc<cr>", { noremap = true, silent = true })
 
 -- move visual line
 vim.keymap.set("n", "j", "gj", { noremap = true, silent = true })
@@ -15,8 +20,8 @@ vim.keymap.set("v", "j", "gj", { noremap = true, silent = true })
 vim.keymap.set("v", "k", "gk", { noremap = true, silent = true })
 
 -- move row start and end
-vim.keymap.set("n", "<leader>h", "^", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>l", "$", { noremap = true, silent = true })
+vim.keymap.set("n", "H", "^", { noremap = true, silent = true })
+vim.keymap.set("n", "L", "$", { noremap = true, silent = true })
 
 -- redo
 vim.keymap.set("n", "U", "<C-r>", { noremap = true, silent = true })
@@ -60,11 +65,11 @@ vim.keymap.set("n", "<C-g>", ":%s///<left><Left>", { noremap = true, silent = tr
 vim.keymap.set("n", "<C-e>", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent = true })
 
 -- paste and move cursor to the end
-vim.keymap.set("n", "p", "p`]", { noremap = true, silent = true })
-vim.keymap.set("n", "P", "p`]", { noremap = true, silent = true })
+-- vim.keymap.set("n", "p", "p`]", { noremap = true, silent = true })
+-- vim.keymap.set("n", "P", "p`]", { noremap = true, silent = true })
 
 -- yank and move cursor to the end in visual mode
-vim.keymap.set("v", "y", "y`]", { noremap = true, silent = true })
+-- vim.keymap.set("v", "y", "y`]", { noremap = true, silent = true })
 
 -- mark key bindings
 vim.keymap.set("n", "<leader>m", "`", { noremap = true, silent = true })
