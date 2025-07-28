@@ -1,15 +1,23 @@
 return {
+	-- indent
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 		config = function()
+			local highlight = {
+				"Whitespace",
+			}
+			local hooks = require("ibl.hooks")
+			hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+				vim.api.nvim_set_hl(0, "Whitespace", { fg = "#363a42" })
+			end)
 			require("ibl").setup({
 				indent = {
 					char = "▏",
+					highlight = highlight,
 				},
 				scope = {
-					enabled = true,
-					show_start = false,
+					enabled = false,
 					show_end = false,
 				},
 			})
@@ -45,9 +53,6 @@ return {
 	{
 		"petertriho/nvim-scrollbar",
 		event = "VeryLazy",
-		dependencies = {
-			"kevinhwang91/nvim-hlslens",
-		},
 		config = function()
 			require("scrollbar").setup({
 				handlers = {
@@ -56,6 +61,17 @@ return {
 					diagnostics = true,
 				},
 				excluded_filetypes = { "cmp_menu", "cmp_docs", "TelescopePrompt" },
+			})
+		end,
+	},
+	--nvim-scrollbar dependency
+	{
+		"kevinhwang91/nvim-hlslens",
+		config = function()
+			require("hlslens").setup({
+				calm_down = true,
+				nearest_only = true,
+				nearest_float_when = "always",
 			})
 		end,
 	},

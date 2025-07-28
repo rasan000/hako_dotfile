@@ -9,9 +9,6 @@ vim.opt.wildmenu = true
 -- zsh
 vim.opt.shell = "/usr/bin/zsh"
 
--- disable wrap
-vim.opt.wrap = true
-
 -- disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -44,7 +41,7 @@ vim.opt.clipboard = "unnamedplus"
 -- row number
 vim.opt.cursorline = false -- Highlight current line
 vim.opt.number = true
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 vim.opt.signcolumn = "yes"
 
 -- tab
@@ -54,7 +51,7 @@ vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
--- vim.opt.whichwrap = "b,s,h,l,<,>,[,]~"
+vim.opt.whichwrap = "b,s,h,l,<,>,[,]~"
 
 -- search
 vim.opt.ignorecase = true
@@ -120,3 +117,8 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.formatoptions:remove({ "r", "o" })
 	end,
 })
+
+-- wrap and side scroll
+vim.opt.wrap = false
+vim.keymap.set("n", "<F3>", ":set relativenumber!<CR>", { noremap = true, silent = ture })
+vim.opt.sidescroll = 1

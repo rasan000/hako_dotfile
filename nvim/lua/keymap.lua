@@ -4,6 +4,10 @@ vim.g.mapleader = " "
 -- ESC
 vim.keymap.set("i", "jj", "<ESC>", { noremap = true, silent = true })
 
+-- comment
+vim.keymap.set("n", "<leader>/", "gcc")
+vim.keymap.set("v", "<leader>/", "gc")
+
 -- move visual line
 vim.keymap.set("n", "j", "gj", { noremap = true, silent = true })
 vim.keymap.set("n", "k", "gk", { noremap = true, silent = true })
@@ -67,7 +71,7 @@ vim.keymap.set("n", "<leader>m", "`", { noremap = true, silent = true })
 vim.keymap.set("v", "<leader>m", "`", { noremap = true, silent = true })
 
 -- disable middle click
-vim.keymap.set({ "n", "i", "v" }, "<MiddleMouse>", "<Nop>")
-vim.keymap.set({ "n", "i", "v" }, "<2-MiddleMouse>", "<Nop>")
-vim.keymap.set({ "n", "i", "v" }, "<3-MiddleMouse>", "<Nop>")
-vim.keymap.set({ "n", "i", "v" }, "<4-MiddleMouse>", "<Nop>")
+-- vim.keymap.set({ "n", "i", "v" }, "<MiddleMouse>", "<Nop>")
+-- vim.keymap.set({ "n", "i", "v" }, "<2-MiddleMouse>", "<Nop>")
+-- vim.keymap.set({ "n", "i", "v" }, "<3-MiddleMouse>", "<Nop>")
+-- vim.keymap.set({ "n", "i", "v" }, "<4-MiddleMouse>", "<Nop>")
