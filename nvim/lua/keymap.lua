@@ -28,12 +28,6 @@ vim.keymap.set("n", "U", "<C-r>", { noremap = true, silent = true })
 -- nohilight
 vim.keymap.set("n", "<ESC><ESC>", "<Cmd>noh<CR>", { noremap = true, silent = true })
 
--- all select
-vim.keymap.set("v", ",", function()
-	vim.cmd("normal! ggVG")
-end, { noremap = true, silent = true })
-vim.keymap.set("v", "v", "<S-v>", { noremap = true, silent = true })
-
 -- move {}
 vim.keymap.set("n", "M", "%", { noremap = true, silent = true })
 vim.keymap.set("v", "M", "%", { noremap = true, silent = true })
