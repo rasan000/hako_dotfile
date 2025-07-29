@@ -21,6 +21,12 @@ return {
 				preset = "modern",
 				win = {
 					border = "rounded",
+					width = { min = 20, max = 50 },
+					height = { min = 4, max = 20 },
+					padding = { 1, 2 },
+				},
+				layout = {
+					align = "bottom ",
 				},
 				spec = {
 					{ "<leader>f", group = "+find" },
@@ -127,7 +133,7 @@ return {
 			vim.keymap.set("n", "<leader>a", function()
 				harpoon:list():add()
 			end)
-			vim.keymap.set("n", "<C-h>", function()
+			vim.keymap.set("n", "<S-h>", function()
 				harpoon.ui:toggle_quick_menu(harpoon:list())
 			end)
 

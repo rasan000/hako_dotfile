@@ -54,5 +54,4 @@ function vcc() {
 }
 
 # Editor aliases
-alias vim='nvim'
 alias vi='nvim'
