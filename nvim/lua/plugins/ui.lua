@@ -30,11 +30,10 @@ return {
 			require("toggleterm").setup({
 				size = 20,
 				open_mapping = [[<c-t>]],
-				direction = "horizontal",
+				float = true,
+				direction = "float",
 				float_opts = {
 					border = "curved",
-					width = 150,
-					height = 25,
 				},
 				shade_terminals = true,
 			})

@@ -79,8 +79,8 @@ vim.opt.swapfile = false
 vim.opt.title = true
 
 -- undo file persistence
-vim.opt.undofile = true
-vim.opt.undodir = vim.fn.stdpath("data") .. "/undo"
+-- vim.opt.undofile = true
+-- vim.opt.undodir = vim.fn.stdpath("data") .. "/undo"
 
 -- cursor position restore
 vim.api.nvim_create_autocmd("BufRead", {
@@ -97,18 +97,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500 })
 	end,
 })
-
---IME
-vim.cmd([[
-    let &shell='/usr/bin/zsh'
-]])
-local zenhan = "DISPLAY=:0 /usr/local/bin/zenhan 0" -- must be set to your zenhan command path
-vim.api.nvim_set_keymap("i", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
-vim.api.nvim_set_keymap("n", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
-vim.api.nvim_set_keymap("v", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
-vim.api.nvim_set_keymap("i", "ｊｊ", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
-vim.api.nvim_set_keymap("i", "jj", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
-vim.api.nvim_set_keymap("i", "っ", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
 
 -- disable new line comment
 vim.api.nvim_create_autocmd("FileType", {

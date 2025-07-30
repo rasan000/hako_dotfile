@@ -29,8 +29,8 @@ return {
 						accept = "<C-e>",
 						accept_word = false,
 						accept_line = false,
-						next = "<M-]>",
-						prev = "<M-[>",
+						next = "<M-n>",
+						prev = "<M-p>",
 						dismiss = "<C-w>",
 					},
 				},
@@ -100,7 +100,6 @@ return {
 			vim.api.nvim_create_user_command("CopilotToggle", function()
 				_G.toggle_copilot_auto_trigger()
 			end, { desc = "Toggle Copilot auto trigger" })
-
 			-- toggle command
 			vim.keymap.set("n", "<leader>ct", "<Cmd>CopilotToggle<CR>", {})
 		end,

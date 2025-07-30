@@ -1,17 +1,27 @@
+--IME
+vim.cmd([[
+    let &shell='/usr/bin/zsh'
+]])
+local zenhan = "DISPLAY=:0 /usr/local/bin/zenhan 0" -- must be set to your zenhan command path
+
 -- leader
 vim.g.mapleader = " "
 
 -- ESC
 vim.keymap.set("i", "jk", "<ESC>", { noremap = true, silent = true })
 vim.keymap.set("i", "kj", "<ESC>", { noremap = true, silent = true })
-vim.keymap.set("i", "ｊｋ", "<ESC>", { noremap = true, silent = true })
-vim.keymap.set("i", "ｋｊ", "<ESC>", { noremap = true, silent = true })
-vim.keymap.set("v", "jk", "<ESC>", { noremap = true, silent = true })
-vim.keymap.set("v", "kj", "<ESC>", { noremap = true, silent = true })
-vim.keymap.set("c", "jk", "<ESC>", { noremap = true, silent = true })
+vim.keymap.set("i", "kj", "<ESC>", { noremap = true, silent = true })
+vim.keymap.set("i", "kj", "<ESC>", { noremap = true, silent = true })
+-- vim.keymap.set("v", "jk", "<ESC>", { noremap = true, silent = true })
+-- vim.keymap.set("v", "kj", "<ESC>", { noremap = true, silent = true })
+-- vim.keymap.set("c", "jk", "<ESC>", { noremap = true, silent = true })
 vim.keymap.set("c", "kj", "<ESC>", { noremap = true, silent = true })
-vim.keymap.set("o", "jk", "<ESC>", { noremap = true, silent = true })
-vim.keymap.set("o", "kj", "<ESC>", { noremap = true, silent = true })
+-- vim.keymap.set("o", "jk", "<ESC>", { noremap = true, silent = true })
+-- vim.keymap.set("o", "kj", "<ESC>", { noremap = true, silent = true })
+vim.keymap.set("i", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
+-- vim.api.nvim_set_keymap("v", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
+vim.keymap.set("i", "ｊk", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
 
 -- v+v to Shift+v
 vim.keymap.set("v", "v", "<S-v>", { noremap = true, silent = true })
