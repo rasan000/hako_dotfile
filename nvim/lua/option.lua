@@ -108,5 +108,4 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- wrap and side scroll
 vim.opt.wrap = false
-vim.keymap.set("n", "<F3>", ":set relativenumber!<CR>", { noremap = true, silent = ture })
 vim.opt.sidescroll = 1

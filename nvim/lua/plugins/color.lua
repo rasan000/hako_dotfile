@@ -38,7 +38,7 @@ return {
 		config = function()
 			require("nightfox").setup({
 				options = {
-					transparent = true,
+					transparent = false,
 					styles = {
 						comments = "italic",
 						keywords = "bold",
@@ -46,7 +46,7 @@ return {
 					},
 				},
 			})
-			vim.cmd("colorscheme nordfox")
+			vim.cmd("colorscheme nightfox") -- or any other nightfox variant
 		end,
 	},
 	-- nvim-web-devicons (use basic ASCII icons for compatibility)
