@@ -15,7 +15,7 @@ vim.keymap.set("c", "kj", "<ESC>", { noremap = true, silent = true })
 vim.keymap.set("i", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
 -- vim.api.nvim_set_keymap("n", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")< R>', { noremap = true })
 -- vim.api.nvim_set_keymap("v", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<jR>', { noremap = true })
-vim.keymap.set("i", "ｊk", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
+vim.keymap.set("i", "ｊｋ", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
 
 -- v+v to Shift+v
 vim.keymap.set("v", "v", "<C-v>", { noremap = true, silent = true })
@@ -79,14 +79,14 @@ vim.keymap.set("i", "<C-r>", "<C-r>+", { noremap = true, silent = true })
 vim.keymap.set("c", "<C-r>", "<C-r>+", { noremap = true, silent = true })
 
 -- replace
--- vim.keymap.set("n", "<C-g>", ":%s///g<left><left><Left>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-g>", ":%s///g<left><left><Left>", { noremap = true, silent = true })
 
 -- nvim-tree toggle
 vim.keymap.set("n", "<C-e>", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent = true })
 
 -- mark key bindings
--- vim.keymap.set("n", "<leader>m", "`", { noremap = true, silent = true })
--- vim.keymap.set("v", "<leader>m", "`", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>m", "`", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>m", "`", { noremap = true, silent = true })
 vim.keymap.set("n", "ml", "<Cmd>marks<CR>", { noremap = true, silent = true })
 vim.keymap.set("v", "ml", "<Cmd>marks<CR>", { noremap = true, silent = true })
 
