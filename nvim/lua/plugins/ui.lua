@@ -12,12 +12,19 @@ return {
 			end)
 			require("ibl").setup({
 				indent = {
-					char = "▏",
+					char = "│",
 					highlight = highlight,
 				},
+				whitespace = {
+					highlight = highlight,
+					remove_blankline_trail = false,
+				},
 				scope = {
-					enabled = false,
-					show_end = false,
+					enabled = true,
+				},
+				exclude = {
+					filetypes = {},
+					buftypes = {},
 				},
 			})
 		end,

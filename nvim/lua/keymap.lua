@@ -8,8 +8,8 @@ local zenhan = "DISPLAY=:0 /usr/local/bin/zenhan 0" -- must be set to your zenha
 vim.g.mapleader = " "
 
 -- ESC with save
-vim.keymap.set("i", "jk", "<ESC><Cmd>w<CR>", { noremap = true, silent = true })
-vim.keymap.set("i", "kj", "<ESC><Cmd>w<CR>", { noremap = true, silent = true })
+vim.keymap.set("i", "jk", "<ESC>", { noremap = true, silent = true })
+vim.keymap.set("i", "kj", "<ESC>", { noremap = true, silent = true })
 vim.keymap.set("c", "jk", "<ESC>", { noremap = true, silent = true })
 vim.keymap.set("c", "kj", "<ESC>", { noremap = true, silent = true })
 vim.keymap.set("i", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
@@ -18,7 +18,7 @@ vim.keymap.set("i", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', {
 vim.keymap.set("i", "ｊk", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
 
 -- v+v to Shift+v
-vim.keymap.set("v", "v", "<S-v>", { noremap = true, silent = true })
+vim.keymap.set("v", "v", "<C-v>", { noremap = true, silent = true })
 
 -- save
 vim.keymap.set("n", "<leader>w", "<Cmd>w<CR>", { noremap = true, silent = true })
@@ -51,7 +51,7 @@ vim.keymap.set("n", "M", "%", { noremap = true, silent = true })
 vim.keymap.set("v", "M", "%", { noremap = true, silent = true })
 
 -- nohighlight
-vim.keymap.set("n", "<leader>n", "<Cmd>noh<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>nh", "<Cmd>noh<CR>", { noremap = true, silent = true })
 
 -- blackhole
 vim.keymap.set("n", "x", '"_x', { noremap = true, silent = true })
@@ -79,14 +79,14 @@ vim.keymap.set("i", "<C-r>", "<C-r>+", { noremap = true, silent = true })
 vim.keymap.set("c", "<C-r>", "<C-r>+", { noremap = true, silent = true })
 
 -- replace
-vim.keymap.set("n", "<C-g>", ":%s///<left><Left>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<C-g>", ":%s///g<left><left><Left>", { noremap = true, silent = true })
 
 -- nvim-tree toggle
 vim.keymap.set("n", "<C-e>", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent = true })
 
 -- mark key bindings
-vim.keymap.set("n", "<leader>m", "`", { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>m", "`", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<leader>m", "`", { noremap = true, silent = true })
+-- vim.keymap.set("v", "<leader>m", "`", { noremap = true, silent = true })
 vim.keymap.set("n", "ml", "<Cmd>marks<CR>", { noremap = true, silent = true })
 vim.keymap.set("v", "ml", "<Cmd>marks<CR>", { noremap = true, silent = true })
 

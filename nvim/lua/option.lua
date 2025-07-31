@@ -63,7 +63,7 @@ vim.opt.mouse = "a"
 
 -- scroll settings
 vim.opt.scroll = 10 -- number of lines to scroll with Ctrl-u/Ctrl-d
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 20
 
 -- split direction (open splits to right and below)
 vim.opt.splitright = true -- vertical splits open to the right

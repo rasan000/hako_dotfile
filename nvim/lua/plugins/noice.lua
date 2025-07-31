@@ -7,6 +7,9 @@ return {
 		},
 		config = function()
 			require("noice").setup({
+				notify = {
+					enabled = true,
+				},
 				lsp = {
 					override = {
 						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -20,9 +23,6 @@ return {
 					long_message_to_split = true,
 					inc_rename = false,
 					lsp_doc_border = false,
-				},
-				notify = {
-					backend = "mini",
 				},
 			})
 
