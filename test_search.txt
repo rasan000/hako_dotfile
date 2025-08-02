@@ -1,3 +1,0 @@
-test file for search
-another line  
-third line with text

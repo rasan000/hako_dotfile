@@ -39,7 +39,7 @@ vim.opt.updatetime = 1000
 vim.opt.clipboard = "unnamedplus"
 
 -- row number
-vim.opt.cursorline = false -- Highlight current line
+vim.opt.cursorline = true -- Highlight current line
 vim.opt.number = true
 vim.opt.relativenumber = false
 vim.opt.signcolumn = "yes"

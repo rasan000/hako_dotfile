@@ -1,5 +1,5 @@
 local HEIGHT_RATIO = 0.8
-local WIDTH_RATIO = 0.8
+local WIDTH_RATIO = 0.2
 return {
 	-- nvim-tree
 	{
@@ -26,7 +26,7 @@ return {
 				view = {
 					float = {
 						-- disable floating window
-						enable = true,
+						enable = false,
 						open_win_config = function()
 							local screen_w = vim.opt.columns:get()
 							local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
