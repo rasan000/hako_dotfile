@@ -13,12 +13,18 @@ vim.keymap.set("i", "kj", "<ESC>", { noremap = true, silent = true })
 vim.keymap.set("c", "jk", "<ESC>", { noremap = true, silent = true })
 vim.keymap.set("c", "kj", "<ESC>", { noremap = true, silent = true })
 vim.keymap.set("i", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
--- vim.api.nvim_set_keymap("n", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")< R>', { noremap = true })
--- vim.api.nvim_set_keymap("v", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<jR>', { noremap = true })
+vim.keymap.set("n", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")< R>', { noremap = true })
+vim.keymap.set("v", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<jR>', { noremap = true })
 vim.keymap.set("i", "ｊｋ", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
 
 -- v+v to Shift+v
-vim.keymap.set("v", "v", "<C-v>", { noremap = true, silent = true })
+vim.keymap.set("v", "v", "<S-v>", { noremap = true, silent = true })
+
+-- remap : ;
+vim.keymap.set("n", ";", ":", { noremap = true, silent = true })
+vim.keymap.set("n", ":", ";", { noremap = true, silent = true })
+vim.keymap.set("v", ";", ":", { noremap = true, silent = true })
+vim.keymap.set("v", ":", ";", { noremap = true, silent = true })
 
 -- save
 vim.keymap.set("n", "<leader>w", "<Cmd>w<CR>", { noremap = true, silent = true })
@@ -37,18 +43,18 @@ vim.keymap.set("v", "j", "gj", { noremap = true, silent = true })
 vim.keymap.set("v", "k", "gk", { noremap = true, silent = true })
 
 -- move row start and end
-vim.keymap.set("n", "<leader>h", "^", { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>h", "^", { noremap = true, silent = true })
-vim.keymap.set("o", "<leader>h", "^", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>l", "$", { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>l", "$", { noremap = true, silent = true })
-vim.keymap.set("o", "<leader>l", "$", { noremap = true, silent = true })
+vim.keymap.set("n", "H", "^", { noremap = true, silent = true })
+vim.keymap.set("v", "H", "^", { noremap = true, silent = true })
+vim.keymap.set("o", "H", "^", { noremap = true, silent = true })
+vim.keymap.set("n", "L", "$", { noremap = true, silent = true })
+vim.keymap.set("v", "L", "$", { noremap = true, silent = true })
+vim.keymap.set("o", "L", "$", { noremap = true, silent = true })
 
 -- redo
 vim.keymap.set("n", "U", "<C-r>", { noremap = true, silent = true })
 -- move {}
-vim.keymap.set("n", "M", "%", { noremap = true, silent = true })
-vim.keymap.set("v", "M", "%", { noremap = true, silent = true })
+vim.keymap.set("n", "<TAB>", "%", { noremap = true, silent = true })
+vim.keymap.set("v", "<TAB>", "%", { noremap = true, silent = true })
 
 -- nohighlight
 vim.keymap.set("n", "<leader>nh", "<Cmd>noh<CR>", { noremap = true, silent = true })
@@ -60,19 +66,6 @@ vim.keymap.set("n", "d", '"_d', { noremap = true, silent = true })
 vim.keymap.set("n", "dd", '"_dd', { noremap = true, silent = true })
 vim.keymap.set("n", "D", '"_D', { noremap = true, silent = true })
 vim.keymap.set("v", "d", '"_d', { noremap = true, silent = true })
-
--- move when insert mode and command mode
-vim.keymap.set("i", "<C-f>", "<Right>", { noremap = true, silent = true })
-vim.keymap.set("i", "<C-b>", "<Left>", { noremap = true, silent = true })
-vim.keymap.set("i", "<C-n>", "<Down>", { noremap = true, silent = true })
-vim.keymap.set("i", "<C-p>", "<Up>", { noremap = true, silent = true })
-
--- command mode and search mode navigation
--- Disable default C-f behavior and map to Right
-vim.keymap.set("c", "<C-f>", "<Right>", { noremap = true, silent = false })
-vim.keymap.set("c", "<C-b>", "<Left>", { noremap = true, silent = false })
-vim.keymap.set("c", "<C-n>", "<Down>", { noremap = true, silent = false })
-vim.keymap.set("c", "<C-p>", "<Up>", { noremap = true, silent = false })
 
 -- paste
 vim.keymap.set("i", "<C-r>", "<C-r>+", { noremap = true, silent = true })
