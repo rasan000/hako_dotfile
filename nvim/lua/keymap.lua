@@ -17,7 +17,8 @@ vim.keymap.set("n", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")< R>', {
 vim.keymap.set("v", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<jR>', { noremap = true })
 vim.keymap.set("i", "ｊｋ", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
 
-vim.keymap.set("i", "<ESC><ESC>", "<Cmd>:call nohighlight<CR>", { noremap = true })
+-- no highlight
+vim.keymap.set("n", "<ESC><ESC>", "<Cmd>:call nohighlight<CR>", { noremap = true })
 
 -- v+v to Shift+v
 vim.keymap.set("v", "v", "<S-v>", { noremap = true, silent = true })
