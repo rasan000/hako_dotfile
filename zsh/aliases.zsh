@@ -39,6 +39,9 @@ alias t='tmux'
 alias tse='tmux new -s'
 alias tki='tmux kill-server'
 
+# python
+alias python='python3'
+
 # tmux ide function
 function ide() {
     tmux split-window -v 
