@@ -8,26 +8,23 @@ local zenhan = "DISPLAY=:0 /usr/local/bin/zenhan 0" -- must be set to your zenha
 vim.g.mapleader = " "
 
 -- ESC with save
-vim.keymap.set("i", "jk", "<ESC>", { noremap = true, silent = true })
-vim.keymap.set("i", "kj", "<ESC>", { noremap = true, silent = true })
-vim.keymap.set("c", "jk", "<ESC>", { noremap = true, silent = true })
-vim.keymap.set("c", "kj", "<ESC>", { noremap = true, silent = true })
+vim.keymap.set("i", "jj", "<ESC>", { noremap = true, silent = true })
+vim.keymap.set("i", "jk", "<ESC><Cmd>w", { noremap = true, silent = true })
+vim.keymap.set("c", "jj", "<ESC>", { noremap = true, silent = true })
+vim.keymap.set("c", "jk", "<ESC><Cmd>w", { noremap = true, silent = true })
 vim.keymap.set("i", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
 vim.keymap.set("n", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")< R>', { noremap = true })
 vim.keymap.set("v", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<jR>', { noremap = true })
 vim.keymap.set("i", "ｊｋ", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
 
+vim.keymap.set("i", "<ESC><ESC>", "<Cmd>:call nohighlight<CR>", { noremap = true })
+
 -- v+v to Shift+v
 vim.keymap.set("v", "v", "<S-v>", { noremap = true, silent = true })
 
 -- remap : ;
-vim.keymap.set("n", ";", ":", { noremap = true, silent = true })
-vim.keymap.set("n", ":", ";", { noremap = true, silent = true })
-vim.keymap.set("v", ";", ":", { noremap = true, silent = true })
-vim.keymap.set("v", ":", ";", { noremap = true, silent = true })
-
--- save
-vim.keymap.set("n", "<leader>w", "<Cmd>w<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, ";", ":", { noremap = true })
+vim.keymap.set({ "n", "v" }, ":", ";", { noremap = true })
 
 -- quit
 vim.keymap.set("n", "<leader>q", "<Cmd>q!<CR>", { noremap = true, silent = true })
@@ -52,12 +49,10 @@ vim.keymap.set("o", "L", "$", { noremap = true, silent = true })
 
 -- redo
 vim.keymap.set("n", "U", "<C-r>", { noremap = true, silent = true })
+
 -- move {}
 vim.keymap.set("n", "<TAB>", "%", { noremap = true, silent = true })
 vim.keymap.set("v", "<TAB>", "%", { noremap = true, silent = true })
-
--- nohighlight
-vim.keymap.set("n", "<leader>nh", "<Cmd>noh<CR>", { noremap = true, silent = true })
 
 -- blackhole
 vim.keymap.set("n", "x", '"_x', { noremap = true, silent = true })

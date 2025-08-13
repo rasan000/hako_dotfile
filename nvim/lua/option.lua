@@ -98,13 +98,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- disable new line comment
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "*",
-	callback = function()
-		vim.opt_local.formatoptions:remove({ "r", "o" })
-	end,
-})
+-- -- disable new line comment
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		vim.opt_local.formatoptions:remove({ "r", "o" })
+-- 	end,
+-- })
 
 -- wrap and side scroll
 vim.opt.wrap = false

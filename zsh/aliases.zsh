@@ -47,6 +47,13 @@ function ide() {
     tmux select-pane -t 0  
 }
 
+# system function - split into 4 panes
+function sys() {
+    tmux split-window -v 
+    tmux split-window -h 
+    tmux split-window -v 
+}
+
 # tmux vc function - split right 20% and start claude
 function vcc() {
     tmux split-window -h 'claude'
