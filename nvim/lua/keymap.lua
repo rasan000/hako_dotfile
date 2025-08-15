@@ -27,9 +27,6 @@ vim.keymap.set("v", "v", "<S-v>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, ";", ":", { noremap = true })
 vim.keymap.set({ "n", "v" }, ":", ";", { noremap = true })
 
--- quit
-vim.keymap.set("n", "<leader>q", "<Cmd>q!<CR>", { noremap = true, silent = true })
-
 -- comment
 vim.keymap.set("n", "<leader>/", "<cmd>normal gcc<cr>", { noremap = true, silent = true })
 vim.keymap.set("v", "<leader>/", "<cmd>normal gc<cr>", { noremap = true, silent = true })
@@ -64,11 +61,11 @@ vim.keymap.set("n", "D", '"_D', { noremap = true, silent = true })
 vim.keymap.set("v", "d", '"_d', { noremap = true, silent = true })
 
 -- paste
-vim.keymap.set("i", "<C-r>", "<C-r>+", { noremap = true, silent = true })
-vim.keymap.set("c", "<C-r>", "<C-r>+", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-v>", "<C-r>+", { noremap = true })
+vim.keymap.set("c", "<C-v>", "<C-r>+", { noremap = true })
 
 -- replace
-vim.keymap.set("n", "<C-g>", ":%s///g<left><left><Left>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-g>", ":%s///g<left><left><Left>", { noremap = true })
 
 -- nvim-tree toggle
 vim.keymap.set("n", "<C-e>", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent = true })
@@ -84,5 +81,5 @@ vim.keymap.set("n", "va", "ggVG", { noremap = true, silent = true })
 
 -- funcitonkey bindings
 -- F1 help
-vim.keymap.set("n", "<F2>", ":set wrap!<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<F3>", ":set relativenumber!<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<F2>", ":set wrap!<CR>", { noremap = true })
+vim.keymap.set("n", "<F3>", ":set relativenumber!<CR>", { noremap = true })

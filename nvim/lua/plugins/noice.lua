@@ -7,6 +7,10 @@ return {
 			"rcarriga/nvim-notify",
 		},
 		config = function()
+			vim.keymap.set("n", "<leader>dn", function()
+				require("notify").dismiss({ silent = true })
+			end, { desc = "Dismiss notifications" })
+
 			require("noice").setup({
 				notify = {
 					enabled = true,
