@@ -2,8 +2,10 @@
 import os
 import sys
 
+
 def unused_function():
     pass
+
 
 def test_function():
     x = 1
@@ -11,7 +13,9 @@ def test_function():
     print("Hello World")
     return x + y
 
+
 # Unused variable
 unused_var = "test"
 
 test_function()
+

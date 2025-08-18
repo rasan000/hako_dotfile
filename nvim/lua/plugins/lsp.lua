@@ -19,8 +19,10 @@ return {
 					"jsonls",
 					"yamlls",
 					"terraformls",
+					"dockerls",
+					"rust-analyzer",
 				},
-				automatic_installation = false,
+				automatic_installation = true,
 			})
 
 			-- Global LSP capabilities configuration (v0.11+ style)
@@ -139,8 +141,28 @@ return {
 				},
 			})
 
+			-- configure rust lint
+			vim.lsp.config("rust-analyzer", {
+				settings = {
+					["rust-analyzer"] = {
+						checkOnSave = {
+							command = "clippy",
+						},
+					},
+				},
+			})
+
 			-- Enable all configured LSP servers
-			vim.lsp.enable({ "lua_ls", "pyright", "ts_ls", "bashls", "jsonls", "yamlls", "terraformls" })
+			vim.lsp.enable({
+				"lua_ls",
+				"pyright",
+				"ts_ls",
+				"bashls",
+				"jsonls",
+				"yamlls",
+				"terraformls",
+				"rust-analyzer",
+			})
 		end,
 	},
 
@@ -287,6 +309,7 @@ return {
 						"prettier",
 						"black",
 						"isort",
+						"rustfmt",
 					},
 					automatic_installation = true,
 				})
