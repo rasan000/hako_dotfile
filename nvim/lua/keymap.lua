@@ -62,7 +62,6 @@ vim.keymap.set("v", "d", '"_d', { noremap = true, silent = true })
 
 -- paste
 vim.keymap.set("i", "<C-v>", "<C-r>+", { noremap = true })
-vim.keymap.set("c", "<C-v>", "<C-r>+", { noremap = true })
 
 -- replace
 vim.keymap.set("n", "<C-g>", ":%s///g<left><left><Left>", { noremap = true })
