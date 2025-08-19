@@ -82,3 +82,4 @@ vim.keymap.set("n", "va", "ggVG", { noremap = true, silent = true })
 -- F1 help
 vim.keymap.set("n", "<F2>", ":set wrap!<CR>", { noremap = true })
 vim.keymap.set("n", "<F3>", ":set relativenumber!<CR>", { noremap = true })
+vim.keymap.set("n", "<F7>", "<Cmd>Lazy load all<CR>", { noremap = true })

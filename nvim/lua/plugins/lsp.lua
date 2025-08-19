@@ -20,7 +20,7 @@ return {
 					"yamlls",
 					"terraformls",
 					"dockerls",
-					"rust-analyzer",
+					-- "rust-analyzer",
 				},
 				automatic_installation = true,
 			})
@@ -142,15 +142,15 @@ return {
 			})
 
 			-- configure rust lint
-			vim.lsp.config("rust-analyzer", {
-				settings = {
-					["rust-analyzer"] = {
-						checkOnSave = {
-							command = "clippy",
-						},
-					},
-				},
-			})
+			-- vim.lsp.config("rust-analyzer", {
+			-- 	settings = {
+			-- 		["rust-analyzer"] = {
+			-- 			checkOnSave = {
+			-- 				command = "clippy",
+			-- 			},
+			-- 		},
+			-- 	},
+			-- })
 
 			-- Enable all configured LSP servers
 			vim.lsp.enable({
@@ -161,7 +161,7 @@ return {
 				"jsonls",
 				"yamlls",
 				"terraformls",
-				"rust-analyzer",
+				-- "rust-analyzer",
 			})
 		end,
 	},
@@ -309,7 +309,6 @@ return {
 						"prettier",
 						"black",
 						"isort",
-						"rustfmt",
 					},
 					automatic_installation = true,
 				})

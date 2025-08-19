@@ -152,7 +152,7 @@ if dein#load_state($CACHE . '/dein')
   call dein#add('tpope/vim-commentary')
   call dein#add('gosukiwi/vim-smartpairs')
   call dein#add('dominikduda/vim_current_word')
-Lokaltog/vim-easymotion
+  Lokaltog/vim-easymotion
   " 必要なプラグインを追加
   call dein#end()
   call dein#save_state()

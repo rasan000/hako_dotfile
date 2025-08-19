@@ -23,25 +23,13 @@ return {
 					},
 				},
 				presets = {
-					bottom_search = true,
-					command_palette = false,
+					bottom_search = false,
+					command_palette = true,
 					long_message_to_split = true,
 					inc_rename = false,
 					lsp_doc_border = false,
 				},
-				-- Fix for colon/semicolon swap
-				routes = {
-					{
-						view = "cmdline",
-						filter = { event = "cmdline" },
-						opts = {
-							-- Ensure noice doesn't interfere with : mapping
-							enter = false,
-						},
-					},
-				},
 			})
-
 			-- noice keymaps
 			vim.keymap.set("n", "<leader>nl", "<cmd>Noice last<cr>", { noremap = true, silent = true })
 			vim.keymap.set("n", "<leader>ne", "<cmd>Noice errors<cr>", { noremap = true, silent = true })
