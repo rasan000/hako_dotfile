@@ -37,4 +37,5 @@ rm -rf zenhan zenhan.zip
 # npm modulese
 npm install -g aws-cdk
 npm install -g typescript ts-node
+npm install -g prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint
 npm install -g @anthropic-ai/claude-code

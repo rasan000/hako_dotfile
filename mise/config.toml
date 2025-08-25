@@ -1,10 +1,12 @@
 [tools]
+1password = "latest"
 aws-sam = "latest"
 azure-cli = "latest"
 fzf = "latest"
 jq = "latest"
 lazydocker = "latest"
 lazygit = "latest"
+lua-language-server = "latest"
 neovim = "latest"
 node = "latest"
 pipx = "latest"

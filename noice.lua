@@ -4,7 +4,7 @@ return {
 		event = "VeryLazy",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
+			-- "rcarriga/nvim-notify",
 		},
 		config = function()
 			vim.keymap.set("n", "<leader>dn", function()

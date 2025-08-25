@@ -32,7 +32,7 @@ return {
 	},
 	-- color scheme
 	{
-		"nightfox/nightfox.nvim",
+		"EdenEast/nightfox.nvim",
 		opts = {
 			options = {
 				transparent = false,
