@@ -4,8 +4,11 @@ vim.cmd([[
 ]])
 local zenhan = "DISPLAY=:0 /usr/local/bin/zenhan 0" -- must be set to your zenhan command path
 
--- leader
+-- eader
 vim.g.mapleader = " "
+
+-- vertical window
+vim.keymap.set("n", "<C-w><Enter>", "<C-w>v", { noremap = true, silent = true })
 
 -- ESC with save
 vim.keymap.set("i", "jj", "<ESC>", { noremap = true, silent = true })

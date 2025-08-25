@@ -39,11 +39,7 @@ unsetopt LIST_BEEP
 
 # PATH exports
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:/opt/nvim/"
-
-# Volta configuration
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+# export PATH="$PATH:/opt/nvim/"
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
@@ -56,3 +52,4 @@ DOTFILES_DIR="$(dirname "$(readlink -f "$HOME/.zshrc")")"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+eval "$(~/.local/bin/mise activate zsh)"

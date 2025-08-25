@@ -1,5 +1,4 @@
 # Dotfiles installation Makefile
-
 # Variables
 DOTFILES_DIR := $(shell pwd)
 HOME_DIR := $(HOME)
@@ -15,15 +14,6 @@ packages:
 	@echo "Installing packages and linters..."
 	@chmod +x $(DOTFILES_DIR)/install.sh
 	@$(DOTFILES_DIR)/install.sh
-
-help:
-	@echo "Available targets:"
-	@echo "  setup     - Full setup (packages + dotfiles)"
-	@echo "  packages  - Install packages only"
-	@echo "  install   - Install dotfiles only"
-	@echo "  clean     - Remove broken symlinks"
-	@echo "  uninstall - Remove all symlinks"
-	@echo "  help      - Show this help message"
 
 install: clean $(HOME_DIR)/.config
 	@echo "Creating symlinks for dotfiles..."
