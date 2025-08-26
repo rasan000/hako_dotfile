@@ -31,7 +31,7 @@ return {
             accept_line = false,
             next = "<M-n>",
             prev = "<M-p>",
-            dismiss = "<C-d>",
+            dismiss = "<Esc>",
           },
         },
         filetypes = {

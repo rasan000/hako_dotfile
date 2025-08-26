@@ -11,14 +11,27 @@ return {
       --
       -- See :h blink-cmp-config-keymap for defining your own keymap
       keymap = {
-        preset = 'enter',
+        preset = 'none',
+        ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+        ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+        ["<CR>"] = { "accept", "fallback" },
+        ["<Esc>"] = { "hide", "fallback" },
+        ["<C-p>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-n>"] = { "scroll_documentation_down", "fallback" },
+
+        -- for copilot
+        ["<C-y>"] = { "fallback" },
       },
 
       appearance = {
         nerd_font_variant = 'mono'
       },
 
-      completion = { documentation = { auto_show = false } },
+      completion = {
+        list = {
+          selection = { preselect = false }
+        }
+      },
 
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
