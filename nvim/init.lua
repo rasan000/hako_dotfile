@@ -7,7 +7,6 @@ if not vim.g.vscode then
 	require("option")
 	require("keymap")
 	require("plugin")
-	require("lsp")
 else
 	require("code")
 end

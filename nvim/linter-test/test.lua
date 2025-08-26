@@ -1,13 +1,13 @@
 -- Lua test file for linter
 local function unused_function()
-	return "unused"
+  return "unused"
 end
 
 local function test_function()
-	local x = 1
-	local y = 2
-	print("Hello from Lua")
-	return x + y
+  local x = 1
+  local y = 2
+  print("Hello from Lua")
+  return x + y
 end
 
 -- This should trigger luacheck warnings

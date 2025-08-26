@@ -6,6 +6,7 @@ import sys
 def unused_function():
     pass
 
+
 def test_function():
     x = 1
     y = 2
@@ -17,4 +18,3 @@ def test_function():
 unused_var = "test"
 
 test_function()
-

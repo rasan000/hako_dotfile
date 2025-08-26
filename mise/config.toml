@@ -1,16 +1,35 @@
 [tools]
-1password = "latest"
 aws-sam = "latest"
 azure-cli = "latest"
-fzf = "latest"
-jq = "latest"
 lazydocker = "latest"
 lazygit = "latest"
-lua-language-server = "latest"
-neovim = "latest"
-node = "latest"
-pipx = "latest"
-python = "latest"
-rust = "latest"
 terraform = "latest"
+
+lua-language-server = "latest"
+
+#editors
+neovim = "latest"
 vim = "latest"
+
+# node
+node = "latest"
+"npm:eslint" = "latest"
+"npm:eslint_d" = "latest"
+"npm:prettier" = "latest"
+
+# python
+pipx = "latest"
+"pipx:black" = "latest"
+"pipx:pylint" = "latest"
+python = "latest"
+
+# rust
+rust = "latest"
+
+# formatter
+fzf = "latest"
+jq = "latest"
+# linter
+cfn-lint = "latest"
+yamllint = "latest"
+shellcheck = "latest"
