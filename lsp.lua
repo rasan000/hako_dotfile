@@ -2,11 +2,6 @@ return {
 	-- LSP Config
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = {
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
-			"hrsh7th/cmp-nvim-lsp",
-		},
 		config = function()
 			-- Mason setup
 			require("mason").setup()
@@ -117,29 +112,6 @@ return {
 				},
 			})
 
-			vim.lsp.config("yamlls", {
-				settings = {
-					yaml = {
-						customTags = {
-							"!Equals sequence",
-							"!FindInMap sequence",
-							"!GetAtt scalar",
-							"!GetAZs scalar",
-							"!ImportValue scalar",
-							"!Join sequence",
-							"!Ref scalar",
-							"!Base64",
-							"!Select sequence",
-							"!Split sequence",
-							"!Sub scalar",
-							"!And sequence",
-							"!Not sequence",
-							"!Sub sequence",
-							"!If sequence",
-						},
-					},
-				},
-			})
 
 			-- configure rust lint
 			-- vim.lsp.config("rust-analyzer", {
@@ -205,69 +177,6 @@ return {
 		end,
 	},
 
-	-- Autocompletion
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
-			"L3MON4D3/LuaSnip",
-			"saadparwaiz1/cmp_luasnip",
-		},
-		config = function()
-			local cmp = require("cmp")
-			local luasnip = require("luasnip")
-
-			cmp.setup({
-				snippet = {
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
-					end,
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-d>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
-					["<C-n>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_next_item()
-						elseif luasnip.expand_or_jumpable() then
-							luasnip.expand_or_jump()
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-					["<C-p>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-				}),
-				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
-				}, {
-					{ name = "buffer" },
-					{ name = "path" },
-				}),
-			})
-		end,
-	},
-
-	-- Mason (LSP installer)
-	{
-		"williamboman/mason.nvim",
-		build = ":MasonUpdate",
-	},
-
 	-- Mason integration for linters
 	{
 		"rshkarin/mason-nvim-lint",
@@ -325,15 +234,5 @@ return {
 				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 			},
 		},
-	},
-	{ -- optional cmp completion source for require statements and module annotations
-		"hrsh7th/nvim-cmp",
-		opts = function(_, opts)
-			opts.sources = opts.sources or {}
-			table.insert(opts.sources, {
-				name = "lazydev",
-				group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-			})
-		end,
 	},
 }
