@@ -1,7 +1,10 @@
 return {
   {
     'saghen/blink.cmp',
-    dependencies = { 'rafamadriz/friendly-snippets' },
+    dependencies = {
+      'rafamadriz/friendly-snippets',
+      'L3MON4D3/LuaSnip'
+    },
     version = '1.*',
     opts = {
       -- C-space: Open menu or open docs if already open
@@ -13,11 +16,13 @@ return {
       keymap = {
         preset = 'none',
         ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+        ["<C-p>"] = { "select_prev", "snippet_backward", "fallback" },
+        ["<Up>"] = { "select_prev", "snippet_backward", "fallback" },
         ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+        ["<C-n>"] = { "select_next", "snippet_forward", "fallback" },
+        ["<Down>"] = { "select_next", "snippet_forward", "fallback" },
         ["<CR>"] = { "accept", "fallback" },
         ["<Esc>"] = { "hide", "fallback" },
-        ["<C-p>"] = { "scroll_documentation_up", "fallback" },
-        ["<C-n>"] = { "scroll_documentation_down", "fallback" },
 
         -- for copilot
         ["<C-y>"] = { "fallback" },
@@ -29,16 +34,32 @@ return {
 
       completion = {
         list = {
-          selection = { preselect = false }
-        }
+          selection = { preselect = false, autoinsert = true }
+        },
+        documentation = { auto_show = true }
       },
 
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
       },
 
+      snippet = {
+        preset = 'luasnip'
+      },
+
       fuzzy = { implementation = "prefer_rust_with_warning" }
     },
     opts_extend = { "sources.default" }
+  },
+
+  --lua snip
+  {
+    "L3MON4D3/LuaSnip",
+    config = function()
+      require("luasnip").setup({})
+      require("luasnip.loaders.from_snipmate").lazy_load()
+      require("luasnip.loaders.from_lua").lazy_load()
+      require("luasnip.loaders.from_vscode").lazy_load()
+    end,
   }
 }

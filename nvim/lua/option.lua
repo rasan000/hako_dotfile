@@ -14,22 +14,19 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.showtabline = 1
 
--- move cursor to the end of the line
--- vim.opt.virtualedit = "onemore"
-
 vim.opt.autoread = true
 -- auto read
 vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
-	pattern = "*",
-	command = "checktime",
+  pattern = "*",
+  command = "checktime",
 })
 
 -- Automatically reload files when they change on disk
 vim.api.nvim_create_autocmd({ "FileChangedShellPost" }, {
-	pattern = "*",
-	callback = function()
-		vim.notify("File changed on disk. Buffer reloaded.", vim.log.levels.WARN)
-	end,
+  pattern = "*",
+  callback = function()
+    vim.notify("File changed on disk. Buffer reloaded.", vim.log.levels.WARN)
+  end,
 })
 
 -- Check for file changes more frequently
@@ -41,7 +38,7 @@ vim.opt.clipboard = "unnamedplus"
 -- row number
 vim.opt.cursorline = false -- Highlight current line
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 vim.opt.signcolumn = "yes"
 
 -- tab
@@ -84,18 +81,18 @@ vim.opt.title = true
 
 -- cursor position restore
 vim.api.nvim_create_autocmd("BufRead", {
-	callback = function()
-		vim.api.nvim_exec('silent! normal! g`"zv', false)
-	end,
+  callback = function()
+    vim.api.nvim_exec('silent! normal! g`"zv', false)
+  end,
 })
 
 vim.opt.inccommand = split
 
 -- hilight yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-	callback = function()
-		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500 })
-	end,
+  callback = function()
+    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500 })
+  end,
 })
 
 -- -- disable new line comment

@@ -8,6 +8,7 @@ interface User {
   name: string;
   age: number;
 }
+im;
 
 function unusedFunction() {
   return "unused";
@@ -35,5 +36,7 @@ function badFunction(param) {
 function anotherFunction() {
   return 42;
 }
+
+rafuu;
 
 testFunction();

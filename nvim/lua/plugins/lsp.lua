@@ -3,19 +3,21 @@ return
   'neovim/nvim-lspconfig',
   dependencies = { "saghen/blink.cmp" },
   config = function()
-    local lspconfig = require("lspconfig")
-    local capabilities = require("blink.cmp").get_lsp_capabilities({
-      textDocument = {
-        completion = {
-          completionItem = {
-            snippetSupport = true,
+    -- 全LSPサーバーに共通のcapabilitiesを設定
+    vim.lsp.config('*', {
+      capabilities = require("blink.cmp").get_lsp_capabilities({
+        textDocument = {
+          completion = {
+            completionItem = {
+              snippetSupport = true,
+            }
           }
+        },
+        foldingRange = {
+          dynamicRegistration = false,
+          lineFoldingOnly = true,
         }
-      },
-      foldingRange = {
-        dynamicRegistration = false,
-        lineFoldingOnly = true,
-      }
+      })
     })
     --lsp setup
     vim.lsp.enable({
