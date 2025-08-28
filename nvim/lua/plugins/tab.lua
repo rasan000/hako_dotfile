@@ -9,9 +9,6 @@ return {
     opts = {
       auto_hide = true,
       animation = false,
-      sidebar_filetypes = {
-        ["no-neck-pain"] = {}
-      }
     },
     config = function()
       vim.api.nvim_set_keymap("n", "gt", "<cmd>BufferNext<CR>", { noremap = true, silent = true })

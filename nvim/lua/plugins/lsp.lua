@@ -3,7 +3,7 @@ return
   'neovim/nvim-lspconfig',
   dependencies = { "saghen/blink.cmp" },
   config = function()
-    -- 全LSPサーバーに共通のcapabilitiesを設定
+    -- default lsp config(use blink.cmp to set capabilities)
     vim.lsp.config('*', {
       capabilities = require("blink.cmp").get_lsp_capabilities({
         textDocument = {
@@ -19,6 +19,7 @@ return
         }
       })
     })
+
     --lsp setup
     vim.lsp.enable({
       'lua_ls',
@@ -26,7 +27,8 @@ return
       'yamlls',
       'pyright',
       'jsonls',
-      'bashls'
+      'bashls',
+      'rust_analyzer',
     })
 
 
@@ -35,7 +37,6 @@ return
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
         local bufnr = ev.buf
-        local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
         -- Custom keymaps
         local opts = { buffer = bufnr, silent = true }

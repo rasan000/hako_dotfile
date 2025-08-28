@@ -32,11 +32,8 @@ function badFunction(param) {
   return param;
 }
 
+RTCEncodedAudioFrame;
 // Missing return type
 function anotherFunction() {
   return 42;
 }
-
-rafuu;
-
-testFunction();

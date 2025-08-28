@@ -9,7 +9,7 @@ return {
         "!ImportValue scalar",
         "!Join sequence",
         "!Ref scalar",
-        "!Base64",
+        "!Base64 sequence",
         "!Select sequence",
         "!Split sequence",
         "!Sub scalar",

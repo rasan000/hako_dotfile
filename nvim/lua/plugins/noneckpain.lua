@@ -16,7 +16,7 @@ return {
         enableOnVimEnter = true,
         enableOnTabEnter = true,
       },
-      width = 200,
+      width = 150
     })
     vim.keymap.set("n", "<leader>z", "<cmd>NoNeckPain<CR>")
   end,

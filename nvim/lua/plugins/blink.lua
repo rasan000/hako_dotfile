@@ -7,12 +7,6 @@ return {
     },
     version = '1.*',
     opts = {
-      -- C-space: Open menu or open docs if already open
-      -- C-n/C-p or Up/Down: Select next/previous item
-      -- C-e: Hide menu
-      -- C-k: Toggle signature help (if signature.enabled = true)
-      --
-      -- See :h blink-cmp-config-keymap for defining your own keymap
       keymap = {
         preset = 'none',
         ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
@@ -43,8 +37,8 @@ return {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
       },
 
-      snippet = {
-        preset = 'luasnip'
+      snippets = {
+        preset = 'luasnip',
       },
 
       fuzzy = { implementation = "prefer_rust_with_warning" }
@@ -55,10 +49,11 @@ return {
   --lua snip
   {
     "L3MON4D3/LuaSnip",
+    version = "v2.*",
+    dependencies = {
+      { "rafamadriz/friendly-snippets" },
+    },
     config = function()
-      require("luasnip").setup({})
-      require("luasnip.loaders.from_snipmate").lazy_load()
-      require("luasnip.loaders.from_lua").lazy_load()
       require("luasnip.loaders.from_vscode").lazy_load()
     end,
   }
