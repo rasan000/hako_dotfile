@@ -19,7 +19,6 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 # install mise
 curl https://mise.run | sh
-# echo 'eval "$(~/.local/bin/mise activate zsh)"' >>~/.zshrc
 
 # Install Oh My Zsh plugins
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
