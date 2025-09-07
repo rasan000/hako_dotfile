@@ -16,7 +16,7 @@ return {
         ["<C-n>"] = { "select_next", "snippet_forward", "fallback" },
         ["<Down>"] = { "select_next", "snippet_forward", "fallback" },
         ["<CR>"] = { "accept", "fallback" },
-        ["<Esc>"] = { "hide", "fallback" },
+        ["<C-d>"] = { "hide", "fallback" },
 
         -- for copilot
         ["<C-y>"] = { "fallback" },

@@ -4,18 +4,11 @@ DOTFILES_DIR := $(shell pwd)
 HOME_DIR := $(HOME)
 
 # Targets for dotfiles
-.PHONY: all setup install packages clean uninstall help
-
-all: install
-
-setup: packages install
-
-packages:
-	@echo "Installing packages and linters..."
-	@chmod +x $(DOTFILES_DIR)/install.sh
-	@$(DOTFILES_DIR)/install.sh
-
-install: clean $(HOME_DIR)/.config
+.PHONY: install uninstall
+	
+install: 
+	$(HOME_DIR)/.config/nvim
+	clean $(HOME_DIR)/.config/mise
 	@echo "Creating symlinks for dotfiles..."
 	@if [ -f $(HOME_DIR)/.vimrc ] && [ ! -L $(HOME_DIR)/.vimrc ]; then \
 		echo "Backing up existing .vimrc to .vimrc.backup"; \
@@ -37,7 +30,6 @@ install: clean $(HOME_DIR)/.config
 		mv $(HOME_DIR)/.p10k.zsh $(HOME_DIR)/.p10k.zsh.backup; \
 	fi
 	@ln -sfn $(DOTFILES_DIR)/zsh/.p10k.zsh $(HOME_DIR)/.p10k.zsh
-	@ln -sfn $(DOTFILES_DIR)/nvim $(HOME_DIR)/.config/nvim
 	@echo "Setting up .gitconfig..."
 	@if [ ! -f $(HOME_DIR)/.gitconfig ]; then \
 		echo "Creating new .gitconfig"; \
@@ -50,13 +42,13 @@ install: clean $(HOME_DIR)/.config
 	else \
 		echo "Dotfiles .gitconfig already included"; \
 	fi
-	@echo "Linters and formatters will be automatically installed by Mason when you open Neovim"
-	@echo "Symlinks and linters installation completed!"
-
-clean:
-	@echo "Cleaning broken symlinks..."
-	@find $(HOME_DIR) -maxdepth 1 -name ".*" -type l ! -exec test -e {} \; -delete 2>/dev/null || true
-	@find $(HOME_DIR)/.config -maxdepth 1 -name "nvim" -type l ! -exec test -e {} \; -delete 2>/dev/null || true
+	# make nvim symlink
+	@rm -rf $(HOME_DIR)/.config/nvim
+	@ln -sfn $(DOTFILES_DIR)/nvim $(HOME_DIR)/.config/nvim
+	# make mise symlink
+	@rm -rf $(HOME_DIR)/.config/mise
+	@ln -sfn $(DOTFILES_DIR)/mise $(HOME_DIR)/.config/mise
+	@echo "Install and Symlinks cleating!"
 
 uninstall:
 	@echo "Removing dotfile symlinks..."
@@ -66,9 +58,3 @@ uninstall:
 	@rm -f $(HOME_DIR)/.p10k.zsh
 	@rm -f $(HOME_DIR)/.config/nvim
 	@echo "Symlinks removed!"
-
-# Ensure .config directory exists
-$(HOME_DIR)/.config:
-	@mkdir -p $(HOME_DIR)/.config
-
-install: $(HOME_DIR)/.config

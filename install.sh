@@ -19,7 +19,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 # install mise
 curl https://mise.run | sh
-echo 'eval "$(~/.local/bin/mise activate zsh)"' >>~/.zshrc
+# echo 'eval "$(~/.local/bin/mise activate zsh)"' >>~/.zshrc
 
 # Install Oh My Zsh plugins
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
@@ -33,9 +33,3 @@ unzip -q zenhan.zip
 chmod u+x zenhan/bin64/zenhan.exe
 sudo mv zenhan/bin64/zenhan.exe /usr/local/bin/zenhan
 rm -rf zenhan zenhan.zip
-
-# npm modulese
-npm install -g aws-cdk
-npm install -g typescript ts-node
-npm install -g prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint
-npm install -g @anthropic-ai/claude-code
