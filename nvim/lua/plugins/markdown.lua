@@ -1,16 +1,8 @@
 return {
-  {
-    'dkarter/bullets.vim',
-    ft = { 'markdown', 'text', 'gitcommit' },
-    config = function()
-      vim.g.bullets_enabled_file_types = {
-        'markdown',
-        'text',
-        'gitcommit',
-        'scratch'
-      }
-
-      vim.g.bullets_set_mappings = 1
-    end,
-  }
+  'ixru/nvim-markdown',
+  ft = 'markdown',
+  config = function()
+    -- disable preview
+    vim.g.vim_markdown_conceal = 0
+  end
 }

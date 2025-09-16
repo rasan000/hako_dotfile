@@ -9,10 +9,10 @@ return {
     opts = {
       keymap = {
         preset = 'none',
-        ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+        -- ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
         ["<C-p>"] = { "select_prev", "snippet_backward", "fallback" },
         ["<Up>"] = { "select_prev", "snippet_backward", "fallback" },
-        ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+        -- ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
         ["<C-n>"] = { "select_next", "snippet_forward", "fallback" },
         ["<Down>"] = { "select_next", "snippet_forward", "fallback" },
         ["<CR>"] = { "accept", "fallback" },
@@ -28,7 +28,7 @@ return {
 
       completion = {
         list = {
-          selection = { preselect = false, autoinsert = true }
+          selection = { preselect = false, auto_insert = true }
         },
         documentation = { auto_show = true }
       },

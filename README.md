@@ -24,11 +24,14 @@ Before running the setup, install the following on Windows:
 - make clean -> Remove broken symlinks
 - make uninstall -> Remove all symlinks
 
+```lua
+
+```
+
 # windows
 
 - ime_controle.ahk-
   - win + R
-  - shell:startu
 
 - font
   - use MesloLGS NF Regular

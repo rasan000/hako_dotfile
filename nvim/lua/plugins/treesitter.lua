@@ -31,13 +31,24 @@ return {
           "typescript",
           "terraform",
         },
-        sync_install = false,
-        -- avoidance the erro lua
+        sync_install = true,
         highlight = { enable = true },
         indent = { enable = true },
-        autotag = { enable = true },
       })
     end,
+  },
+
+  -- ts-autotag
+  {
+    "windwp/nvim-ts-autotag",
+    ft = { "html", "xml", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte", "vue", "tsx", "jsx" },
+    config = function()
+      require('nvim-ts-autotag').setup({
+        enable_close = true,           -- Auto close tags
+        enable_rename = true,          -- Auto rename pairs of tags
+        enable_close_on_slash = false, -- Auto close on trailing </
+      })
+    end
   },
 
   -- context

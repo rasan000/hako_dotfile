@@ -45,12 +45,16 @@ return {
           {
             filter = {
               any = {
-                { event = "msg_show", kind = "emsg", find = "E486:" },
-                { event = "msg_show", kind = "emsg", find = "E492:" },
-                { event = "msg_show", kind = "emsg", find = "end_col" },
-                { event = "msg_show", kind = "",     find = "written" },
-                { event = "notify",   kind = "warn", find = "Config" },
-                { event = "notify",   kind = "warn", find = "tbl%." },
+                { event = "msg_show", kind = "emsg",      find = "E486:" },
+                { event = "msg_show", kind = "emsg",      find = "E492:" },
+                { event = "msg_show", kind = "emsg",      find = "end_col" },
+                { event = "msg_show", kind = "",          find = "written" },
+                { event = "notify",   kind = "warn",      find = "Config" },
+                -- deprecated message
+                { event = "msg_show", kind = "",          find = "vim%.tbl_islist" },
+                { event = "msg_show", kind = "warn",      find = "vim%.tbl_islist" },
+                { event = "msg_show", kind = "echo",      find = "tbl_islist" },
+                { event = "msg_show", find = "deprecated" },
               }
             },
             opts = { skip = true },
