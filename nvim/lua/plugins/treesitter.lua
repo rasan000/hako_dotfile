@@ -10,6 +10,7 @@ return {
         ensure_installed = {
           "c",
           "yaml",
+          "toml",
           "xml",
           "sql",
           "java",
@@ -31,7 +32,8 @@ return {
           "terraform",
         },
         sync_install = false,
-        highlight = { enable = false },
+        -- avoidance the erro lua
+        highlight = { enable = true },
         indent = { enable = true },
         autotag = { enable = true },
       })

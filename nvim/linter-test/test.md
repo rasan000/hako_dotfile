@@ -1,5 +1,8 @@
 # Markdown Test File
 
+- test
+-
+
 This is a test markdown file for linter testing.
 
 ## Issues that should trigger markdownlint
@@ -8,9 +11,18 @@ This is a test markdown file for linter testing.
 
 Multiple blank lines below:
 
-
-
 ## Another Section
 
-- Item 1
 - Item 2
+- Item 2
+- test
+- test
+
+- test
+  - test
+  -
+
+- [x] test
+  - [x] test
+
+## trest

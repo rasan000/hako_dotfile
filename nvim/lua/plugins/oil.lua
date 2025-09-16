@@ -182,6 +182,6 @@ return
     },
   },
   dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-  vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" }),
+  vim.keymap.set("n", "<C-e>", "<CMD>Oil<CR>", { desc = "Open parent directory" }),
   lazy = false,
 }

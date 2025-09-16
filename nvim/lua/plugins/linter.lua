@@ -14,9 +14,9 @@ return {
         typescript = { "eslint_d" },
         javascriptreact = { "eslint_d" },
         typescriptreact = { "eslint_d" },
-        markdown = { "markdownlint" },
+        -- markdown = { "markdownlint" },
         -- json = { "eslint_d" },
-        --for cloudformation
+        -- for cloudformation
         yaml = { "cfn_lint" },
       }
 

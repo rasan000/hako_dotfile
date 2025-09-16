@@ -4,7 +4,14 @@ vim.cmd([[
 ]])
 local zenhan = "DISPLAY=:0 /usr/local/bin/zenhan 0" -- must be set to your zenhan command path
 
--- eader
+-- emacs style cursor movement in insert mode
+vim.keymap.set({ "i", "c" }, "<C-b>", "<Left>", { noremap = true, silent = true })
+vim.keymap.set({ "i", "c" }, "<C-f>", "<Right>", { noremap = true, silent = true })
+vim.keymap.set({ "i", "c" }, "<C-p>", "<Up>", { noremap = true, silent = true })
+vim.keymap.set({ "i", "c" }, "<C-n>", "<Down>", { noremap = true, silent = true })
+vim.keymap.set({ "i", "c" }, "<C-h>", "<BS>", { noremap = true, silent = true })
+
+-- leader
 vim.g.mapleader = " "
 
 -- vertical window
@@ -13,11 +20,7 @@ vim.keymap.set("n", "<C-w><Enter>", "<C-w>v", { noremap = true, silent = true })
 -- ESC with save
 vim.keymap.set("i", "jj", "<ESC>", { noremap = true, silent = true })
 vim.keymap.set("i", "jk", "<ESC><Cmd>w<CR>", { noremap = true, silent = true })
-vim.keymap.set("c", "jj", "<ESC>", { noremap = true, silent = true })
-vim.keymap.set("c", "jk", "<ESC><Cmd>w<CR>", { noremap = true, silent = true })
 vim.keymap.set("i", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
-vim.keymap.set("n", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
-vim.keymap.set("v", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
 vim.keymap.set("i", "ｊｋ", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
 
 -- no highlight
@@ -41,40 +44,29 @@ vim.keymap.set("v", "j", "gj", { noremap = true, silent = true })
 vim.keymap.set("v", "k", "gk", { noremap = true, silent = true })
 
 -- move row start and end
-vim.keymap.set("n", "H", "^", { noremap = true, silent = true })
-vim.keymap.set("v", "H", "^", { noremap = true, silent = true })
-vim.keymap.set("o", "H", "^", { noremap = true, silent = true })
-vim.keymap.set("n", "L", "$", { noremap = true, silent = true })
-vim.keymap.set("v", "L", "$", { noremap = true, silent = true })
-vim.keymap.set("o", "L", "$", { noremap = true, silent = true })
-
--- redo
-vim.keymap.set("n", "U", "<C-r>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v", "o" }, "H", "^", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v", "o" }, "L", "$", { noremap = true, silent = true })
 
 -- move {}
 vim.keymap.set("n", "<TAB>", "%", { noremap = true, silent = true })
 vim.keymap.set("v", "<TAB>", "%", { noremap = true, silent = true })
 
 -- blackhole
+-- virtual mode x is cut
 vim.keymap.set("n", "x", '"_x', { noremap = true, silent = true })
 vim.keymap.set("n", "X", '"_X', { noremap = true, silent = true })
-vim.keymap.set("n", "d", '"_d', { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "d", '"_d', { noremap = true, silent = true })
 vim.keymap.set("n", "dd", '"_dd', { noremap = true, silent = true })
 vim.keymap.set("n", "D", '"_D', { noremap = true, silent = true })
-vim.keymap.set("v", "d", '"_d', { noremap = true, silent = true })
 
 -- paste
-vim.keymap.set("i", "<C-v>", "<C-r>+", { noremap = true })
+vim.keymap.set({ "i", "c" }, "<C-v>", "<C-r>+", { noremap = true })
+vim.keymap.set("c", "<C-g>", "<C-v>", { noremap = true })
 
 -- replace
 vim.keymap.set("n", "<C-g>", ":%s///g<left><left><Left>", { noremap = true })
 
--- nvim-tree toggle
-vim.keymap.set("n", "<C-e>", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent = true })
-
 -- mark key bindings
-vim.keymap.set("n", "<leader>m", "`", { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>m", "`", { noremap = true, silent = true })
 vim.keymap.set("n", "ml", "<Cmd>marks<CR>", { noremap = true, silent = true })
 vim.keymap.set("v", "ml", "<Cmd>marks<CR>", { noremap = true, silent = true })
 
@@ -85,4 +77,3 @@ vim.keymap.set("n", "va", "ggVG", { noremap = true, silent = true })
 -- F1 help
 vim.keymap.set("n", "<F2>", ":set wrap!<CR>", { noremap = true })
 vim.keymap.set("n", "<F3>", ":set relativenumber!<CR>", { noremap = true })
-vim.keymap.set("n", "<F7>", "<Cmd>Lazy load all<CR>", { noremap = true })

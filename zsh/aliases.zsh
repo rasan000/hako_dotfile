@@ -5,6 +5,12 @@ compdef dc='docker compose'
 compdef k=kubectl
 compdef t=tmux
 
+# obsidian alias
+alias obs='cd /mnt/c/Obsidian/myTasks'
+
+# nvim editor
+alias envim='cd ~/.config/nvim'
+
 ## ls aliases
 alias ll='ls -alF'
 alias la='ls -A'

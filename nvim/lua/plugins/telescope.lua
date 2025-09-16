@@ -6,25 +6,26 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       local actions = require("telescope.actions")
-
       require("telescope").setup({
         defaults = {
           file_ignore_patterns = { "node_modules", ".git" },
+          sorting_strategy = "ascending",
+          winblend = 4,
+          layout_strategy = "horizontal",
+          layout_config = {
+            height = 0.9,
+            prompt_position = "bottom",
+          },
           mappings = {
             n = {
               ["<C-a>"] = actions.send_to_qflist + actions.open_qflist,
+              ["<Esc>"] = actions.close,
             },
             i = {
               ["<C-a>"] = actions.send_to_qflist + actions.open_qflist,
+              ["<Esc>"] = actions.close,
             },
           },
-        },
-        sorting_strategy = "ascending",
-        winblend = 4,
-        layout_strategy = "vertical",
-        layout_config = {
-          height = 0.9,
-          prompt_position = "top",
         },
         extensions = {
           coc = {
@@ -32,25 +33,11 @@ return {
           },
         },
       })
-      vim.api.nvim_set_keymap(
-        "n",
-        "<leader>ff",
-        "<cmd>Telescope find_files<CR>",
-        { noremap = true, silent = true }
-      )
-      vim.api.nvim_set_keymap(
-        "n",
-        "<leader>fg",
-        "<cmd>Telescope live_grep <CR>",
-        { noremap = true, silent = true }
-      )
-      vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { noremap = true, silent = true })
-      vim.api.nvim_set_keymap(
-        "n",
-        "<leader>fh",
-        "<cmd>Telescope help_tags<CR>",
-        { noremap = true, silent = true }
-      )
+
+      vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>")
+      vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
+      vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>")
+      vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>")
     end,
   },
   {
@@ -62,7 +49,6 @@ return {
   {
     "BurntSushi/ripgrep",
   },
-
   -- telescope option
   {
     "danielfalk/smart-open.nvim",

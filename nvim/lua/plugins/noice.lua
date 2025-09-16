@@ -7,13 +7,16 @@ return {
       "rcarriga/nvim-notify",
     },
     config = function()
-      vim.keymap.set("n", "<leader>dn", function()
-        require("notify").dismiss({ silent = true })
-      end, { desc = "Dismiss notifications" })
+      vim.keymap.set("n", "<leader>dn",
+        function()
+          require("notify").dismiss({ silent = true })
+        end,
+        { desc = "Dismiss notifications" })
 
       require("noice").setup({
-        notify = {
-          enabled = true,
+        -- classic cmdline
+        cmdline = {
+          view = "cmdline",
         },
         messages = {
           enabled = true,
@@ -31,16 +34,35 @@ return {
           },
         },
         presets = {
-          bottom_search = false,
-          command_palette = true,
-          long_message_to_split = true,
+          bottom_search = true,
+          command_palette = false,
+          long_message_to_split = false,
           inc_rename = false,
           lsp_doc_border = true,
+        },
+        -- hidden messages
+        routes = {
+          {
+            filter = {
+              any = {
+                { event = "msg_show", kind = "emsg", find = "E486:" },
+                { event = "msg_show", kind = "emsg", find = "E492:" },
+                { event = "msg_show", kind = "emsg", find = "end_col" },
+                { event = "msg_show", kind = "",     find = "written" },
+                { event = "notify",   kind = "warn", find = "Config" },
+                { event = "notify",   kind = "warn", find = "tbl%." },
+              }
+            },
+            opts = { skip = true },
+          },
         },
       })
       -- noice keymaps
       vim.keymap.set("n", "<leader>nl", "<cmd>Noice last<cr>", { noremap = true, silent = true })
+      vim.keymap.set("n", "<leader>nh", "<cmd>Noice history<cr>", { noremap = true, silent = true })
       vim.keymap.set("n", "<leader>ne", "<cmd>Noice errors<cr>", { noremap = true, silent = true })
+      vim.keymap.set("n", "<leader>nd", "<cmd>Noice dismiss<cr>", { noremap = true, silent = true })
+      vim.keymap.set("n", "<leader>nt", "<cmd>Noice telescope<cr>", { noremap = true, silent = true })
     end,
   },
 }

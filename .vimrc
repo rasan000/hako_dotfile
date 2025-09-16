@@ -1,6 +1,3 @@
-"treeを開く
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
-
 " インサートモードを離れた時、zenhan.exeを使ってIMEをオフにする
 if has('win32') || has('win64')
   let s:zenhan = 'zenhan.exe'
@@ -25,6 +22,8 @@ endif
 inoremap jj <ESC>
 inoremap ｊｊ <ESC>
 inoremap っｊ <ESC>
+inoremap jk <ESC><Cmd>w<CR>
+inoremap ｊｋ <ESC>
 
 " 表示行での移動にする
 nnoremap j gj
@@ -47,9 +46,6 @@ xnoremap c "_C
 " 選択状態でのxは切り取り用
 nnoremap x "_x
 nnoremap X "_X
-
-" ddも削除。コピーしたいときはvisualモード
-nnoremap dd "_dd
 
 " カーソル下の単語を、置換後の文字列の入力を待つ状態にする
 nnoremap <C-g> :%s;\<<C-R><C-W>\>;g<Left><Left>;
@@ -110,16 +106,6 @@ set shell=/usr/bin/zsh
 " 行末まで移動可能
 set virtualedit=onemore
 
-" undo永続化
-if has('persistent_undo')
-	let undo_path = expand('~/.vim/undo')
-  if !isdirectory(undo_path)
-    call mkdir(undo_path, 'p')
-  endif
-	exe 'set undodir=' .. undo_path
-	set undofile
-endif
-
 "" dein.vimの自動インストールと設定
 let $CACHE = expand('~/.cache')
 if !isdirectory($CACHE)
@@ -152,7 +138,7 @@ if dein#load_state($CACHE . '/dein')
   call dein#add('tpope/vim-commentary')
   call dein#add('gosukiwi/vim-smartpairs')
   call dein#add('dominikduda/vim_current_word')
-  Lokaltog/vim-easymotion
+  call dein#add('Lokaltog/vim-easymotion')
   " 必要なプラグインを追加
   call dein#end()
   call dein#save_state()
