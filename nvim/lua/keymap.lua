@@ -20,7 +20,7 @@ vim.keymap.set("n", "<C-w><Enter>", "<C-w>v", { noremap = true, silent = true })
 -- ESC with save
 vim.keymap.set("i", "jj", "<ESC>", { noremap = true, silent = true })
 vim.keymap.set("i", "jk", "<ESC><Cmd>w<CR>", { noremap = true, silent = true })
-vim.keymap.set("i", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
+vim.keymap.set({ "i", "v", "c", "n" }, "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
 vim.keymap.set("i", "ｊｋ", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
 
 -- no highlight
@@ -65,6 +65,7 @@ vim.keymap.set("c", "<C-g>", "<C-v>", { noremap = true })
 
 -- replace
 vim.keymap.set("n", "<C-g>", ":%s///g<left><left><Left>", { noremap = true })
+
 
 -- mark key bindings
 vim.keymap.set("n", "ml", "<Cmd>marks<CR>", { noremap = true, silent = true })

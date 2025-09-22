@@ -14,19 +14,19 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.showtabline = 1
 
-vim.opt.autoread = true
 -- auto read
+vim.opt.autoread = true
 vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
-  pattern = "*",
-  command = "checktime",
+    pattern = "*",
+    command = "checktime",
 })
 
 -- Automatically reload files when they change on disk
 vim.api.nvim_create_autocmd({ "FileChangedShellPost" }, {
-  pattern = "*",
-  callback = function()
-    vim.notify("File changed on disk. Buffer reloaded.", vim.log.levels.WARN)
-  end,
+    pattern = "*",
+    callback = function()
+        vim.notify("File changed on disk. Buffer reloaded.", vim.log.levels.WARN)
+    end,
 })
 
 -- Check for file changes more frequently
@@ -42,9 +42,9 @@ vim.opt.relativenumber = false
 vim.opt.signcolumn = "yes"
 
 -- tab
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.softtabstop = 2
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
@@ -81,18 +81,18 @@ vim.opt.title = true
 
 -- cursor position restore
 vim.api.nvim_create_autocmd("BufRead", {
-  callback = function()
-    vim.api.nvim_exec('silent! normal! g`"zv', false)
-  end,
+    callback = function()
+        vim.api.nvim_exec('silent! normal! g`"zv', false)
+    end,
 })
 
 vim.opt.inccommand = split
 
 -- hilight yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500 })
-  end,
+    callback = function()
+        vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500 })
+    end,
 })
 
 -- -- disable new line comment
@@ -106,3 +106,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- wrap and side scroll
 vim.opt.wrap = false
 vim.opt.sidescroll = 1
+
+-- visualize whitespace
+vim.opt.list = true
+vim.opt.listchars = {
+    tab = "▸ ",
+    trail = "·",
+    eol = "↲",
+    extends = "…",
+    precedes = "…",
+    space = "·",
+}
