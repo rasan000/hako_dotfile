@@ -7,6 +7,11 @@ bindings = [{ mouse = "Right", action = "Paste"}]
 [selection]
 save_to_clipboard = true
 
+[keyboard]
+bindings = [
+    { key = "Space", mods = "Control", chars = "\u0000" }
+]
+
 [window]
 padding = { x = 8 , y = 4}
 

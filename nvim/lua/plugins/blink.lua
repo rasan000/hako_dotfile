@@ -8,17 +8,15 @@ return {
         version = '1.*',
         opts = {
             keymap = {
-                preset = 'none',
-                -- ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+                preset = "enter",
                 ["<C-p>"] = { "select_prev", "snippet_backward", "fallback" },
                 ["<Up>"] = { "select_prev", "snippet_backward", "fallback" },
-                -- ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
                 ["<C-n>"] = { "select_next", "snippet_forward", "fallback" },
                 ["<Down>"] = { "select_next", "snippet_forward", "fallback" },
                 ["<CR>"] = { "accept", "fallback" },
                 ["<C-d>"] = { "hide", "fallback" },
 
-                -- for copilot
+                -- for copilot for neovim
                 ["<C-y>"] = { "fallback" },
             },
 

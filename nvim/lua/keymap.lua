@@ -29,9 +29,9 @@ vim.keymap.set("n", "<ESC><ESC>", "<Cmd>noh <CR>", { noremap = true })
 -- v+v to Shift+v
 vim.keymap.set("v", "v", "<S-v>", { noremap = true, silent = true })
 
--- remap : ;
-vim.keymap.set({ "n", "v" }, ";", ":", { noremap = true })
-vim.keymap.set({ "n", "v" }, ":", ";", { noremap = true })
+-- remap : ; (for US keyboard)
+-- vim.keymap.set({ "n", "v" }, ";", ":", { noremap = true })
+-- vim.keymap.set({ "n", "v" }, ":", ";", { noremap = true })
 
 -- comment
 vim.keymap.set("n", "<leader>/", "<cmd>normal gcc<cr>", { noremap = true, silent = true })

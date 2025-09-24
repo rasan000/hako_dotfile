@@ -26,6 +26,14 @@ Parameters:
     Type: String
     AllowedValues: [prod, dev, test]
     ConstraintDescription: must specify prod, dev, or test.
+  AmiId:
+    Description: test ami id.
+    Default: test
+    Type: String
+  testParame:
+    Description: test parameter.
+    Default: test
+    Type: String
 
 Conditions:
   CreateProdResources: !Equals [!Ref EnvType, prod]
@@ -35,13 +43,14 @@ Resources:
   EC2Instance:
     Type: "AWS::EC2::Instance"
     Properties:
-      ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
+      ImageId: !Ref AmiId
       InstanceType:
         !If [
           CreateProdResources,
           c1.xlarge,
           !If [CreateDevResources, m1.large, m1.small],
         ]
+
   MountPoint:
     Type: "AWS::EC2::VolumeAttachment"
     Condition: CreateProdResources
