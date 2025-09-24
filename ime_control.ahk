@@ -5,6 +5,7 @@ $^h::
 }
 
 ; muhenkan(vk1D) numpad
+vk1D::Send "{vk1D}"
 vk1D & j::Send "{Numpad1}"
 vk1D & k::Send "{Numpad2}" 
 vk1D & l::Send "{Numpad3}"
@@ -18,6 +19,7 @@ vk1D & m::Send "{Numpad0}"
 vk1D & n::Send "{NumLock}"
 
 ; henkan(vd1C) move vim style
+vk1C::Send "{vk1C}"
 vk1C & h::Send "{Left}"
 vk1C & j::Send "{Down}"
 vk1C & k::Send "{Up}"
