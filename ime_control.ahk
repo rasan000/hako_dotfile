@@ -4,27 +4,32 @@ $^h::
     Send "{Backspace}"
 }
 
-; muhenkan(vk1D) numpad
-vk1D::Send "{vk1D}"
-vk1D & j::Send "{Numpad1}"
-vk1D & k::Send "{Numpad2}" 
-vk1D & l::Send "{Numpad3}"
-vk1D & u::Send "{Numpad4}"
-vk1D & i::Send "{Numpad5}"
-vk1D & o::Send "{Numpad6}"
-vk1D & 7::Send "{Numpad7}"
-vk1D & 8::Send "{Numpad8}"
-vk1D & 9::Send "{Numpad9}"
-vk1D & m::Send "{Numpad0}"
-vk1D & n::Send "{NumLock}"
+; space key to type space
+Space::Send("{Space}")
+^Space::Send("^{Space}")
++Space::Send("+{Space}")
+^+Space::Send("^+{Space}")
 
-; henkan(vd1C) move vim style
-vk1C::Send "{vk1C}"
-vk1C & h::Send "{Left}"
-vk1C & j::Send "{Down}"
-vk1C & k::Send "{Up}"
-vk1C & l::Send "{Right}"
-vk1C & y::Send "{Home}"
-vk1C & u::Send "{PgDn}"
-vk1C & i::Send "{PgUp}"
-vk1C & o::Send "{End}"
+; space key to move 
+Space & y::Send "{Home}"
+Space & u::Send "{PgDn}"
+Space & i::Send "{PgUp}"
+Space & o::Send "{End}"
+Space & h::Send "{left}"
+Space & j::Send "{down}"
+Space & k::Send "{up}"
+Space & l::Send "{right}"
+
+; space key to function
+Space & 1::Send "{F1}"
+Space & 2::Send "{F2}"
+Space & 3::Send "{F3}"
+Space & 4::Send "{F4}"
+Space & 5::Send "{F5}"
+Space & 6::Send "{F6}"
+Space & 7::Send "{F7}"
+Space & 8::Send "{F8}"
+Space & 9::Send "{F9}"
+Space & 0::Send "{F10}"
+Space & -::Send "{F11}"
+Space & ^::Send "{F12}"

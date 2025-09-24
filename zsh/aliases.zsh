@@ -9,7 +9,7 @@ compdef t=tmux
 alias obs='cd /mnt/c/Obsidian/myTasks'
 
 # nvim editor
-alias envim='cd ~/.config/nvim'
+alias envim='cd ~/.config/nvim && nvim .'
 
 ## ls aliases
 alias ll='ls -alF'
