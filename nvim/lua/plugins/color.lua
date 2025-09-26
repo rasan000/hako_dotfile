@@ -13,7 +13,7 @@ return {
             },
         },
         config = function()
-            vim.cmd("colorscheme nightfox") -- or any other nightfox variant
+            vim.cmd("colorscheme carbonfox") -- or any other nightfox variant
         end,
     },
     -- nvim-web-devicons (use basic ASCII icons for compatibility)

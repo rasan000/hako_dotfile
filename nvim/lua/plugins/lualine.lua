@@ -5,7 +5,7 @@ return
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
         options = {
-            theme = "nightfox",
+            theme = "carbonfox",
             globalstatus = true,
         },
         sections = {

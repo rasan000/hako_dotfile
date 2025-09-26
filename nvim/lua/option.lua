@@ -50,6 +50,16 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.whichwrap = "b,s,h,l,<,>,[,]~"
 
+-- for yaml, markdown
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "markdown", "yaml", "yml" },
+    callback = function()
+        vim.opt_local.tabstop = 2
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.softtabstop = 2
+    end,
+})
+
 -- search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true

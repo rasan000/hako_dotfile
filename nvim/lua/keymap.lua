@@ -20,18 +20,14 @@ vim.keymap.set("n", "<C-w><Enter>", "<C-w>v", { noremap = true, silent = true })
 -- ESC with save
 vim.keymap.set("i", "jj", "<ESC>", { noremap = true, silent = true })
 vim.keymap.set("i", "jk", "<ESC><Cmd>w<CR>", { noremap = true, silent = true })
-vim.keymap.set({ "i", "v", "c", "n" }, "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
-vim.keymap.set("i", "ｊｋ", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
+vim.keymap.set("i", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
+vim.keymap.set("n", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
 
 -- no highlight
-vim.keymap.set("n", "<ESC><ESC>", "<Cmd>noh <CR>", { noremap = true })
+vim.keymap.set("n", "<leader>no", "<Cmd>noh<CR>", { noremap = true })
 
 -- v+v to Shift+v
 vim.keymap.set("v", "v", "<S-v>", { noremap = true, silent = true })
-
--- remap : ; (for US keyboard)
--- vim.keymap.set({ "n", "v" }, ";", ":", { noremap = true })
--- vim.keymap.set({ "n", "v" }, ":", ";", { noremap = true })
 
 -- comment
 vim.keymap.set("n", "<leader>/", "<cmd>normal gcc<cr>", { noremap = true, silent = true })
