@@ -34,7 +34,7 @@ return
 
         -- cfn-lsp-extra configuration
         vim.lsp.config('cfn-lsp-extra', {
-            cmd = { vim.fn.expand('~/.local/bin/cfn-lsp-extra') },
+            cmd = { 'mise', 'exec', '--', 'cfn-lsp-extra' }, -- mise経由で実行
             filetypes = { 'yaml.cloudformation', 'json.cloudformation' },
             root_markers = { '.git' },
             settings = {
