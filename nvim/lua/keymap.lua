@@ -1,9 +1,3 @@
---IME
-vim.cmd([[
-    let &shell='/usr/bin/zsh'
-]])
-local zenhan = "DISPLAY=:0 /usr/local/bin/zenhan 0" -- must be set to your zenhan command path
-
 -- emacs style cursor movement in insert mode
 vim.keymap.set({ "i", "c" }, "<C-b>", "<Left>", { noremap = true, silent = true })
 vim.keymap.set({ "i", "c" }, "<C-f>", "<Right>", { noremap = true, silent = true })
@@ -20,8 +14,6 @@ vim.keymap.set("n", "<C-w><Enter>", "<C-w>v", { noremap = true, silent = true })
 -- ESC with save
 vim.keymap.set("i", "jj", "<ESC>", { noremap = true, silent = true })
 vim.keymap.set("i", "jk", "<ESC><Cmd>w<CR>", { noremap = true, silent = true })
-vim.keymap.set("i", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
-vim.keymap.set("n", "<ESC>", '<ESC><Cmd>:call system("' .. zenhan .. '")<CR>', { noremap = true })
 
 -- no highlight
 vim.keymap.set("n", "<leader>no", "<Cmd>noh<CR>", { noremap = true })
@@ -69,6 +61,9 @@ vim.keymap.set("v", "ml", "<Cmd>marks<CR>", { noremap = true, silent = true })
 
 -- all select
 vim.keymap.set("n", "va", "ggVG", { noremap = true, silent = true })
+
+-- mark jump
+vim.keymap.set({ "n", "v" }, "<leader>m", "`", { noremap = true, silent = true })
 
 -- funcitonkey bindings
 -- F1 help
