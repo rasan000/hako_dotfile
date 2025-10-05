@@ -29,6 +29,17 @@ return
             'jsonls',
             'bashls',
             'rust_analyzer',
+            'cfn-lsp-extra'
+        })
+
+        -- cfn-lsp-extra configuration
+        vim.lsp.config('cfn-lsp-extra', {
+            cmd = { vim.fn.expand('~/.local/bin/cfn-lsp-extra') },
+            filetypes = { 'yaml.cloudformation', 'json.cloudformation' },
+            root_markers = { '.git' },
+            settings = {
+                documentFormatting = false,
+            },
         })
 
 

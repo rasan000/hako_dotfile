@@ -43,7 +43,7 @@ Resources:
   EC2Instance:
     Type: "AWS::EC2::Instance"
     Properties:
-      ImageId: !Ref AmiId
+      ImageId: !Ref A
       InstanceType:
         !If [
           CreateProdResources,
