@@ -12,52 +12,41 @@ $Esc:: {
     Send "{Esc}{vk1D}"
 }
 
-; Space with timeout control
-Space::
-{
-    if KeyWait("Space", "T0")  ; no timeout
-        Send "{Space}"  ; single press
-    ; if timeout occurs, do nothing (combination key was pressed)
-}
-^Space::Send("^{Space}")
-+Space::Send("+{Space}")
-^+Space::Send("^+{Space}")
-
 ; key to move 
-Space & n::Send "{Blind}{Home}"
-Space & m::Send "{Blind}{PgDn}"
-Space & ,::Send "{Blind}{PgUp}"
-Space & .::Send "{Blind}{End}"
-Space & h::Send "{Blind}{Left}"
-Space & j::Send "{Blind}{Down}"
-Space & k::Send "{Blind}{Up}"
-Space & l::Send "{Blind}{Right}"
+vk1C & n::Send "{Blind}{Home}"
+vk1C & m::Send "{Blind}{PgDn}"
+vk1C & ,::Send "{Blind}{PgUp}"
+vk1C & .::Send "{Blind}{End}"
+vk1C & h::Send "{Blind}{Left}"
+vk1C & j::Send "{Blind}{Down}"
+vk1C & k::Send "{Blind}{Up}"
+vk1C & l::Send "{Blind}{Right}"
 
 ; key to function
-Space & 1::Send "{F1}"
-Space & 2::Send "{F2}"
-Space & 3::Send "{F3}"
-Space & 4::Send "{F4}"
-Space & 5::Send "{F5}"
-Space & 6::Send "{F6}"
-Space & 7::Send "{F7}"
-Space & 8::Send "{F8}"
-Space & 9::Send "{F10}"
-Space & 0::Send "{F10}"
-Space & -::Send "{F11}"
-Space & =::Send "{F12}"
+vk1C & 1::Send "{F1}"
+vk1C & 2::Send "{F2}"
+vk1C & 3::Send "{F3}"
+vk1C & 4::Send "{F4}"
+vk1C & 5::Send "{F5}"
+vk1C & 6::Send "{F6}"
+vk1C & 7::Send "{F7}"
+vk1C & 8::Send "{F8}"
+vk1C & 9::Send "{F10}"
+vk1C & 0::Send "{F10}"
+vk1C & -::Send "{F11}"
+vk1C & =::Send "{F12}"
 
 ; key to num
-Space & q::Send "{Blind}1"
-Space & w::Send "{Blind}2"
-Space & e::Send "{Blind}3"
-Space & r::Send "{Blind}4"
-Space & t::Send "{Blind}5"
-Space & y::Send "{Blind}6"
-Space & u::Send "{Blind}7"
-Space & i::Send "{Blind}8"
-Space & o::Send "{Blind}9"
-Space & p::Send "{Blind}0"
+vk1C & q::Send "{Blind}1"
+vk1C & w::Send "{Blind}2"
+vk1C & e::Send "{Blind}3"
+vk1C & r::Send "{Blind}4"
+vk1C & t::Send "{Blind}5"
+vk1C & y::Send "{Blind}6"
+vk1C & u::Send "{Blind}7"
+vk1C & i::Send "{Blind}8"
+vk1C & o::Send "{Blind}9"
+vk1C & p::Send "{Blind}0"
 
 ; send muenkan
 vk1D:: {
