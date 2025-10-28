@@ -1,29 +1,8 @@
-" インサートモードを離れた時、zenhan.exeを使ってIMEをオフにする
-if has('win32') || has('win64')
-  let s:zenhan = 'zenhan.exe'
-  autocmd InsertLeave * :call system(s:zenhan . ' 0')
-elseif has('unix') || has('mac') || has('macunix')
-  let s:zenhan = '${zenhan}'
-  autocmd InsertLeave * call system(s:zenhan . ' 0')
-  autocmd CmdlineLeave * call system(s:zenhan . ' 0')
-endif
-
 " リーダーキーをスペースに設定
 let g:mapleader = "\<Space>"
 
-" 各OSでクリップボードを利用可能にする
-if has('win32') || has('win64')
-  set clipboard=unnamed,autoselect
-elseif has('unix') || has('mac') || has('macunix')
-  set clipboard=unnamedplus,autoselect
-endif
-
-" jjでesc
-inoremap jj <ESC>
-inoremap ｊｊ <ESC>
-inoremap っｊ <ESC>
-inoremap jk <ESC><Cmd>w<CR>
-inoremap ｊｋ <ESC>
+" クリップボード利用
+set clipboard=unnamed,autoselect
 
 " 表示行での移動にする
 nnoremap j gj
@@ -70,11 +49,10 @@ set number
 set cursorline
 set syntax=enable
 set hlsearch
-noremap <ESC><ESC> :nohlsearch<CR><ESC>
 
-" タブを2文字に設定
-set tabstop=2
-set shiftwidth=2
+" タブを4文字に設定
+set tabstop=4
+set shiftwidth=4
 set expandtab
 set autoindent
 set smartindent
@@ -86,6 +64,11 @@ set incsearch
 
 " その他
 set showmatch
+
+" netrw（ファイラー）設定
+let g:netrw_list_hide = ''  " 隠しファイルをデフォルトで表示
+let g:netrw_banner = 0      " バナーを非表示
+let g:netrw_liststyle = 3   " ツリー表示
 
 " バッファ削除時に保存されていないバッファを閉じる
 set hidden
@@ -99,12 +82,6 @@ set nobackup
 set noswapfile
 set autoread 
 set showcmd
-
-" デフォルトシェルをzshに設定
-set shell=/usr/bin/zsh 
-
-" 行末まで移動可能
-set virtualedit=onemore
 
 "" dein.vimの自動インストールと設定
 let $CACHE = expand('~/.cache')
@@ -128,16 +105,7 @@ if dein#load_state($CACHE . '/dein')
   call dein#begin($CACHE . '/dein')
 
   " プラグインリスト toml形式でも良い)
-  call dein#add('Shougo/dein.vim')
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('preservim/nerdtree')
-  call dein#add('junegunn/fzf')
-  call dein#add('whatyouhide/vim-gotham')
-  call dein#add('obcat/vim-hitspop')
   call dein#add('tpope/vim-surround')
-  call dein#add('tpope/vim-commentary')
-  call dein#add('gosukiwi/vim-smartpairs')
-  call dein#add('dominikduda/vim_current_word')
   call dein#add('Lokaltog/vim-easymotion')
   " 必要なプラグインを追加
   call dein#end()

@@ -5,23 +5,27 @@ lazydocker = "latest"
 lazygit = "latest"
 terraform = "latest"
 
-lua-language-server = "latest"
-
 #editors
-neovim = "latest"
 vim = "latest"
 
-# node
+# node&npm
 node = "latest"
 "npm:eslint" = "latest"
 "npm:eslint_d" = "latest"
 "npm:prettier" = "latest"
+"npm:jsonls" = "latest"
+"npm:ts-node" = "latest"
+"npm:typescript" = "latest"
+"npm:@anthropic-ai/claude-code" = "latest"
+"npm:@typescript-eslint/eslint-plugin" = "latest"
+"npm:@typescript-eslint/parser" = "latest"
 
 # python
+python = "latest"
 pipx = "latest"
 "pipx:black" = "latest"
 "pipx:pylint" = "latest"
-python = "latest"
+
 
 # rust
 rust = "latest"
@@ -29,14 +33,12 @@ rust = "latest"
 # formatter
 fzf = "latest"
 jq = "latest"
+
 # linter
 cfn-lint = "latest"
 yamllint = "latest"
 shellcheck = "latest"
-"npm:jsonls" = "latest"
+
+# other
 1password = "latest"
-"npm:ts-node" = "latest"
-"npm:typescript" = "latest"
-"npm:@anthropic-ai/claude-code" = "latest"
-"npm:@typescript-eslint/eslint-plugin" = "latest"
-"npm:@typescript-eslint/parser" = "latest"
+
