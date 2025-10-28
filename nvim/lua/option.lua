@@ -67,6 +67,7 @@ vim.opt.showmatch = true
 
 -- use mouse
 vim.opt.mouse = "a"
+vim.keymap.set('v', '<LeftRelease>', 'ygv')
 
 -- scroll settings
 vim.opt.scroll = 10 -- number of lines to scroll with Ctrl-u/Ctrl-d
