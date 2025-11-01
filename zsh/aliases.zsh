@@ -5,12 +5,6 @@ compdef dc='docker compose'
 compdef k=kubectl
 compdef t=tmux
 
-# obsidian alias
-alias obs='cd /mnt/c/Obsidian/myTasks'
-
-# nvim editor
-alias envim='cd ~/.config/nvim && nvim .'
-
 ## ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -30,7 +24,7 @@ alias d='docker'
 alias dc='docker compose'
 alias de='docker exec -it'
 alias dcu='docker compose up -d'
-alias dd='docker down'
+alias ddown='docker down'
 alias dp='docker ps'
 
 # kubectl aliases
@@ -45,9 +39,6 @@ alias t='tmux'
 alias tse='tmux new -s'
 alias tki='tmux kill-server'
 
-# python
-alias python='python3'
-
 # tmux ide function
 function ide() {
     tmux split-window -v 
@@ -56,20 +47,3 @@ function ide() {
     tmux select-pane -t 0  
 }
 
-# system function - split into 4 panes
-function t4() {
-    tmux split-window -h
-    tmux select-pane -t 0
-    tmux split-window -v
-    tmux select-pane -t 2
-    tmux split-window -v
-}
-
-# tmux vc function - split right 20% and start claude
-function vcc() {
-    tmux split-window -h 'claude'
-    tmux resize-pane -R 60
-}
-
-# Editor aliases
-alias vi='nvim'

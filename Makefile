@@ -8,7 +8,9 @@ HOME_DIR := $(HOME)
 
 install: 
 	# remove symlinks
-	uninstall
+	@make uninstall
+  # install sh file
+	@sh install.sh
 	# make mise symlink
 	@ln -sfn $(DOTFILES_DIR)/mise $(HOME_DIR)/.config/mise
 	@ln -sfn $(DOTFILES_DIR)/.vimrc $(HOME_DIR)/.vimrc

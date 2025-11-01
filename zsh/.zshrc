@@ -1,6 +1,8 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -52,4 +54,17 @@ DOTFILES_DIR="$(dirname "$(readlink -f "$HOME/.zshrc")")"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-eval "$(~/.local/bin/mise activate zsh)"
+if [[ -z "${MISE_SHELL}" ]]; then
+  eval "$(~/.local/bin/mise activate zsh)"
+fi
+
+# fix vscode start failed error
+# https://qiita.com/iwaiktos/items/33ab69a42c3a1cc35dfb
+fix_wsl2_interop() {
+    for i in $(pstree -np -s $$ | grep -o -E '[0-9]+'); do
+        if [[ -e "/run/WSL/${i}_interop" ]]; then
+            export WSL_INTEROP=/run/WSL/${i}_interop
+        fi
+    done
+}
+
