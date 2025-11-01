@@ -9,13 +9,15 @@ HOME_DIR := $(HOME)
 install: 
 	# remove symlinks
 	@make uninstall
-  # install sh file
+	# install sh file
 	@sh install.sh
 	# make mise symlink
 	@ln -sfn $(DOTFILES_DIR)/mise $(HOME_DIR)/.config/mise
 	@ln -sfn $(DOTFILES_DIR)/.vimrc $(HOME_DIR)/.vimrc
 	@ln -sfn $(DOTFILES_DIR)/.tmux.conf $(HOME_DIR)/.tmux.conf
 	@ln -sfn $(DOTFILES_DIR)/zsh/.zshrc $(HOME_DIR)/.zshrc
+	@ln -sfn $(DOTFILES_DIR)/bash/.bashrc $(HOME_DIR)/.bashrc
+	@ln -sfn $(DOTFILES_DIR)/bash/.bash_aliases $(HOME_DIR)/.bash_aliases
 	@ln -sfn $(DOTFILES_DIR)/zsh/.p10k.zsh $(HOME_DIR)/.p10k.zsh
 	@ln -sfn $(DOTFILES_DIR)/nvim $(HOME_DIR)/.config/nvim
 	# setting gitconfig
@@ -41,6 +43,8 @@ uninstall:
 	@rm -f $(HOME_DIR)/.tmux.conf
 	@rm -f $(HOME_DIR)/.zshrc
 	@rm -f $(HOME_DIR)/.p10k.zsh
+	@rm -f $(HOME_DIR)/.bashrc
+	@rm -f $(HOME_DIR)/.bash_aliases
 	@rm -rf $(HOME_DIR)/.config/nvim
 	@rm -rf $(HOME_DIR)/.config/mise
 	@echo "Symlinks removed!"
