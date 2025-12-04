@@ -17,6 +17,7 @@ plugins=(
   aws
   docker
   kubectl
+  command-not-found
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
@@ -32,6 +33,8 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
+setopt CORRECT
+
 unsetopt HIST_BEEP
 
 # Disable beep sounds
@@ -41,7 +44,6 @@ unsetopt LIST_BEEP
 
 # PATH exports
 export PATH="$PATH:$HOME/.local/bin"
-# export PATH="$PATH:/opt/nvim/"
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 

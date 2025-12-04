@@ -48,3 +48,9 @@ if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
 else
   echo "powerlevel10k already installed, skipping..."
 fi
+# Install Starship prompt
+if ! command -v starship &> /dev/null; then
+  curl -fsSL https://starship.rs/install.sh | bash -s -- -y
+else
+  echo "Starship already installed, skipping..."
+fi 

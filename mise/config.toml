@@ -8,8 +8,8 @@ terraform = "latest"
 lua-language-server = "latest"
 
 #editors
-neovim = "latest"
 vim = "latest"
+neovim = "latest"
 
 # node
 node = "latest"
