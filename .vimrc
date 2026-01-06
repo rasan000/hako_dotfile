@@ -1,29 +1,5 @@
-" インサートモードを離れた時、zenhan.exeを使ってIMEをオフにする
-if has('win32') || has('win64')
-  let s:zenhan = 'zenhan.exe'
-  autocmd InsertLeave * :call system(s:zenhan . ' 0')
-elseif has('unix') || has('mac') || has('macunix')
-  let s:zenhan = '${zenhan}'
-  autocmd InsertLeave * call system(s:zenhan . ' 0')
-  autocmd CmdlineLeave * call system(s:zenhan . ' 0')
-endif
-
-" リーダーキーをスペースに設定
-let g:mapleader = "\<Space>"
-
-" 各OSでクリップボードを利用可能にする
-if has('win32') || has('win64')
-  set clipboard=unnamed,autoselect
-elseif has('unix') || has('mac') || has('macunix')
-  set clipboard=unnamedplus,autoselect
-endif
-
-" jjでesc
-inoremap jj <ESC>
-inoremap ｊｊ <ESC>
-inoremap っｊ <ESC>
-inoremap jk <ESC><Cmd>w<CR>
-inoremap ｊｋ <ESC>
+" clipboardを利用する
+set clipboard=unnamedplus
 
 " 表示行での移動にする
 nnoremap j gj
@@ -47,13 +23,6 @@ xnoremap c "_C
 nnoremap x "_x
 nnoremap X "_X
 
-" カーソル下の単語を、置換後の文字列の入力を待つ状態にする
-nnoremap <C-g> :%s;\<<C-R><C-W>\>;g<Left><Left>;
-
-" Ctrl + j と Ctrl + k で 段落の前後に移動
-nnoremap <C-j> }
-nnoremap <C-k> {
-
 " コマンド候補
 set wildmenu
 set noswapfile
@@ -63,17 +32,13 @@ set showcmd
 set fileencoding=utf-8
 set encoding=utf-8
 
-" 行番号
-set number
-
 " 表示
 set cursorline
 set syntax=enable
 set hlsearch
-noremap <ESC><ESC> :nohlsearch<CR><ESC>
 
 " タブを2文字に設定
-set tabstop=2
+set tabstop=4
 set shiftwidth=2
 set expandtab
 set autoindent
@@ -102,49 +67,3 @@ set showcmd
 
 " デフォルトシェルをzshに設定
 set shell=/usr/bin/zsh 
-
-" 行末まで移動可能
-set virtualedit=onemore
-
-"" dein.vimの自動インストールと設定
-let $CACHE = expand('~/.cache')
-if !isdirectory($CACHE)
-  call mkdir($CACHE, 'p')
-endif
-if &runtimepath !~# '/dein.vim'
-  let s:dein_dir = fnamemodify('dein.vim', ':p')
-  if !isdirectory(s:dein_dir)
-    let s:dein_dir = $CACHE . '/dein/repos/github.com/Shougo/dein.vim'
-    if !isdirectory(s:dein_dir)
-      execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
-    endif
-  endif
-  execute 'set runtimepath^=' . substitute(
-        \ fnamemodify(s:dein_dir, ':p') , '/$', '', '')
-endif
-
-" dein.vimの設定
-if dein#load_state($CACHE . '/dein')
-  call dein#begin($CACHE . '/dein')
-
-  " プラグインリスト toml形式でも良い)
-  call dein#add('Shougo/dein.vim')
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('preservim/nerdtree')
-  call dein#add('junegunn/fzf')
-  call dein#add('whatyouhide/vim-gotham')
-  call dein#add('obcat/vim-hitspop')
-  call dein#add('tpope/vim-surround')
-  call dein#add('tpope/vim-commentary')
-  call dein#add('gosukiwi/vim-smartpairs')
-  call dein#add('dominikduda/vim_current_word')
-  call dein#add('Lokaltog/vim-easymotion')
-  " 必要なプラグインを追加
-  call dein#end()
-  call dein#save_state()
-endif
-
-" 未インストールのプラグインがあればインストール
-if dein#check_install()
-  call dein#install()
-endif

@@ -44,6 +44,7 @@ unsetopt LIST_BEEP
 
 # PATH exports
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/usr/local/bin/" # aws_cli_completer
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 

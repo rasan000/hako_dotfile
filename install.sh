@@ -11,8 +11,12 @@ sudo apt install -y lua5.3 liblua5.3-dev luarocks
 # Install ripgrep
 sudo apt install -y ripgrep
 
+# Install vim
+sudo apt remove -y vim
+sudo apt install -y vim-gtk3
+
 # Install zsh and set as default shell
-sudo apt install zsh -y
+sudo apt install -y zsh
 chsh -s $(which zsh)
 
 # Install Oh My Zsh
