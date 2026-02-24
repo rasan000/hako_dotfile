@@ -15,6 +15,8 @@ sudo apt install -y ripgrep
 sudo apt remove -y vim
 sudo apt install -y vim-gtk3
 
+# Install
+
 # Install zsh and set as default shell
 sudo apt install -y zsh
 chsh -s $(which zsh)

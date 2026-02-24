@@ -139,4 +139,4 @@ bind 'set bell-style none'
 # mise (formerly rtx) activation
 if [[ -z "${MISE_SHELL}" ]]; then
   eval "$(~/.local/bin/mise activate zsh)"
-fi
+fieval "$(uv generate-shell-completion bash)"

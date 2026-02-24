@@ -47,3 +47,5 @@ function ide() {
     tmux select-pane -t 0  
 }
 
+# terraform aliases
+alias tf='terraform'
