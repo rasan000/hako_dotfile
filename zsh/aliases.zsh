@@ -1,8 +1,5 @@
 # Enable completion for aliases
 compdef g=git
-compdef d=docker
-compdef dc='docker compose'
-compdef k=kubectl
 compdef t=tmux
 
 ## ls aliases

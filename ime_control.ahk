@@ -6,9 +6,9 @@ $^h::
     Send "{Backspace}"
 }
 
-; zenhan to esc and muhenkan 
-$Esc:: {
-    Send "{Esc}{vk1D}"
+
+vk1C:: {
+    Send "{vk1C}"
 }
 
 ; key to move 

@@ -15,8 +15,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   git
   aws
-  docker
-  kubectl
   command-not-found
   zsh-autosuggestions
   zsh-syntax-highlighting
