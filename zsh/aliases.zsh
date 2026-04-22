@@ -36,13 +36,5 @@ alias t='tmux'
 alias tse='tmux new -s'
 alias tki='tmux kill-server'
 
-# tmux ide function
-function ide() {
-    tmux split-window -v 
-    tmux split-window -h 
-    tmux resize-pane -D 10 
-    tmux select-pane -t 0  
-}
-
 # terraform aliases
 alias tf='terraform'

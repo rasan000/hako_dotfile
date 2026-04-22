@@ -1,0 +1,115 @@
+{
+    "redhat.telemetry.enabled": false,
+    "editor.renderWhitespace": "boundary",
+    "workbench.iconTheme": "vscode-icons",
+    "security.allowedUNCHosts": [
+        "wsl.localhost"
+    ],
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash"
+        },
+        "Ubuntu-24.04 (WSL)": {
+            "path": "C:\\Windows\\System32\\wsl.exe",
+            "args": [
+                "-d",
+                "Ubuntu-24.04"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "yaml.customTags": [
+        "!Ref",
+        "!Sub scalar",
+        "!Sub sequence",
+        "!Join sequence",
+        "!FindInMap sequence",
+        "!GetAtt scalar",
+        "!GetAtt sequence",
+        "!Base64 mapping",
+        "!GetAZs",
+        "!Select scalar",
+        "!Select sequence",
+        "!Split sequence",
+        "!ImportValue",
+        "!Condition",
+        "!Equals sequence",
+        "!And",
+        "!If",
+        "!Not",
+        "!Or",
+        "!And sequence",
+        "!If sequence",
+        "!Not sequence",
+        "!Equals",
+        "!Or sequence",
+        "!FindInMap",
+        "!Base64",
+        "!Join",
+        "!Cidr",
+        "!Sub",
+        "!GetAtt",
+        "!ImportValue sequence",
+        "!Select",
+        "!Split"
+    ],
+    "vscode-neovim.logLevel": "off",
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "vscode-neovim.useWSL": true,
+    "vscode-neovim.neovimInitVimPaths.linux": "/home/iino/.config/nvim/init.lua",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "workbench.settings.openDefaultKeybindings": true,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "explorer.confirmDragAndDrop": false,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.allowVariableFonts": false,
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.PowerShell_7.5.4.0_x64__8wekyb3d8bbwe\\pwsh.exe",
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.xlsx": "default"
+    },
+    "editor.fontFamily": "'Hack Nerd Font',Consolas, 'Courier New', monospace",
+    "editor.fontSize": 12,
+    "explorer.confirmPasteNative": false,
+    "explorer.confirmDelete": false,
+    "claudeCode.preferredLocation": "panel",
+    "sqldeveloper.sqlHistory.historyLimit": 500,
+    "python.defaultInterpreterPath": "c:\\Users\\iino.tatsuya\\.local\\bin\\python3.12.exe",
+    "markdown.preview.doubleClickToSwitchToEditor": false,
+    "sqldeveloper.datagrid.fontFamily": "Consolas, 'Courier New', monospace",
+    "@azure.argTenant": "",
+    "chat.hookFilesLocations": {
+        ".github/hooks": true,
+        ".claude/settings.local.json": true,
+        ".claude/settings.json": true,
+        "~/.copilot/hooks": true,
+        "~/.claude/settings.json": true,
+        "~/.agents/hooks": true
+    },
+    "chat.viewSessions.orientation": "stacked",
+    "git.openRepositoryInParentFolders": "never",
+    "workbench.startupEditor": "none",
+    "remote.autoForwardPortsSource": "hybrid",
+    "chat.mcp.gallery.enabled": true,
+}

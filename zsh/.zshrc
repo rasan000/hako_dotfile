@@ -14,8 +14,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
   git
+  z
   aws
   command-not-found
+  colored-man-pages
   zsh-autosuggestions
   zsh-syntax-highlighting
 )

@@ -35,6 +35,15 @@ else
   echo "mise already installed, skipping..."
 fi
 
+# install nvim from appimage
+# Check if nvim is already installed
+if ! command -v nvim &> /dev/null; then
+  # Download the latest Neovim AppImage
+  curl -LO https://github.com/neovim/neovim/releases/download/v0.11.1/nvim-linux-x86_64.appimage 
+  chmod u+x nvim-linux-x86_64.appimage
+  sudo mv ./nvim-linux-x86_64.appimage /usr/bin/nvim
+fi
+
 # Install Oh My Zsh plugins
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then

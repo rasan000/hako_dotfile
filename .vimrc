@@ -1,10 +1,6 @@
 " clipboardを利用する
 set clipboard=unnamedplus
 
-" 表示行での移動にする
-nnoremap j gj
-nnoremap k gk
-
 " dscはヤンクさせない
 nnoremap d "_d
 xnoremap d "_d
@@ -17,7 +13,13 @@ xnoremap S "_S
 nnoremap c "_c
 xnoremap c "_c
 nnoremap C "_C
-xnoremap c "_C
+xnoremap c "_c
+
+" ;と:の入れ替え
+nnoremap : ;
+nnoremap ; :
+vnoremap : ;
+vnoremap ; :
 
 " 選択状態でのxは切り取り用
 nnoremap x "_x
@@ -37,7 +39,7 @@ set cursorline
 set syntax=enable
 set hlsearch
 
-" タブを2文字に設定
+" タブを4文字に設定
 set tabstop=4
 set shiftwidth=2
 set expandtab

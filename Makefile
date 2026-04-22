@@ -4,7 +4,11 @@ DOTFILES_DIR := $(shell pwd)
 HOME_DIR := $(HOME)
 
 # Targets for dotfiles
-.PHONY: install uninstall
+WINDOWS_USER := $(shell cmd.exe /c "echo %USERNAME%" 2>/dev/null | tr -d '\r\n')
+VSCODE_SETTINGS_SRC := /mnt/c/Users/$(WINDOWS_USER)/AppData/Roaming/Code/User/settings.json
+VSCODE_SETTINGS_DST := $(DOTFILES_DIR)/vscode/settings.json
+
+.PHONY: install uninstall backup-vscode
 
 install: 
 	# remove symlinks
@@ -36,6 +40,12 @@ install:
 	# mise install
 	@ cd ~ && mise install
 	@echo "Install and Symlinks created!"
+
+backup-vscode:
+	@mkdir -p $(DOTFILES_DIR)/vscode
+	@cp /mnt/c/Users/$(WINDOWS_USER)/AppData/Roaming/Code/User/settings.json    $(DOTFILES_DIR)/vscode/settings.json
+	@cp /mnt/c/Users/$(WINDOWS_USER)/AppData/Roaming/Code/User/keybindings.json $(DOTFILES_DIR)/vscode/keybindings.json
+	@echo "VSCode settings backed up to vscode/"
 
 uninstall:
 	@echo "Removing dotfile symlinks..."
