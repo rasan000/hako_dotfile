@@ -1,10 +1,26 @@
-return {
+if vim.g.vim then
+  return {
   "folke/flash.nvim",
   event = "VeryLazy",
-  opts = {},
-  keys = {
-    { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,  desc = "Flash" },
-    { "r",     mode = "o",               function() require("flash").remote() end, desc = "Remote Flash" },
-    { "<c-s>", mode = { "c" },           function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+  opts = {
+    label = {
+      style = "overlay",
+    },
   },
 }
+else
+  return {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {
+      label = {
+        style = "overlay",
+      },
+    },
+    keys = {
+      { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,  desc = "Flash" },
+      { "r",     mode = "o",               function() require("flash").remote() end, desc = "Remote Flash" },
+      { "<c-s>", mode = { "c" },           function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    },
+  }
+end

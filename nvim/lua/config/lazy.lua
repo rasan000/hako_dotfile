@@ -8,14 +8,26 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
       { out, "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
-    vim.fn.getchar()
+    vim.fn.getchr()
     os.exit(1)
   end
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
+-- プラグインはVScodeの場合は必要最低限だけにする
+local spec
+if vim.g.vscode then
+  spec = {
+    { import = "plugins.dial" },
+    { import = "plugins.repeat" },
+    { import = "plugins.surround" },
+    { import = "plugins.targets" },
+    { import = "plugins.flash" },
+  }
+else
   spec = {
     { import = "plugins" },
-  },
-})
+  }
+end
+
+require("lazy").setup({ spec = spec })

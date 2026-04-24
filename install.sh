@@ -65,7 +65,7 @@ else
 fi
 # Install Starship prompt
 if ! command -v starship &> /dev/null; then
-  curl -fsSL https://starship.rs/install.sh | bash -s -- -y
+  curl -fsSL https://starship.rs/install.sh | sh -s -- -y
 else
   echo "Starship already installed, skipping..."
 fi 
