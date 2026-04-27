@@ -1,6 +1,9 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+-- leader key をスペースに設定
+vim.g.mapleader = " "
+
 -- d/c はヤンクさせない
 map({ "n", "x" }, "d", '"_d', opts)
 map({ "n" }, "dd", '"_dd', opts)
@@ -30,3 +33,7 @@ map("n", "<leader><space>", ":nohlsearch<CR>", opts)
 
 -- row select
 map("n", "vv", "<S-v>", opts)
+
+-- disable s key
+map({ "n", "x" }, "s", "<Nop>", opts)
+map({ "n", "x" }, "S", "<Nop>", opts)
