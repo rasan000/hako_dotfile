@@ -32,5 +32,8 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.incsearch = true
 
+-- undo
+opt.undofile = true
+
 -- シェル
 opt.shell = "/usr/bin/zsh"

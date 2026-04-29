@@ -16,8 +16,8 @@ map("n", "<S-h>", "^", opts)
 map("n", "<S-l>", "$", opts)
 map("v", "<S-h>", "^", opts)
 map("v", "<S-l>", "$", opts)
-map("n", "<S-m>", "%", opts)
-map("v", "<S-m>", "%", opts)
+map("n", "<Tab>", "%", opts)
+map("v", "<Tab>", "%", opts)
 
 -- normalモードでのxは削除
 -- visualモードでのxは切り取り
@@ -28,12 +28,10 @@ map({ "n" }, "X", '"_X', opts)
 map({ "n", "v" }, ";", ":", opts)
 map({ "n", "v" }, ":", ";", opts)
 
--- nohlsearch
-map("n", "<leader><space>", ":nohlsearch<CR>", opts)
-
 -- row select
 map("n", "vv", "<S-v>", opts)
 
 -- disable s key
 map({ "n", "x" }, "s", "<Nop>", opts)
 map({ "n", "x" }, "S", "<Nop>", opts)
+
