@@ -35,3 +35,5 @@ map("n", "vv", "<S-v>", opts)
 map({ "n", "x" }, "s", "<Nop>", opts)
 map({ "n", "x" }, "S", "<Nop>", opts)
 
+-- disable hilihgt
+map({ "n", "x" }, "<leader>n", ":noh<CR>", opts)

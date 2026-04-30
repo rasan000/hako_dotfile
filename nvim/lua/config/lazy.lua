@@ -22,6 +22,7 @@ if vim.g.vscode then
     { import = "plugins.repeat" },
     { import = "plugins.surround" },
     { import = "plugins.targets" },
+    { import = "plugins.flash" },
   }
 else
   spec = {
