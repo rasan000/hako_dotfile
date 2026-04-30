@@ -31,9 +31,5 @@ map({ "n", "v" }, ":", ";", opts)
 -- row select
 map("n", "vv", "<S-v>", opts)
 
--- disable s key
-map({ "n", "x" }, "s", "<Nop>", opts)
-map({ "n", "x" }, "S", "<Nop>", opts)
-
 -- disable hilihgt
 map({ "n", "x" }, "<leader>n", ":noh<CR>", opts)

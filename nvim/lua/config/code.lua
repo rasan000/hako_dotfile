@@ -2,11 +2,6 @@
 local map = vim.keymap.set
 local vscode = require("vscode")
 
--- jumpy2
-map({"n", "v"}, "<Leader>w", function()
-    vscode.action("jumpy2.toggle")
-end)
-
 -- format
 map({"n", "v"}, "<Leader>f", function()
     vscode.action("editor.action.formatDocument")
@@ -39,3 +34,8 @@ end);
 map("n", "<space>z", function()
     vscode.action("workbench.action.toggleZenMode")
 end);
+
+-- sキーでjumpy2
+map({"n", "v"}, "s", function()
+    vscode.action("jumpy2.toggle")
+end)
