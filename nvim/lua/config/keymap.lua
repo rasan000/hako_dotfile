@@ -33,3 +33,24 @@ map("n", "vv", "<S-v>", opts)
 
 -- disable hilihgt
 map({ "n", "x" }, "<leader>n", ":noh<CR>", opts)
+
+-- replace
+map("n", "<C-g>", ":%s///g<left><left><Left>", opts)
+
+-- paste
+map("i", "<C-v>", "<C-r>+", opts)
+
+-- mark key bindings
+map("n", "ml", "<Cmd>marks<CR>", opts)
+map("v", "ml", "<Cmd>marks<CR>", opts)
+
+-- funcitonkey bindings
+map("n", "<F2>", ":set wrap!<CR>", opts)
+map("n", "<F3>", ":set relativenumber!<CR>", opts)
+
+-- no hilight
+map("n", "<leader>n", "<Cmd>noh<CR>", opts)
+
+-- comment
+map("n", "<leader>/", "gcc", { noremap = true, silent = true })
+map("v", "<leader>/", "gc", { noremap = true, silent = true })

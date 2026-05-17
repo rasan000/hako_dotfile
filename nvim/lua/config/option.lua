@@ -37,3 +37,13 @@ opt.undofile = true
 
 -- シェル
 opt.shell = "/usr/bin/zsh"
+
+-- hilight yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = "IncSearch",
+            timeout = 500
+        })
+    end
+})

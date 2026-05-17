@@ -1,115 +1,269 @@
 {
-    "redhat.telemetry.enabled": false,
-    "editor.renderWhitespace": "boundary",
-    "workbench.iconTheme": "vscode-icons",
-    "security.allowedUNCHosts": [
-        "wsl.localhost"
+  "settingsSync.ignoredSettings": [
+    "vscode-neovim.neovimInitVimPaths.linux"
+  ],
+  "editor.renderWhitespace": "boundary",
+  "workbench.iconTheme": "catppuccin-mocha",
+  "security.allowedUNCHosts": ["wsl.localhost"],
+  "editor.wordWrap": "on",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell",
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe",
+      ],
+      "args": [],
+      "icon": "terminal-cmd",
+    },
+    "Git Bash": {
+      "source": "Git Bash",
+    },
+    "Ubuntu-24.04 (WSL)": {
+      "path": "C:\\Windows\\System32\\wsl.exe",
+      "args": ["-d", "Ubuntu-24.04"],
+    },
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "yaml.customTags": [
+    "!Ref",
+    "!Sub scalar",
+    "!Sub sequence",
+    "!Join sequence",
+    "!FindInMap sequence",
+    "!GetAtt scalar",
+    "!GetAtt sequence",
+    "!Base64 mapping",
+    "!GetAZs",
+    "!Select scalar",
+    "!Select sequence",
+    "!Split sequence",
+    "!ImportValue",
+    "!Condition",
+    "!Equals sequence",
+    "!And",
+    "!If",
+    "!Not",
+    "!Or",
+    "!And sequence",
+    "!If sequence",
+    "!Not sequence",
+    "!Equals",
+    "!Or sequence",
+    "!FindInMap",
+    "!Base64",
+    "!Join",
+    "!Cidr",
+    "!Sub",
+    "!GetAtt",
+    "!ImportValue sequence",
+    "!Select",
+    "!Split",
+  ],
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+  "vscode-neovim.useWSL": true,
+  "vscode-neovim.neovimInitVimPaths.linux": "/home/iino/.config/nvim/init.lua",
+  "vscode-neovim.logOutputToConsole": false,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1,
+  },
+  "workbench.settings.openDefaultKeybindings": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "explorer.confirmDragAndDrop": false,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+  },
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "editor.allowVariableFonts": false,
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+  },
+  "terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.PowerShell_7.5.4.0_x64__8wekyb3d8bbwe\\pwsh.exe",
+  "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "*.xlsx": "default",
+  },
+  // フォント設定
+  "editor.fontFamily": "CaskaydiaCove Nerd Font,Consolas, 'Courier New', monospace",
+  "editor.fontSize": 16,
+  "explorer.confirmPasteNative": false,
+  "explorer.confirmDelete": false,
+  "claudeCode.preferredLocation": "panel",
+  "sqldeveloper.sqlHistory.historyLimit": 500,
+  "python.defaultInterpreterPath": "c:\\Users\\iino.tatsuya\\.local\\bin\\python3.12.exe",
+  "markdown.preview.doubleClickToSwitchToEditor": false,
+  "@azure.argTenant": "",
+  "chat.hookFilesLocations": {
+    ".github/hooks": true,
+    ".claude/settings.local.json": true,
+    ".claude/settings.json": true,
+    "~/.copilot/hooks": true,
+    "~/.claude/settings.json": true,
+    "~/.agents/hooks": true,
+  },
+  "git.openRepositoryInParentFolders": "never",
+  "workbench.startupEditor": "none",
+  "remote.autoForwardPortsSource": "hybrid",
+  "chat.mcp.gallery.enabled": true,
+  "chat.instructionsfileslocations": {
+    ".github/instructions": true,
+    ".claude/rules": true,
+    "~/.copilot/instructions": true,
+    "~/.claude/rules": true,
+    "C:\\Users\\IINO~1.TAT\\AppData\\Local\\Temp\\postman-collections-post-response.instructions.md": true,
+    "C:\\Users\\IINO~1.TAT\\AppData\\Local\\Temp\\postman-collections-pre-request.instructions.md": true,
+    "C:\\Users\\IINO~1.TAT\\AppData\\Local\\Temp\\postman-folder-post-response.instructions.md": true,
+    "C:\\Users\\IINO~1.TAT\\AppData\\Local\\Temp\\postman-folder-pre-request.instructions.md": true,
+    "C:\\Users\\IINO~1.TAT\\AppData\\Local\\Temp\\postman-http-request-post-response.instructions.md": true,
+    "C:\\Users\\IINO~1.TAT\\AppData\\Local\\Temp\\postman-http-request-pre-request.instructions.md": true,
+    "/tmp/postman-collections-post-response.instructions.md": true,
+    "/tmp/postman-collections-pre-request.instructions.md": true,
+    "/tmp/postman-folder-post-response.instructions.md": true,
+    "/tmp/postman-folder-pre-request.instructions.md": true,
+    "/tmp/postman-http-request-post-response.instructions.md": true,
+    "/tmp/postman-http-request-pre-request.instructions.md": true,
+    "C:\\Users\\rasan\\AppData\\Local\\Temp\\postman-collections-post-response.instructions.md": true,
+    "C:\\Users\\rasan\\AppData\\Local\\Temp\\postman-collections-pre-request.instructions.md": true,
+    "C:\\Users\\rasan\\AppData\\Local\\Temp\\postman-folder-post-response.instructions.md": true,
+    "C:\\Users\\rasan\\AppData\\Local\\Temp\\postman-folder-pre-request.instructions.md": true,
+    "C:\\Users\\rasan\\AppData\\Local\\Temp\\postman-http-request-post-response.instructions.md": true,
+    "C:\\Users\\rasan\\AppData\\Local\\Temp\\postman-http-request-pre-request.instructions.md": true,
+  },
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "chat.instructionsFilesLocations": {
+    ".github/instructions": true,
+    ".claude/rules": true,
+    "~/.copilot/instructions": true,
+    "~/.claude/rules": true,
+    "/tmp/postman-collections-post-response.instructions.md": true,
+    "/tmp/postman-collections-pre-request.instructions.md": true,
+    "/tmp/postman-folder-post-response.instructions.md": true,
+    "/tmp/postman-folder-pre-request.instructions.md": true,
+    "/tmp/postman-http-request-post-response.instructions.md": true,
+    "/tmp/postman-http-request-pre-request.instructions.md": true,
+    "C:\\Users\\IINO~1.TAT\\AppData\\Local\\Temp\\postman-collections-post-response.instructions.md": true,
+    "C:\\Users\\IINO~1.TAT\\AppData\\Local\\Temp\\postman-collections-pre-request.instructions.md": true,
+    "C:\\Users\\IINO~1.TAT\\AppData\\Local\\Temp\\postman-folder-post-response.instructions.md": true,
+    "C:\\Users\\IINO~1.TAT\\AppData\\Local\\Temp\\postman-folder-pre-request.instructions.md": true,
+    "C:\\Users\\IINO~1.TAT\\AppData\\Local\\Temp\\postman-http-request-post-response.instructions.md": true,
+    "C:\\Users\\IINO~1.TAT\\AppData\\Local\\Temp\\postman-http-request-pre-request.instructions.md": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "editor.accessibilitySupport": "auto",
+  "editor.allowVariableFontsInAccessibilityMode": "off",
+  "extensions.autoUpdate": false,
+  "extensions.autoCheckUpdates": false,
+  "update.mode": "start",
+  "hediet.vscode-drawio.resizeImages": null,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  // 左サイドのアクティビティバーを非展開時は非表示
+  "workbench.activityBar.location": "top",
+  // ミニマップは非表示
+  "editor.minimap.enabled": false,
+  // カーソルは点滅させない
+  "editor.cursorBlinking": "solid",
+  // カーソル行はgutterだけハイライト
+  "editor.renderLineHighlight": "gutter",
+  // 見た目
+  // テーマ
+  "workbench.colorTheme": "Ayu Mirage Zed",
+  "workbench.colorCustomizations": {
+    // ライン番号とgutterの色変更
+    "editorLineNumber.foreground": "#888888",
+    "editorLineNumber.activeForeground": "#EFEF33",
+    // 選択範囲の色変更
+    "editor.selectionBackground": "#565612",
+    // オートコンプリートの色変更
+    "editorSuggestWidget.selectedForeground": "#CDCDCD",
+    "editorSuggestWidget.selectedBackground": "#363C58",
+  },
+  // アイコン
+  "workbench.iconTheme": "catppuccin-mocha",
+  // oil.code
+  "oil-code.hasNerdFont": true,
+  // これをtrueにしないと、勝手にvimのキーマップが無尽蔵に追加されてしまう
+  "oil-code.disableVimKeymaps": true,
+  // 起動後、何も開かれていない場合でも、自動でカレントディレクトリを開かない
+  "oil-code.disableOpenCwdNothingOpen": true,
+  "terminal.integrated.fontSize": 15,
+  "typescript.experimental.useTsgo": true,
+  "git.confirmSync": false,
+  // コメント
+      "better-comments.tags": [
+        {
+            "tag": "INFO:",
+            "color": "#3498DB",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "TODO:",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "HACK:",
+            "color": "#D516D5FF",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "FIXME:",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
     ],
-    "terminal.integrated.profiles.windows": {
-        "PowerShell": {
-            "source": "PowerShell",
-            "icon": "terminal-powershell"
-        },
-        "Command Prompt": {
-            "path": [
-                "${env:windir}\\Sysnative\\cmd.exe",
-                "${env:windir}\\System32\\cmd.exe"
-            ],
-            "args": [],
-            "icon": "terminal-cmd"
-        },
-        "Git Bash": {
-            "source": "Git Bash"
-        },
-        "Ubuntu-24.04 (WSL)": {
-            "path": "C:\\Windows\\System32\\wsl.exe",
-            "args": [
-                "-d",
-                "Ubuntu-24.04"
-            ]
-        }
-    },
-    "terminal.integrated.defaultProfile.windows": "PowerShell",
-    "yaml.customTags": [
-        "!Ref",
-        "!Sub scalar",
-        "!Sub sequence",
-        "!Join sequence",
-        "!FindInMap sequence",
-        "!GetAtt scalar",
-        "!GetAtt sequence",
-        "!Base64 mapping",
-        "!GetAZs",
-        "!Select scalar",
-        "!Select sequence",
-        "!Split sequence",
-        "!ImportValue",
-        "!Condition",
-        "!Equals sequence",
-        "!And",
-        "!If",
-        "!Not",
-        "!Or",
-        "!And sequence",
-        "!If sequence",
-        "!Not sequence",
-        "!Equals",
-        "!Or sequence",
-        "!FindInMap",
-        "!Base64",
-        "!Join",
-        "!Cidr",
-        "!Sub",
-        "!GetAtt",
-        "!ImportValue sequence",
-        "!Select",
-        "!Split"
+    "todo-tree.general.tags": [
+        "INFO:",
+        "TODO:",
+        "HACK:",
+        "FIXME:",
     ],
-    "vscode-neovim.logLevel": "off",
-    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-    "vscode-neovim.useWSL": true,
-    "vscode-neovim.neovimInitVimPaths.linux": "/home/iino/.config/nvim/init.lua",
-    "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
+    "todo-tree.highlights.customHighlight": {
+        "INFO:": {
+            "icon": "info",
+            "foreground": "#3498DB",
+            "iconColour": "#3498DB",
+        },
+        "TODO:": {
+            "icon": "check",
+            "foreground": "#FF8C00",
+            "iconColour": "#FF8C00",
+        },
+
+        "HACK:": {
+            "icon": "tools",
+            "foreground": "#D516D5FF",
+            "iconColour": "#D516D5FF",
+
+        },
+        "FIXME:": {
+            "icon": "flame",
+            "foreground": "#FF2D00",
+            "iconColour": "#FF2D00",
+        },
     },
-    "workbench.settings.openDefaultKeybindings": true,
-    "github.copilot.nextEditSuggestions.enabled": true,
-    "explorer.confirmDragAndDrop": false,
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "editor.unicodeHighlight.ambiguousCharacters": false,
-    "editor.unicodeHighlight.invisibleCharacters": false,
-    "editor.allowVariableFonts": false,
-    "[markdown]": {
-        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-    },
-    "terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.PowerShell_7.5.4.0_x64__8wekyb3d8bbwe\\pwsh.exe",
-    "workbench.editorAssociations": {
-        "*.copilotmd": "vscode.markdown.preview.editor",
-        "*.xlsx": "default"
-    },
-    "editor.fontFamily": "'Hack Nerd Font',Consolas, 'Courier New', monospace",
-    "editor.fontSize": 12,
-    "explorer.confirmPasteNative": false,
-    "explorer.confirmDelete": false,
-    "claudeCode.preferredLocation": "panel",
-    "sqldeveloper.sqlHistory.historyLimit": 500,
-    "python.defaultInterpreterPath": "c:\\Users\\iino.tatsuya\\.local\\bin\\python3.12.exe",
-    "markdown.preview.doubleClickToSwitchToEditor": false,
-    "sqldeveloper.datagrid.fontFamily": "Consolas, 'Courier New', monospace",
-    "@azure.argTenant": "",
-    "chat.hookFilesLocations": {
-        ".github/hooks": true,
-        ".claude/settings.local.json": true,
-        ".claude/settings.json": true,
-        "~/.copilot/hooks": true,
-        "~/.claude/settings.json": true,
-        "~/.agents/hooks": true
-    },
-    "chat.viewSessions.orientation": "stacked",
-    "git.openRepositoryInParentFolders": "never",
-    "workbench.startupEditor": "none",
-    "remote.autoForwardPortsSource": "hybrid",
-    "chat.mcp.gallery.enabled": true,
 }
