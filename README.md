@@ -17,16 +17,9 @@ Before running the setup, install the following on Windows:
    - **VSCode Terminal**: Settings → `terminal.integrated.fontFamily`
 
 # command
-
-- make setup -> Full setup (packages + dotfiles)
-- make packages -> Install packages only
 - make install -> Install dotfiles only
-- make clean -> Remove broken symlinks
 - make uninstall -> Remove all symlinks
-
-```lua
-
-```
+- make backup-vscode -> backup vscode setting
 
 # windows
 

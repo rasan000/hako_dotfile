@@ -23,7 +23,6 @@ install:
 	@ln -sfn $(DOTFILES_DIR)/bash/.bashrc $(HOME_DIR)/.bashrc
 	@ln -sfn $(DOTFILES_DIR)/bash/.bash_aliases $(HOME_DIR)/.bash_aliases
 	@ln -sfn $(DOTFILES_DIR)/zsh/.p10k.zsh $(HOME_DIR)/.p10k.zsh
-	@ln -sfn $(DOTFILES_DIR)/nvim $(HOME_DIR)/.config/nvim
 	# setting gitconfig
 	@echo "Setting up .gitconfig..."
 	@if [ ! -f $(HOME_DIR)/.gitconfig ]; then \
@@ -55,6 +54,5 @@ uninstall:
 	@rm -f $(HOME_DIR)/.p10k.zsh
 	@rm -f $(HOME_DIR)/.bashrc
 	@rm -f $(HOME_DIR)/.bash_aliases
-	@rm -rf $(HOME_DIR)/.config/nvim
 	@rm -rf $(HOME_DIR)/.config/mise
 	@echo "Symlinks removed!"

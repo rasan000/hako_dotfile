@@ -140,5 +140,3 @@ bind 'set bell-style none'
 if [[ -z "${MISE_SHELL}" ]]; then
   eval "$(~/.local/bin/mise activate zsh)"
 fieval "$(uv generate-shell-completion bash)"
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"

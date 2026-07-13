@@ -45,8 +45,7 @@ unsetopt LIST_BEEP
 # PATH exports
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/usr/local/bin/" # aws_cli_completer
-export VOLTA_HOME="$HOME/.volta" # volta
-export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH="$PATH:/opt/nvim/"
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
@@ -59,9 +58,9 @@ DOTFILES_DIR="$(dirname "$(readlink -f "$HOME/.zshrc")")"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-if [[ -z "${MISE_SHELL}" ]]; then
-  eval "$(~/.local/bin/mise activate zsh)"
-fi
+
+# mise
+eval "$(~/.local/bin/mise activate zsh)"
 
 # fix vscode start failed error
 # https://qiita.com/iwaiktos/items/33ab69a42c3a1cc35dfb

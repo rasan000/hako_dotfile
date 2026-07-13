@@ -15,6 +15,15 @@ sudo apt install -y ripgrep
 sudo apt remove -y vim
 sudo apt install -y vim-gtk3
 
+# Install uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Install aws tools
+sudo apt install -y awscli
+
+# Install lazygit 
+sudo apt install -y lazygit
+
 # Install docker
 sudo apt install ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
@@ -29,9 +38,13 @@ Components: stable
 Architectures: $(dpkg --print-architecture)
 Signed-By: /etc/apt/keyrings/docker.asc
 EOF
+sudo apt updatedock
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-# Install k8s
+# Install k8s tools
+
+# Install claude tools
+curl -fsSL https://claude.ai/install.sh | bash
 
 # Install zsh and set as default shell
 sudo apt install -y zsh
@@ -55,10 +68,11 @@ fi
 # Check if nvim is already installed
 if ! command -v nvim &> /dev/null; then
   # Download the latest Neovim AppImage
-  curl -LO https://github.com/neovim/neovim/releases/download/v0.11.1/nvim-linux-x86_64.appimage 
+  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
   chmod u+x nvim-linux-x86_64.appimage
-  sudo mv ./nvim-linux-x86_64.appimage /usr/bin/nvim
 fi
+sudo mkdir -p /opt/nvim
+sudo mv nvim-linux-x86_64.appimage /opt/nvim/nvim
 
 # Install Oh My Zsh plugins
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
