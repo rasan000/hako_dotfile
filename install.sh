@@ -8,6 +8,9 @@ sudo apt install -y build-essential gcc g++ clang make cmake git curl wget unzip
 # Install Lua and LuaRocks (required for Mason's luacheck)
 sudo apt install -y lua5.3 liblua5.3-dev luarocks
 
+# Install clipboard tool
+sudo apt install -y wl-clipboard
+
 # Install ripgrep
 sudo apt install -y ripgrep
 
@@ -25,7 +28,7 @@ sudo apt install -y awscli
 sudo apt install -y lazygit
 
 # Install docker
-sudo apt install ca-certificates curl
+sudo apt install -y ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -39,7 +42,7 @@ Architectures: $(dpkg --print-architecture)
 Signed-By: /etc/apt/keyrings/docker.asc
 EOF
 sudo apt updatedock
-sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Install k8s tools
 
