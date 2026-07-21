@@ -52,7 +52,8 @@ sudo apt -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin d
 
 # Install claude tools
 curl -fsSL https://claude.ai/install.sh | bash
-
+# Install codex
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
 # Install zsh and set as default shell
 sudo apt install -y zsh
 chsh -s $(which zsh)
