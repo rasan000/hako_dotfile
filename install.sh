@@ -15,8 +15,9 @@ sudo apt install -y wl-clipboard
 sudo apt install cargo
 cargo install tree-sitter-cli
 
-# Install ripgrep
+# Install search tools
 sudo apt install -y ripgrep
+sudo apt install -y fd-find
 
 # Install vim
 sudo apt remove -y vim
@@ -64,24 +65,24 @@ chsh -s $(which zsh)
 
 # Install Oh My Zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 else
-    echo "Oh My Zsh already installed, skipping..."
+  echo "Oh My Zsh already installed, skipping..."
 fi
 
 # install mise
 if [ ! -f "$HOME/.local/bin/mise" ]; then
-    curl https://mise.run | sh
+  curl https://mise.run | sh
 else
-    echo "mise already installed, skipping..."
+  echo "mise already installed, skipping..."
 fi
 
 # install nvim from appimage
 # Check if nvim is already installed
 if ! command -v nvim &>/dev/null; then
-    # Download the latest Neovim AppImage
-    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
-    chmod u+x nvim-linux-x86_64.appimage
+  # Download the latest Neovim AppImage
+  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
+  chmod u+x nvim-linux-x86_64.appimage
 fi
 sudo mkdir -p /opt/nvim
 sudo mv nvim-linux-x86_64.appimage /opt/nvim/nvim
@@ -89,25 +90,25 @@ sudo mv nvim-linux-x86_64.appimage /opt/nvim/nvim
 # Install Oh My Zsh plugins
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
-    git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+  git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
 else
-    echo "zsh-autosuggestions already installed, skipping..."
+  echo "zsh-autosuggestions already installed, skipping..."
 fi
 
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 else
-    echo "zsh-syntax-highlighting already installed, skipping..."
+  echo "zsh-syntax-highlighting already installed, skipping..."
 fi
 
 if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
 else
-    echo "powerlevel10k already installed, skipping..."
+  echo "powerlevel10k already installed, skipping..."
 fi
 # Install Starship prompt
 if ! command -v starship &>/dev/null; then
-    curl -fsSL https://starship.rs/install.sh | sh -s -- -y
+  curl -fsSL https://starship.rs/install.sh | sh -s -- -y
 else
-    echo "Starship already installed, skipping..."
+  echo "Starship already installed, skipping..."
 fi

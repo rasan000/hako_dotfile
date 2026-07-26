@@ -48,3 +48,6 @@ ide() {
 
 # terraform aliases
 alias tf='terraform'
+
+# fd
+alias fd='fdfind'
