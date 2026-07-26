@@ -11,6 +11,10 @@ sudo apt install -y lua5.3 liblua5.3-dev luarocks
 # Install clipboard tool
 sudo apt install -y wl-clipboard
 
+# Install rust
+sudo apt install cargo
+cargo install tree-sitter-cli
+
 # Install ripgrep
 sudo apt install -y ripgrep
 
