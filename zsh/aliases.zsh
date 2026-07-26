@@ -33,7 +33,7 @@ alias kvs='kubectl view-secret -a'
 
 # tmux aliases
 alias t='tmux'
-alias tkp='tmus kill-pane -a'
+alias tkp='tmux kill-pane -a'
 alias tki='tmux kill-server'
 ide() {
     tmux rename-window "IDE"
