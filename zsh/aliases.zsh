@@ -37,11 +37,10 @@ alias tkp='tmux kill-pane -a'
 alias tki='tmux kill-server'
 ide() {
     tmux rename-window "IDE"
-    tmux split-window -h -p 30    # 右列(30%)を作成
+    tmux split-window -h -l 30%    # 右列(30%)を作成
     tmux select-pane -L           # 左列に戻る
-    # tmux split-window -v -p 30    # 左列を上下分割(下30%)
     tmux select-pane -R           # 右列(上)に移動
-    tmux split-window -v -p 50    # 右列を上下分割(50/50)
+    tmux split-window -v          # 右列を上下分割(50/50)
     tmux select-pane -U           # 右列の上に移動
     tmux select-pane -L           # 左上（最大ペイン）に移動
 }
